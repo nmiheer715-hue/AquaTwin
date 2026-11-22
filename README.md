@@ -12,9 +12,7 @@ Sensors in the pipes → a hydraulic digital twin → AI that detects, sizes and
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![i-Hack 2026](https://img.shields.io/badge/i--Hack%202026-Track%204%20%C2%B7%20Water-e3a63d)](#team)
 
-<img src="docs/img/hero-3d.gif" alt="AquaTwin control room: leak alarms rise as beacons from the suspected pipes on a 3D terrain model of L-Town" width="900">
-
-*The AquaTwin control room replaying 2019 on L-Town. Each column rises from the pipe the AI suspects; its height is the leak size.*
+<img src="docs/img/hero-3d.jpg" alt="AquaTwin control room in 3D: leak alarms rise as columns from the suspected pipes on L-Town" width="960">
 
 </div>
 
@@ -94,13 +92,16 @@ flowchart LR
 
 ## Screenshots
 
-| Control room (2D) | Answer key overlay (3D) |
+All captured from the running app at 4K and shown at 1920×1080. Click any image for full size.
+
+![Every alarm: district, size, suspected pipe](docs/img/control-room.jpg)
+
+![Checked against the real leaks](docs/img/answer-key-3d.jpg)
+
+| | |
 |---|---|
-| ![Control room](docs/img/control-room.jpg) | ![Answer key in 3D](docs/img/answer-key-3d.jpg) |
-| **Smart pressure management** | **Sensor planner** |
-| ![Pressure management](docs/img/pressure-management.jpg) | ![Sensor planner](docs/img/sensor-planner.jpg) |
-| **Day-ahead forecast** | **Street-map view** |
-| ![Forecast](docs/img/forecast.jpg) | ![Street map](docs/img/street-map.jpg) |
+| ![Smart pressure management](docs/img/pressure-management.jpg) | ![Day-ahead forecast](docs/img/forecast.jpg) |
+| ![Sensor planner](docs/img/sensor-planner.jpg) | ![Street-map view](docs/img/street-map.jpg) |
 
 ## Quick start
 
