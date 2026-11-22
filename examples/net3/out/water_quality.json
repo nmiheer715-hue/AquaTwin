@@ -1,0 +1,22 @@
+{
+ "dose_mg_l": 1.0,
+ "kb_per_day": -0.5,
+ "kw_m_per_day": -0.1,
+ "limit_mg_l": 0.2,
+ "junctions": 59,
+ "age_hours": {
+  "median": 9.9,
+  "p95": 37.7,
+  "max": 56.8
+ },
+ "chlorine_mg_l": {
+  "median": 0.463,
+  "p5": 0.139,
+  "min": 0.083
+ },
+ "below_limit": 14,
+ "below_limit_share": 0.237,
+ "chlorine_sensors": [
+  "243"
+ ]
+}

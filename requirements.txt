@@ -1,0 +1,9 @@
+wntr
+six
+numpy
+pandas
+scipy
+scikit-learn
+networkx
+matplotlib
+flask

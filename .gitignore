@@ -31,3 +31,6 @@ video/*.wav
 video/*.m4a
 video/*.mp3
 video/voice_*.json
+
+# Example output caches
+examples/**/signatures_*.npz
