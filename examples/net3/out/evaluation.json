@@ -1,0 +1,57 @@
+{
+  "n_leaks": 5,
+  "found": 0,
+  "false_alarms": 4,
+  "found_leaks": [],
+  "missed": [
+    "329",
+    "245",
+    "183",
+    "261",
+    "185"
+  ],
+  "in_candidate_zone": 0,
+  "zone_detected": 4,
+  "zone_detected_leaks": [
+    "329",
+    "245",
+    "183",
+    "261"
+  ],
+  "median_delay_days": 7.2,
+  "value_total": 0.0,
+  "currency": "\u20b9",
+  "cost_per_m3": 20.0,
+  "leaks": [
+    {
+      "link": "329",
+      "start": "2026-01-28 12:30",
+      "end": "2026-02-26 12:30",
+      "found": false
+    },
+    {
+      "link": "245",
+      "start": "2026-02-18 18:45",
+      "end": "2026-03-17 18:45",
+      "found": false
+    },
+    {
+      "link": "183",
+      "start": "2026-03-03 12:00",
+      "end": "2026-03-21 12:00",
+      "found": false
+    },
+    {
+      "link": "261",
+      "start": "2026-03-09 15:15",
+      "end": "2026-03-30 15:15",
+      "found": false
+    },
+    {
+      "link": "185",
+      "start": "2026-03-25 10:45",
+      "end": "2026-04-04 23:45",
+      "found": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    #cl-wrap { position: absolute; left: 0; width: 1920px; top: 250px; text-align: center; }
+    #cl-name { font: 800 130px/1 Inter, sans-serif; letter-spacing: -0.04em; }
+    #cl-name b { color: #5ec8dc; font-weight: 800; }
+    #cl-line { font: 400 38px/1.35 Inter, sans-serif; color: #b8c6d3; margin-top: 28px; }
+    #cl-three { display: flex; justify-content: center; gap: 60px; margin-top: 48px; font: 600 26px "IBM Plex Mono", monospace; }
+    #cl-three span:nth-child(1) { color: #5ec8dc; } #cl-three span:nth-child(2) { color: #e3a63d; } #cl-three span:nth-child(3) { color: #45b383; }
+    #cl-meta { margin-top: 64px; font: 500 24px "IBM Plex Mono", monospace; color: #8597a8; line-height: 1.7; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="close" data-width="1920" data-height="1080"
+    data-composition-variables='[{"id":"team","type":"string","label":"Team line","default":"Team Green Byte · Miheer Nikam · Nihaal R"},{"id":"repo","type":"string","label":"Repository","default":"Code and data: GitHub link in our submission"}]'>
+    <div id="cl-wrap">
+      <div id="cl-name">Aqua<b>Twin</b></div>
+      <div id="cl-line">Sensors that listen to the network, AI that finds the leak, valves that stop it.</div>
+      <div id="cl-three"><span>SENSE</span><span>DECIDE</span><span>ACT</span></div>
+      <div id="cl-meta">
+        <div>Track 4 · AI in Water Management · i-Hack 2026, TIH IIT Bombay</div>
+        <div id="cl-team" data-var-text="team" style="color:#dde6ee">Team Green Byte · Miheer Nikam · Nihaal R</div>
+        <div id="cl-repo" data-var-text="repo">Code and data: GitHub link in our submission</div>
+      </div>
+    </div>
+    <p id="cl-cap1" class="clip cap" data-start="0.4" data-duration="11.4"><span>AquaTwin: sensors that listen to the network, AI that finds the leak, and valves that stop it. Built for Indian cities. Thank you.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    tl.fromTo("#cl-name", { opacity: 0, y: 24, scale: 1.04 }, { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: "power3.out" }, 0.2);
+    rise("#cl-line", 1.0, 0.6);
+    tl.fromTo("#cl-three span", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, stagger: 0.35, ease: "power3.out" }, 1.8);
+    rise("#cl-meta", 3.2, 0.6);
+    tl.fromTo("#cl-cap1 span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.4);
+    window.__timelines["close"] = tl;
+  </script>
+</template>

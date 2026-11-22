@@ -1,0 +1,212 @@
+{
+ "name": "Net3",
+ "junctions": 92,
+ "pipes": 117,
+ "zones": [
+  {
+   "id": "Z1",
+   "junctions": 23,
+   "base_demand_ls": 87.58,
+   "inlet_meters": [
+    "116",
+    "10",
+    "129",
+    "60",
+    "225",
+    "177",
+    "171"
+   ],
+   "loggers": 4
+  },
+  {
+   "id": "Z2",
+   "junctions": 21,
+   "base_demand_ls": 37.85,
+   "inlet_meters": [
+    "189",
+    "273",
+    "202"
+   ],
+   "loggers": 3
+  },
+  {
+   "id": "Z3",
+   "junctions": 23,
+   "base_demand_ls": 27.89,
+   "inlet_meters": [
+    "116",
+    "189",
+    "180",
+    "40",
+    "225",
+    "177",
+    "202"
+   ],
+   "loggers": 1
+  },
+  {
+   "id": "Z4",
+   "junctions": 14,
+   "base_demand_ls": 24.03,
+   "inlet_meters": [
+    "129",
+    "171",
+    "20"
+   ],
+   "loggers": 2
+  },
+  {
+   "id": "Z5",
+   "junctions": 9,
+   "base_demand_ls": 15.04,
+   "inlet_meters": [
+    "50",
+    "273"
+   ],
+   "loggers": 0
+  }
+ ],
+ "boundaries": [
+  "20",
+  "40",
+  "50",
+  "60",
+  "10",
+  "335",
+  "171",
+  "129",
+  "180",
+  "189",
+  "202",
+  "225",
+  "116",
+  "177",
+  "273"
+ ],
+ "dma_meters": [
+  "171",
+  "129",
+  "180",
+  "189",
+  "202",
+  "225",
+  "116",
+  "177",
+  "273"
+ ],
+ "sensors": [
+  "208",
+  "261",
+  "145",
+  "109",
+  "259",
+  "184",
+  "15",
+  "237",
+  "195",
+  "601"
+ ],
+ "existing": [],
+ "existing_coverage": null,
+ "curve": [
+  {
+   "sensors": 1,
+   "detectable": 0.293,
+   "localisable": 0.004
+  },
+  {
+   "sensors": 2,
+   "detectable": 0.5,
+   "localisable": 0.043
+  },
+  {
+   "sensors": 3,
+   "detectable": 0.598,
+   "localisable": 0.065
+  },
+  {
+   "sensors": 4,
+   "detectable": 0.63,
+   "localisable": 0.08
+  },
+  {
+   "sensors": 5,
+   "detectable": 0.63,
+   "localisable": 0.123
+  },
+  {
+   "sensors": 6,
+   "detectable": 0.641,
+   "localisable": 0.12
+  },
+  {
+   "sensors": 7,
+   "detectable": 0.641,
+   "localisable": 0.134
+  },
+  {
+   "sensors": 8,
+   "detectable": 0.641,
+   "localisable": 0.207
+  },
+  {
+   "sensors": 9,
+   "detectable": 0.641,
+   "localisable": 0.21
+  },
+  {
+   "sensors": 10,
+   "detectable": 0.663,
+   "localisable": 0.203
+  }
+ ],
+ "final": {
+  "sensors": 10,
+  "detectable": 0.663,
+  "localisable": 0.203
+ },
+ "leak_ls": 2.5,
+ "detect_m": 0.03,
+ "zone_members": [
+  [
+   "208",
+   "Z2"
+  ],
+  [
+   "261",
+   "Z1"
+  ],
+  [
+   "145",
+   "Z4"
+  ],
+  [
+   "109",
+   "Z1"
+  ],
+  [
+   "259",
+   "Z1"
+  ],
+  [
+   "184",
+   "Z2"
+  ],
+  [
+   "15",
+   "Z4"
+  ],
+  [
+   "237",
+   "Z2"
+  ],
+  [
+   "195",
+   "Z3"
+  ],
+  [
+   "601",
+   "Z1"
+  ]
+ ]
+}

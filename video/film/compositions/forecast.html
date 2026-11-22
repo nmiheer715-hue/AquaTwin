@@ -1,0 +1,42 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .chip { position: absolute; left: 160px; top: 46px; display: flex; align-items: baseline; gap: 18px; }
+    .chip .n { font: 600 20px "IBM Plex Mono", monospace; color: #0b1219; background: #5ec8dc; border-radius: 6px; padding: 4px 10px; }
+    .chip .h { font: 600 36px Inter, sans-serif; letter-spacing: -0.01em; }
+    /* the control room's Forecast panel (x 1210-1905, y 130-715 of the 1920x1080 shot), zoomed 1.3x */
+    .frame { position: absolute; left: 160px; top: 112px; width: 906px; height: 770px; border: 1px solid #2a3a4c; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #0b1219; }
+    .frame video { position: absolute; left: -1574px; top: -160px; width: 2496px; height: 1404px; }
+    .col { position: absolute; left: 1100px; top: 112px; width: 680px; display: flex; flex-direction: column; gap: 22px; }
+    .stat { background: #101a24; border: 1px solid #213041; border-radius: 10px; padding: 24px 28px; }
+    .stat .k { font: 600 17px "IBM Plex Mono", monospace; color: #8597a8; letter-spacing: .08em; }
+    .stat .v { font: 600 58px/1.05 "IBM Plex Mono", monospace; margin: 12px 0 8px; color: #5ec8dc; }
+    .stat .v.ok { color: #45b383; }
+    .stat .t { font: 400 22px/1.4 Inter, sans-serif; color: #b8c6d3; }
+    .cap { position: absolute; left: 140px; width: 1640px; top: 925px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="forecast" data-width="1920" data-height="1080">
+    <div class="chip" id="fc-chip"><span class="n">04</span><span class="h">Forecast: tomorrow's demand and tank level</span></div>
+    <div class="frame" id="fc-frame">
+      <video id="fc-v1" class="clip" data-start="0" data-duration="12" data-media-start="2.2" src="assets/shots/forecast.mp4" muted playsinline></video>
+    </div>
+    <div class="col">
+      <div class="stat" id="fc-st1"><div class="k">DISTRICT A DEMAND</div><div class="v"><span id="fc-n1">0</span>% error</div><div class="t">a day ahead, over all of 2019. The best simple rule, "same as last week", is 4.6 %</div></div>
+      <div class="stat" id="fc-st2"><div class="k">DISTRICT B DEMAND</div><div class="v"><span id="fc-n2">0</span>% error</div><div class="t">against 9.8 % for "same as last week". A small district, so noisier</div></div>
+      <div class="stat" id="fc-st3"><div class="k">TANK T1 LEVEL</div><div class="v ok">±<span id="fc-n3">0</span> m</div><div class="t">average day-ahead error over a 1.95–3.9 m range, pumps run by the tank's own level rules</div></div>
+    </div>
+    <p id="fc-cap1" class="clip cap" data-start="0.3" data-duration="11.4"><span>Every midnight it also forecasts tomorrow: each district's demand, and the tank level, so pumping is planned before a tank runs low.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    rise("#fc-chip .n", 0.1); rise("#fc-chip .h", 0.25);
+    tl.fromTo("#fc-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    rise("#fc-st1", 1.2); rise("#fc-st2", 2.4); rise("#fc-st3", 3.6);
+    const count = (id, to, at, dec) => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: to, duration: 1.2, ease: "power2.out", onUpdate: () => { document.getElementById(id).textContent = o.v.toFixed(dec); } }, at); };
+    count("fc-n1", 3.2, 1.4, 1); count("fc-n2", 9.5, 2.6, 1); count("fc-n3", 0.19, 3.8, 2);
+    tl.fromTo("#fc-cap1 span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.3);
+    window.__timelines["forecast"] = tl;
+  </script>
+</template>

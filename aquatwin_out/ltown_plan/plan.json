@@ -1,0 +1,258 @@
+{
+ "name": "L-Town",
+ "junctions": 776,
+ "pipes": 905,
+ "zones": [
+  {
+   "id": "Z1",
+   "junctions": 657,
+   "base_demand_ls": 41.11,
+   "inlet_meters": [
+    "PRV-3",
+    "PRV-2",
+    "PUMP_1",
+    "PRV-1"
+   ],
+   "loggers": 12
+  },
+  {
+   "id": "Z2",
+   "junctions": 92,
+   "base_demand_ls": 5.44,
+   "inlet_meters": [
+    "p239"
+   ],
+   "loggers": 3
+  },
+  {
+   "id": "Z3",
+   "junctions": 31,
+   "base_demand_ls": 2.39,
+   "inlet_meters": [
+    "PRV-3"
+   ],
+   "loggers": 0
+  },
+  {
+   "id": "Z4",
+   "junctions": 1,
+   "base_demand_ls": 0.11,
+   "inlet_meters": [
+    "PRV-2",
+    "p235"
+   ],
+   "loggers": 0
+  }
+ ],
+ "boundaries": [
+  "p227",
+  "p235",
+  "p239",
+  "PUMP_1",
+  "PRV-1",
+  "PRV-2",
+  "PRV-3"
+ ],
+ "sensors": [
+  "n53",
+  "n422",
+  "n203",
+  "n611",
+  "n366",
+  "n402",
+  "n470",
+  "n514",
+  "n292",
+  "n450",
+  "n406",
+  "n41",
+  "n563",
+  "n386",
+  "n707"
+ ],
+ "existing": [
+  "n1",
+  "n4",
+  "n31",
+  "n54",
+  "n105",
+  "n114",
+  "n163",
+  "n188",
+  "n215",
+  "n229",
+  "n288",
+  "n296",
+  "n332",
+  "n342",
+  "n410",
+  "n415",
+  "n429",
+  "n458",
+  "n469",
+  "n495",
+  "n506",
+  "n516",
+  "n519",
+  "n549",
+  "n613",
+  "n636",
+  "n644",
+  "n679",
+  "n722",
+  "n726",
+  "n740",
+  "n752",
+  "n769"
+ ],
+ "existing_coverage": {
+  "detectable": 0.979,
+  "localisable": 0.64
+ },
+ "curve": [
+  {
+   "sensors": 1,
+   "detectable": 0.979,
+   "localisable": 0.642
+  },
+  {
+   "sensors": 2,
+   "detectable": 0.979,
+   "localisable": 0.662
+  },
+  {
+   "sensors": 3,
+   "detectable": 0.979,
+   "localisable": 0.648
+  },
+  {
+   "sensors": 4,
+   "detectable": 0.979,
+   "localisable": 0.677
+  },
+  {
+   "sensors": 5,
+   "detectable": 0.979,
+   "localisable": 0.67
+  },
+  {
+   "sensors": 6,
+   "detectable": 0.979,
+   "localisable": 0.661
+  },
+  {
+   "sensors": 7,
+   "detectable": 0.979,
+   "localisable": 0.685
+  },
+  {
+   "sensors": 8,
+   "detectable": 0.979,
+   "localisable": 0.683
+  },
+  {
+   "sensors": 9,
+   "detectable": 0.979,
+   "localisable": 0.683
+  },
+  {
+   "sensors": 10,
+   "detectable": 0.979,
+   "localisable": 0.696
+  },
+  {
+   "sensors": 11,
+   "detectable": 0.979,
+   "localisable": 0.691
+  },
+  {
+   "sensors": 12,
+   "detectable": 0.979,
+   "localisable": 0.708
+  },
+  {
+   "sensors": 13,
+   "detectable": 0.979,
+   "localisable": 0.719
+  },
+  {
+   "sensors": 14,
+   "detectable": 0.979,
+   "localisable": 0.705
+  },
+  {
+   "sensors": 15,
+   "detectable": 0.979,
+   "localisable": 0.707
+  }
+ ],
+ "final": {
+  "sensors": 15,
+  "detectable": 0.979,
+  "localisable": 0.707
+ },
+ "leak_ls": 2.5,
+ "detect_m": 0.03,
+ "zone_members": [
+  [
+   "n53",
+   "Z1"
+  ],
+  [
+   "n422",
+   "Z1"
+  ],
+  [
+   "n203",
+   "Z1"
+  ],
+  [
+   "n611",
+   "Z1"
+  ],
+  [
+   "n366",
+   "Z2"
+  ],
+  [
+   "n402",
+   "Z1"
+  ],
+  [
+   "n470",
+   "Z1"
+  ],
+  [
+   "n514",
+   "Z1"
+  ],
+  [
+   "n292",
+   "Z1"
+  ],
+  [
+   "n450",
+   "Z1"
+  ],
+  [
+   "n406",
+   "Z1"
+  ],
+  [
+   "n41",
+   "Z2"
+  ],
+  [
+   "n563",
+   "Z1"
+  ],
+  [
+   "n386",
+   "Z2"
+  ],
+  [
+   "n707",
+   "Z1"
+  ]
+ ]
+}

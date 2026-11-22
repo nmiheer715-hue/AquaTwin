@@ -1,0 +1,33 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.claude/
+
+# BattLeDIM raw data: download from Zenodo (record 4017659), see README
+battledim/raw/
+
+# Large generated files (rebuild with the scripts in README)
+results/model.pkl
+data/*.npz
+battledim/scada.npz
+aquatwin_out/**/signatures_*.npz
+
+# Local app working folders (uploaded networks, job state)
+aquatwin_jobs/
+
+# Video: rendered films and recorded shots are shared as the submission video, not in git
+video/film/*.mp4
+video/film/assets/shots/
+video/film/.hyperframes/
+video/film/renders/
+video/film/node_modules/
+video/recorder/node_modules/
+video/recorder/raw/
+
+# Personal voice recordings, voice clones and transcripts: never published
+video/clone_lines/
+video/*.wav
+video/*.m4a
+video/*.mp3
+video/voice_*.json

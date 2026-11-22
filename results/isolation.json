@@ -1,0 +1,2241 @@
+{
+  "summary": {
+    "assumptions": {
+      "conventional_run_h": 72.0,
+      "crew_pinpoint_h": 4.0,
+      "crew_wide_h": 24.0,
+      "evidence_h": 1.0,
+      "valve_h": 0.25,
+      "cost_inr_per_kl": 20.0
+    },
+    "detected_leaks": 161,
+    "outcome_counts": {
+      "auto-isolated": 19,
+      "wider crew search": 92,
+      "zone + acoustic pinpoint": 50
+    },
+    "median_time_to_stop_h": 25.75,
+    "water_lost_kl": {
+      "system": 177162.48990000002,
+      "conventional": 761744.4768000001,
+      "saved_pct": 76.74253042906999
+    },
+    "cost_saved_inr": 11691639.738,
+    "per_leak_saved_kl_median": 3583.4129999999996,
+    "isolation_impact": {
+      "median_customers_affected": 0.0,
+      "max_customers_affected": 87,
+      "total_junctions": 92
+    },
+    "valve_verification": {
+      "n": 14,
+      "leak_flow_before_ls_median": 16.65390501151808,
+      "leak_flow_after_ls_median": 0.0,
+      "stopped_share": 1.0
+    }
+  },
+  "impact": {
+    "15": {
+      "links": [
+        "151"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 2.446888941719582
+    },
+    "35": {
+      "links": [
+        "193"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 15.687685011952798
+    },
+    "60": {
+      "links": [
+        "60",
+        "330"
+      ],
+      "customers_affected": 87,
+      "demand_unserved_pct": 48.03406210205204
+    },
+    "601": {
+      "links": [
+        "330",
+        "333"
+      ],
+      "customers_affected": 86,
+      "demand_unserved_pct": 16.24398193594103
+    },
+    "61": {
+      "links": [
+        "329",
+        "333"
+      ],
+      "customers_affected": 86,
+      "demand_unserved_pct": 48.03406210205204
+    },
+    "101": {
+      "links": [
+        "101",
+        "103",
+        "105"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.860935237773768
+    },
+    "103": {
+      "links": [
+        "103",
+        "109"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.3049569538497179
+    },
+    "105": {
+      "links": [
+        "105",
+        "107",
+        "117"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.326216387365997
+    },
+    "107": {
+      "links": [
+        "107",
+        "115"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.5353066661624908
+    },
+    "109": {
+      "links": [
+        "109",
+        "111"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 2.267019812723244
+    },
+    "111": {
+      "links": [
+        "111",
+        "112",
+        "113",
+        "225"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.3905825075284548
+    },
+    "113": {
+      "links": [
+        "113",
+        "114",
+        "116"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.19603745232210146
+    },
+    "115": {
+      "links": [
+        "112",
+        "114",
+        "115",
+        "119"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.5104223519877364
+    },
+    "117": {
+      "links": [
+        "119",
+        "121",
+        "305"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.153201824289228
+    },
+    "119": {
+      "links": [
+        "120",
+        "123",
+        "171",
+        "173"
+      ],
+      "customers_affected": 66,
+      "demand_unserved_pct": 37.41972026499635
+    },
+    "120": {
+      "links": [
+        "120",
+        "121",
+        "122",
+        "297"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.8327233184469532e-10
+    },
+    "121": {
+      "links": [
+        "122",
+        "123",
+        "125",
+        "129"
+      ],
+      "customers_affected": 75,
+      "demand_unserved_pct": 38.895359098563915
+    },
+    "123": {
+      "links": [
+        "125",
+        "329"
+      ],
+      "customers_affected": 84,
+      "demand_unserved_pct": 48.41026865991726
+    },
+    "125": {
+      "links": [
+        "129",
+        "131",
+        "169"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.44674201855441
+    },
+    "127": {
+      "links": [
+        "131",
+        "133",
+        "135"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.17301456171174112
+    },
+    "129": {
+      "links": [
+        "135",
+        "137",
+        "145"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 0.4188206439765625
+    },
+    "131": {
+      "links": [
+        "137"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.41882064384291096
+    },
+    "139": {
+      "links": [
+        "145",
+        "147"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.05770417772466042
+    },
+    "141": {
+      "links": [
+        "147",
+        "149",
+        "153"
+      ],
+      "customers_affected": 2,
+      "demand_unserved_pct": 2.6041303764396266
+    },
+    "143": {
+      "links": [
+        "149",
+        "151"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 2.507630181296118
+    },
+    "145": {
+      "links": [
+        "153",
+        "155"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.2706903951962133
+    },
+    "147": {
+      "links": [
+        "155",
+        "159"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.08376412892138621
+    },
+    "149": {
+      "links": [
+        "159",
+        "161"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.2652040897203924
+    },
+    "151": {
+      "links": [
+        "161",
+        "163",
+        "171"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.4154668216461845
+    },
+    "153": {
+      "links": [
+        "163",
+        "169"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.43273234703180447
+    },
+    "157": {
+      "links": [
+        "173",
+        "175"
+      ],
+      "customers_affected": 56,
+      "demand_unserved_pct": 21.066304268001385
+    },
+    "159": {
+      "links": [
+        "175",
+        "177"
+      ],
+      "customers_affected": 55,
+      "demand_unserved_pct": 20.713715103135225
+    },
+    "161": {
+      "links": [
+        "177",
+        "179",
+        "221"
+      ],
+      "customers_affected": 54,
+      "demand_unserved_pct": 21.388673885787696
+    },
+    "163": {
+      "links": [
+        "179",
+        "180",
+        "321"
+      ],
+      "customers_affected": 45,
+      "demand_unserved_pct": 13.971612374699863
+    },
+    "164": {
+      "links": [
+        "180",
+        "181"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 0.025472132724085328
+    },
+    "166": {
+      "links": [
+        "181"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.025472132724085328
+    },
+    "167": {
+      "links": [
+        "185"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.14264394325482269
+    },
+    "169": {
+      "links": [
+        "183",
+        "185",
+        "187",
+        "211"
+      ],
+      "customers_affected": 37,
+      "demand_unserved_pct": 10.411193731243664
+    },
+    "171": {
+      "links": [
+        "187",
+        "189",
+        "191"
+      ],
+      "customers_affected": 28,
+      "demand_unserved_pct": 19.632228362173464
+    },
+    "173": {
+      "links": [
+        "189",
+        "229"
+      ],
+      "customers_affected": 27,
+      "demand_unserved_pct": 18.272828715723307
+    },
+    "177": {
+      "links": [
+        "195",
+        "197"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.5698899848120155
+    },
+    "179": {
+      "links": [
+        "197",
+        "199",
+        "201"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.0
+    },
+    "181": {
+      "links": [
+        "193",
+        "195",
+        "315"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 15.687685011805623
+    },
+    "183": {
+      "links": [
+        "199",
+        "203",
+        "207"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 2.19994684712292e-11
+    },
+    "184": {
+      "links": [
+        "202",
+        "204"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.857968610135249e-10
+    },
+    "185": {
+      "links": [
+        "202",
+        "203",
+        "205"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.2512923864707193
+    },
+    "187": {
+      "links": [
+        "186",
+        "209",
+        "213"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 7.123839452882126e-11
+    },
+    "189": {
+      "links": [
+        "207",
+        "209",
+        "215",
+        "313"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.0572894475225127
+    },
+    "191": {
+      "links": [
+        "213",
+        "217",
+        "223"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.8023721808158477
+    },
+    "193": {
+      "links": [
+        "116",
+        "217",
+        "219",
+        "311"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.6986222248820179
+    },
+    "195": {
+      "links": [
+        "219",
+        "221"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 6.0249267558621914e-12
+    },
+    "197": {
+      "links": [
+        "223",
+        "225"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.1669404391354568
+    },
+    "199": {
+      "links": [
+        "229",
+        "231",
+        "235"
+      ],
+      "customers_affected": 25,
+      "demand_unserved_pct": 19.926353577241706
+    },
+    "201": {
+      "links": [
+        "231",
+        "233",
+        "323"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 41.64640130190854
+    },
+    "203": {
+      "links": [
+        "233"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 41.20935828616245
+    },
+    "204": {
+      "links": [
+        "186",
+        "205"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 5.420312627192922e-11
+    },
+    "205": {
+      "links": [
+        "204",
+        "237",
+        "319"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.6403302288772176
+    },
+    "206": {
+      "links": [
+        "238",
+        "240"
+      ],
+      "customers_affected": 19,
+      "demand_unserved_pct": 3.682331870691454
+    },
+    "207": {
+      "links": [
+        "237",
+        "238",
+        "239"
+      ],
+      "customers_affected": 20,
+      "demand_unserved_pct": 4.362143905117256
+    },
+    "208": {
+      "links": [
+        "240",
+        "241"
+      ],
+      "customers_affected": 18,
+      "demand_unserved_pct": 3.682331870691454
+    },
+    "209": {
+      "links": [
+        "241",
+        "243"
+      ],
+      "customers_affected": 17,
+      "demand_unserved_pct": 3.6849080548275395
+    },
+    "211": {
+      "links": [
+        "243",
+        "245",
+        "269"
+      ],
+      "customers_affected": 16,
+      "demand_unserved_pct": 3.6596968482565466
+    },
+    "213": {
+      "links": [
+        "245",
+        "247",
+        "261"
+      ],
+      "customers_affected": 4,
+      "demand_unserved_pct": 1.9052175578352364
+    },
+    "215": {
+      "links": [
+        "247",
+        "249"
+      ],
+      "customers_affected": 3,
+      "demand_unserved_pct": 1.7686477385584056
+    },
+    "217": {
+      "links": [
+        "249",
+        "251",
+        "257"
+      ],
+      "customers_affected": 2,
+      "demand_unserved_pct": 0.8654646940894906
+    },
+    "219": {
+      "links": [
+        "251"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.4048109707958717
+    },
+    "225": {
+      "links": [
+        "257"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.22337101001996815
+    },
+    "229": {
+      "links": [
+        "261",
+        "263",
+        "271"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 0.7902239328085457
+    },
+    "231": {
+      "links": [
+        "263"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.16145413356009733
+    },
+    "237": {
+      "links": [
+        "269",
+        "271",
+        "273"
+      ],
+      "customers_affected": 8,
+      "demand_unserved_pct": 0.9152223780986192
+    },
+    "239": {
+      "links": [
+        "273",
+        "275",
+        "283"
+      ],
+      "customers_affected": 7,
+      "demand_unserved_pct": 0.759552895340823
+    },
+    "241": {
+      "links": [
+        "275",
+        "277",
+        "281"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 0.04251886769553298
+    },
+    "243": {
+      "links": [
+        "277"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.0425188676961482
+    },
+    "247": {
+      "links": [
+        "281",
+        "285",
+        "287"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.6895110387939479
+    },
+    "249": {
+      "links": [
+        "283",
+        "285",
+        "295"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.0
+    },
+    "251": {
+      "links": [
+        "293",
+        "295"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.23669489481180853
+    },
+    "253": {
+      "links": [
+        "291"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.5341310291822059
+    },
+    "255": {
+      "links": [
+        "287",
+        "289",
+        "291",
+        "293"
+      ],
+      "customers_affected": 1,
+      "demand_unserved_pct": 0.929830813920705
+    },
+    "257": {
+      "links": [
+        "297",
+        "299",
+        "303"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 2.0705382090568657e-11
+    },
+    "259": {
+      "links": [
+        "299",
+        "301"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 4.836913029354153e-12
+    },
+    "261": {
+      "links": [
+        "303",
+        "305",
+        "307"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.7226199034366548e-11
+    },
+    "263": {
+      "links": [
+        "117",
+        "301",
+        "307"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 3.4240252760428087e-11
+    },
+    "265": {
+      "links": [
+        "183",
+        "309",
+        "321"
+      ],
+      "customers_affected": 44,
+      "demand_unserved_pct": 14.855170717030175
+    },
+    "267": {
+      "links": [
+        "215",
+        "309",
+        "311"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 4.293821040093336e-11
+    },
+    "269": {
+      "links": [
+        "211",
+        "313",
+        "325"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 1.0628479946080837e-11
+    },
+    "271": {
+      "links": [
+        "191",
+        "315",
+        "325"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.0
+    },
+    "273": {
+      "links": [
+        "235",
+        "317",
+        "319"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 3.4155394637106082e-12
+    },
+    "275": {
+      "links": [
+        "239",
+        "317",
+        "323"
+      ],
+      "customers_affected": 0,
+      "demand_unserved_pct": 0.0
+    }
+  },
+  "rows": [
+    {
+      "scenario": 1224,
+      "flow_ls": 27.737,
+      "t_stop_h": 1.5,
+      "how": "auto-isolated",
+      "lost_kl_system": 149.7798,
+      "lost_kl_conventional": 7189.4304,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1372,
+      "flow_ls": 20.069,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1860.3963,
+      "lost_kl_conventional": 5201.8848,
+      "customers_affected": 4
+    },
+    {
+      "scenario": 788,
+      "flow_ls": 23.831,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2209.1337,
+      "lost_kl_conventional": 6176.9952,
+      "customers_affected": 7
+    },
+    {
+      "scenario": 579,
+      "flow_ls": 17.453,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1633.6008,
+      "lost_kl_conventional": 4523.817599999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1201,
+      "flow_ls": 19.271,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1803.7656000000002,
+      "lost_kl_conventional": 4995.0432,
+      "customers_affected": 3
+    },
+    {
+      "scenario": 27,
+      "flow_ls": 23.386,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 484.0902,
+      "lost_kl_conventional": 6061.6512,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 602,
+      "flow_ls": 12.067,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1129.4712,
+      "lost_kl_conventional": 3127.7664,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1756,
+      "flow_ls": 14.186,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 89.37180000000001,
+      "lost_kl_conventional": 3677.0112,
+      "customers_affected": 44
+    },
+    {
+      "scenario": 1156,
+      "flow_ls": 13.195,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1258.803,
+      "lost_kl_conventional": 3420.1440000000002,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 927,
+      "flow_ls": 15.072,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1410.7392,
+      "lost_kl_conventional": 3906.6624,
+      "customers_affected": 16
+    },
+    {
+      "scenario": 1829,
+      "flow_ls": 21.926,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2032.5402,
+      "lost_kl_conventional": 5683.2192,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1646,
+      "flow_ls": 15.042,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1407.9312,
+      "lost_kl_conventional": 3898.8864000000003,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 252,
+      "flow_ls": 16.014,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1498.9104,
+      "lost_kl_conventional": 4150.8288,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 938,
+      "flow_ls": 16.481,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1542.6216000000002,
+      "lost_kl_conventional": 4271.8752,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1041,
+      "flow_ls": 22.121,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 159.2712,
+      "lost_kl_conventional": 5733.763199999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 22,
+      "flow_ls": 13.021,
+      "t_stop_h": 27.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1265.6412000000003,
+      "lost_kl_conventional": 3375.0432000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1443,
+      "flow_ls": 24.533,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2274.2091,
+      "lost_kl_conventional": 6358.953600000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 271,
+      "flow_ls": 17.943,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 371.42010000000005,
+      "lost_kl_conventional": 4650.8256,
+      "customers_affected": 25
+    },
+    {
+      "scenario": 692,
+      "flow_ls": 23.79,
+      "t_stop_h": 1.25,
+      "how": "auto-isolated",
+      "lost_kl_system": 107.055,
+      "lost_kl_conventional": 6166.368,
+      "customers_affected": 8
+    },
+    {
+      "scenario": 1747,
+      "flow_ls": 15.934,
+      "t_stop_h": 2.25,
+      "how": "auto-isolated",
+      "lost_kl_system": 129.0654,
+      "lost_kl_conventional": 4130.0928,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1399,
+      "flow_ls": 17.416,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1614.4632000000001,
+      "lost_kl_conventional": 4514.2272,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1429,
+      "flow_ls": 26.752,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2455.8336,
+      "lost_kl_conventional": 6934.118399999999,
+      "customers_affected": 28
+    },
+    {
+      "scenario": 311,
+      "flow_ls": 21.992,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 455.2344,
+      "lost_kl_conventional": 5700.3264,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 1497,
+      "flow_ls": 19.955,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 413.0685,
+      "lost_kl_conventional": 5172.335999999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1344,
+      "flow_ls": 18.95,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1756.665,
+      "lost_kl_conventional": 4911.84,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1071,
+      "flow_ls": 14.862,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1391.0832,
+      "lost_kl_conventional": 3852.2304,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 83,
+      "flow_ls": 17.46,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1618.5420000000001,
+      "lost_kl_conventional": 4525.6320000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 0,
+      "flow_ls": 18.785,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1724.4630000000002,
+      "lost_kl_conventional": 4869.072,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1644,
+      "flow_ls": 10.696,
+      "t_stop_h": 26.25,
+      "how": "wider crew search",
+      "lost_kl_system": 1010.772,
+      "lost_kl_conventional": 2772.4032,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1481,
+      "flow_ls": 16.38,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1562.6519999999998,
+      "lost_kl_conventional": 4245.696,
+      "customers_affected": 28
+    },
+    {
+      "scenario": 885,
+      "flow_ls": 16.294,
+      "t_stop_h": 6.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 395.9442,
+      "lost_kl_conventional": 4223.4048,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 232,
+      "flow_ls": 17.955,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 387.828,
+      "lost_kl_conventional": 4653.936,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1847,
+      "flow_ls": 10.774,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 232.7184,
+      "lost_kl_conventional": 2792.6208,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 1010,
+      "flow_ls": 12.804,
+      "t_stop_h": 6.25,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 288.09,
+      "lost_kl_conventional": 3318.7968,
+      "customers_affected": 2
+    },
+    {
+      "scenario": 1643,
+      "flow_ls": 26.432,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 547.1424,
+      "lost_kl_conventional": 6851.1744,
+      "customers_affected": 86
+    },
+    {
+      "scenario": 701,
+      "flow_ls": 14.849,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 320.7384,
+      "lost_kl_conventional": 3848.8608000000004,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1363,
+      "flow_ls": 22.79,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2112.633,
+      "lost_kl_conventional": 5907.168,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1881,
+      "flow_ls": 16.286,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 351.7776,
+      "lost_kl_conventional": 4221.3312000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 134,
+      "flow_ls": 12.668,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1185.7248,
+      "lost_kl_conventional": 3283.5456,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1841,
+      "flow_ls": 19.114,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1789.0704,
+      "lost_kl_conventional": 4954.3488,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 61,
+      "flow_ls": 10.651,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 996.9336000000001,
+      "lost_kl_conventional": 2760.7392,
+      "customers_affected": 18
+    },
+    {
+      "scenario": 932,
+      "flow_ls": 25.683,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 531.6381,
+      "lost_kl_conventional": 6657.0336,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1742,
+      "flow_ls": 17.536,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 378.7776,
+      "lost_kl_conventional": 4545.3312000000005,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 1820,
+      "flow_ls": 16.797,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1572.1992,
+      "lost_kl_conventional": 4353.7824,
+      "customers_affected": 28
+    },
+    {
+      "scenario": 1266,
+      "flow_ls": 18.896,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1751.6592000000003,
+      "lost_kl_conventional": 4897.843200000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1493,
+      "flow_ls": 19.457,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 420.2712,
+      "lost_kl_conventional": 5043.254400000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 845,
+      "flow_ls": 11.231,
+      "t_stop_h": 6.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 272.91330000000005,
+      "lost_kl_conventional": 2911.0752,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1023,
+      "flow_ls": 23.125,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 499.5,
+      "lost_kl_conventional": 5994.0,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 489,
+      "flow_ls": 27.617,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2535.2406,
+      "lost_kl_conventional": 7158.3264,
+      "customers_affected": 45
+    },
+    {
+      "scenario": 1385,
+      "flow_ls": 19.647,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1803.5946,
+      "lost_kl_conventional": 5092.502399999999,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 1772,
+      "flow_ls": 14.458,
+      "t_stop_h": 26.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1392.3054,
+      "lost_kl_conventional": 3747.5136,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 1513,
+      "flow_ls": 24.775,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 156.08249999999998,
+      "lost_kl_conventional": 6421.68,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1896,
+      "flow_ls": 15.198,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1408.8546000000001,
+      "lost_kl_conventional": 3939.3216,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 834,
+      "flow_ls": 24.439,
+      "t_stop_h": 1.5,
+      "how": "auto-isolated",
+      "lost_kl_system": 131.9706,
+      "lost_kl_conventional": 6334.5888,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1879,
+      "flow_ls": 25.464,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2337.5952,
+      "lost_kl_conventional": 6600.2688,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1988,
+      "flow_ls": 27.612,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 173.9556,
+      "lost_kl_conventional": 7157.0304,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 298,
+      "flow_ls": 13.887,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 99.9864,
+      "lost_kl_conventional": 3599.5104,
+      "customers_affected": 2
+    },
+    {
+      "scenario": 157,
+      "flow_ls": 11.236,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1071.9144000000001,
+      "lost_kl_conventional": 2912.3712000000005,
+      "customers_affected": 18
+    },
+    {
+      "scenario": 965,
+      "flow_ls": 12.23,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1133.7210000000002,
+      "lost_kl_conventional": 3170.0160000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 256,
+      "flow_ls": 13.111,
+      "t_stop_h": 6.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 306.79740000000004,
+      "lost_kl_conventional": 3398.3712000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1340,
+      "flow_ls": 21.877,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2027.9978999999998,
+      "lost_kl_conventional": 5670.5184,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1276,
+      "flow_ls": 33.297,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 3086.6319,
+      "lost_kl_conventional": 8630.5824,
+      "customers_affected": 86
+    },
+    {
+      "scenario": 1183,
+      "flow_ls": 26.458,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2452.6566000000003,
+      "lost_kl_conventional": 6857.9136,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1227,
+      "flow_ls": 10.136,
+      "t_stop_h": 26.25,
+      "how": "wider crew search",
+      "lost_kl_system": 957.8519999999999,
+      "lost_kl_conventional": 2627.2511999999997,
+      "customers_affected": 4
+    },
+    {
+      "scenario": 1034,
+      "flow_ls": 23.962,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 496.0134,
+      "lost_kl_conventional": 6210.9504,
+      "customers_affected": 86
+    },
+    {
+      "scenario": 1934,
+      "flow_ls": 15.221,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1424.6856,
+      "lost_kl_conventional": 3945.2832,
+      "customers_affected": 8
+    },
+    {
+      "scenario": 653,
+      "flow_ls": 12.349,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 266.7384,
+      "lost_kl_conventional": 3200.8608000000004,
+      "customers_affected": 19
+    },
+    {
+      "scenario": 370,
+      "flow_ls": 10.503,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 973.6281,
+      "lost_kl_conventional": 2722.3776,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 931,
+      "flow_ls": 12.545,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1174.212,
+      "lost_kl_conventional": 3251.6639999999998,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 900,
+      "flow_ls": 23.637,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2169.8766,
+      "lost_kl_conventional": 6126.710400000001,
+      "customers_affected": 28
+    },
+    {
+      "scenario": 873,
+      "flow_ls": 22.263,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 140.25690000000003,
+      "lost_kl_conventional": 5770.569600000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1202,
+      "flow_ls": 22.419,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 464.07329999999996,
+      "lost_kl_conventional": 5811.0048,
+      "customers_affected": 66
+    },
+    {
+      "scenario": 1138,
+      "flow_ls": 21.978,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2037.3606,
+      "lost_kl_conventional": 5696.6976,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1313,
+      "flow_ls": 19.998,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 413.9586,
+      "lost_kl_conventional": 5183.4816,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1976,
+      "flow_ls": 22.122,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 2070.6192,
+      "lost_kl_conventional": 5734.0224,
+      "customers_affected": 75
+    },
+    {
+      "scenario": 1933,
+      "flow_ls": 20.731,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 447.78960000000006,
+      "lost_kl_conventional": 5373.475200000001,
+      "customers_affected": 55
+    },
+    {
+      "scenario": 1727,
+      "flow_ls": 19.908,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1845.4716,
+      "lost_kl_conventional": 5160.153600000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1678,
+      "flow_ls": 16.06,
+      "t_stop_h": 26.25,
+      "how": "wider crew search",
+      "lost_kl_system": 1517.6699999999998,
+      "lost_kl_conventional": 4162.7519999999995,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 955,
+      "flow_ls": 21.661,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2007.9747000000002,
+      "lost_kl_conventional": 5614.5312,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1402,
+      "flow_ls": 20.587,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 426.15090000000004,
+      "lost_kl_conventional": 5336.1504,
+      "customers_affected": 87
+    },
+    {
+      "scenario": 154,
+      "flow_ls": 19.489,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 420.96240000000006,
+      "lost_kl_conventional": 5051.5488000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1401,
+      "flow_ls": 21.023,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1967.7528,
+      "lost_kl_conventional": 5449.1616,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1936,
+      "flow_ls": 24.238,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 501.72659999999996,
+      "lost_kl_conventional": 6282.4896,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1008,
+      "flow_ls": 10.394,
+      "t_stop_h": 6.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 243.21959999999999,
+      "lost_kl_conventional": 2694.1248,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1089,
+      "flow_ls": 19.285,
+      "t_stop_h": 6.25,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 433.9125,
+      "lost_kl_conventional": 4998.6720000000005,
+      "customers_affected": 20
+    },
+    {
+      "scenario": 1514,
+      "flow_ls": 9.747,
+      "t_stop_h": 6.25,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 219.30749999999998,
+      "lost_kl_conventional": 2526.4224,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 399,
+      "flow_ls": 26.108,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2420.2116,
+      "lost_kl_conventional": 6767.1936,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 871,
+      "flow_ls": 12.474,
+      "t_stop_h": 26.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1201.2462,
+      "lost_kl_conventional": 3233.2608000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 6,
+      "flow_ls": 25.21,
+      "t_stop_h": 5.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 499.158,
+      "lost_kl_conventional": 6534.432,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 862,
+      "flow_ls": 19.885,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1861.2360000000003,
+      "lost_kl_conventional": 5154.192000000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 951,
+      "flow_ls": 17.099,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 107.72370000000001,
+      "lost_kl_conventional": 4432.0608,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 247,
+      "flow_ls": 14.296,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1363.8384,
+      "lost_kl_conventional": 3705.5232,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1654,
+      "flow_ls": 10.912,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1021.3632,
+      "lost_kl_conventional": 2828.3904,
+      "customers_affected": 84
+    },
+    {
+      "scenario": 1221,
+      "flow_ls": 15.818,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1480.5648,
+      "lost_kl_conventional": 4100.0256,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1154,
+      "flow_ls": 21.708,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2012.3315999999998,
+      "lost_kl_conventional": 5626.713599999999,
+      "customers_affected": 87
+    },
+    {
+      "scenario": 461,
+      "flow_ls": 21.934,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 2053.0224,
+      "lost_kl_conventional": 5685.2928,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 863,
+      "flow_ls": 15.613,
+      "t_stop_h": 3.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 168.62040000000002,
+      "lost_kl_conventional": 4046.8896,
+      "customers_affected": 20
+    },
+    {
+      "scenario": 322,
+      "flow_ls": 26.083,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 2441.3687999999997,
+      "lost_kl_conventional": 6760.713599999999,
+      "customers_affected": 16
+    },
+    {
+      "scenario": 308,
+      "flow_ls": 21.522,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1995.0893999999998,
+      "lost_kl_conventional": 5578.502399999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 383,
+      "flow_ls": 6.334,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 592.8624,
+      "lost_kl_conventional": 1641.7728,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1687,
+      "flow_ls": 23.697,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 2218.0392,
+      "lost_kl_conventional": 6142.2624000000005,
+      "customers_affected": 55
+    },
+    {
+      "scenario": 82,
+      "flow_ls": 14.814,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1386.5904,
+      "lost_kl_conventional": 3839.7888000000003,
+      "customers_affected": 45
+    },
+    {
+      "scenario": 378,
+      "flow_ls": 4.225,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 395.46,
+      "lost_kl_conventional": 1095.12,
+      "customers_affected": 19
+    },
+    {
+      "scenario": 987,
+      "flow_ls": 28.713,
+      "t_stop_h": 5.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 568.5174000000001,
+      "lost_kl_conventional": 7442.409600000001,
+      "customers_affected": 86
+    },
+    {
+      "scenario": 243,
+      "flow_ls": 22.802,
+      "t_stop_h": 5.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 451.4796,
+      "lost_kl_conventional": 5910.278399999999,
+      "customers_affected": 27
+    },
+    {
+      "scenario": 759,
+      "flow_ls": 22.855,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2118.6585,
+      "lost_kl_conventional": 5924.0160000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1369,
+      "flow_ls": 14.489,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 104.3208,
+      "lost_kl_conventional": 3755.5488,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 940,
+      "flow_ls": 18.499,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 399.5784,
+      "lost_kl_conventional": 4794.9408,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 682,
+      "flow_ls": 14.324,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 103.1328,
+      "lost_kl_conventional": 3712.7808,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1299,
+      "flow_ls": 11.727,
+      "t_stop_h": 6.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 274.4118,
+      "lost_kl_conventional": 3039.6384000000003,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 288,
+      "flow_ls": 15.091,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 312.3837,
+      "lost_kl_conventional": 3911.5872,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1111,
+      "flow_ls": 16.97,
+      "t_stop_h": 7.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 427.644,
+      "lost_kl_conventional": 4398.624,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1692,
+      "flow_ls": 20.331,
+      "t_stop_h": 1.75,
+      "how": "auto-isolated",
+      "lost_kl_system": 128.0853,
+      "lost_kl_conventional": 5269.7952,
+      "customers_affected": 25
+    },
+    {
+      "scenario": 730,
+      "flow_ls": 9.277,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 66.7944,
+      "lost_kl_conventional": 2404.5984,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1843,
+      "flow_ls": 17.191,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1609.0776,
+      "lost_kl_conventional": 4455.9072,
+      "customers_affected": 55
+    },
+    {
+      "scenario": 933,
+      "flow_ls": 20.509,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1919.6424000000002,
+      "lost_kl_conventional": 5315.9328000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 16,
+      "flow_ls": 18.227,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1706.0472,
+      "lost_kl_conventional": 4724.4384,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1452,
+      "flow_ls": 13.105,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1226.6280000000002,
+      "lost_kl_conventional": 3396.8160000000003,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1884,
+      "flow_ls": 15.744,
+      "t_stop_h": 26.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1516.1472,
+      "lost_kl_conventional": 4080.8448000000003,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1906,
+      "flow_ls": 21.517,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1994.6259000000002,
+      "lost_kl_conventional": 5577.2064,
+      "customers_affected": 2
+    },
+    {
+      "scenario": 30,
+      "flow_ls": 21.121,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 456.21360000000004,
+      "lost_kl_conventional": 5474.5632000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1128,
+      "flow_ls": 17.771,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 383.85360000000003,
+      "lost_kl_conventional": 4606.243200000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1927,
+      "flow_ls": 16.522,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1531.5894,
+      "lost_kl_conventional": 4282.5024,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1282,
+      "flow_ls": 20.554,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 425.4678,
+      "lost_kl_conventional": 5327.5968,
+      "customers_affected": 17
+    },
+    {
+      "scenario": 1648,
+      "flow_ls": 23.072,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 2159.5392,
+      "lost_kl_conventional": 5980.2624000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 563,
+      "flow_ls": 16.552,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 342.6264,
+      "lost_kl_conventional": 4290.2784,
+      "customers_affected": 75
+    },
+    {
+      "scenario": 743,
+      "flow_ls": 25.498,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2363.6646,
+      "lost_kl_conventional": 6609.0815999999995,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1701,
+      "flow_ls": 25.439,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 2358.1953,
+      "lost_kl_conventional": 6593.7888,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 458,
+      "flow_ls": 17.685,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1687.149,
+      "lost_kl_conventional": 4583.951999999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 736,
+      "flow_ls": 11.701,
+      "t_stop_h": 26.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1116.2754,
+      "lost_kl_conventional": 3032.8992000000003,
+      "customers_affected": 25
+    },
+    {
+      "scenario": 57,
+      "flow_ls": 19.426,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1800.7902,
+      "lost_kl_conventional": 5035.2192,
+      "customers_affected": 37
+    },
+    {
+      "scenario": 1433,
+      "flow_ls": 27.878,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2559.2003999999997,
+      "lost_kl_conventional": 7225.9776,
+      "customers_affected": 44
+    },
+    {
+      "scenario": 1576,
+      "flow_ls": 17.844,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1670.1984000000002,
+      "lost_kl_conventional": 4625.1648000000005,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1388,
+      "flow_ls": 14.85,
+      "t_stop_h": 2.5,
+      "how": "auto-isolated",
+      "lost_kl_system": 133.65,
+      "lost_kl_conventional": 3849.12,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1811,
+      "flow_ls": 17.852,
+      "t_stop_h": 25.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1654.8804,
+      "lost_kl_conventional": 4627.2384,
+      "customers_affected": 17
+    },
+    {
+      "scenario": 1158,
+      "flow_ls": 17.329,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 374.30640000000005,
+      "lost_kl_conventional": 4491.6768,
+      "customers_affected": 75
+    },
+    {
+      "scenario": 1796,
+      "flow_ls": 12.329,
+      "t_stop_h": 26.25,
+      "how": "wider crew search",
+      "lost_kl_system": 1165.0905000000002,
+      "lost_kl_conventional": 3195.6768000000006,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1913,
+      "flow_ls": 17.487,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 377.7192,
+      "lost_kl_conventional": 4532.6304,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 3,
+      "flow_ls": 13.329,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1247.5944,
+      "lost_kl_conventional": 3454.8768,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 490,
+      "flow_ls": 28.426,
+      "t_stop_h": 5.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 562.8348,
+      "lost_kl_conventional": 7368.019199999999,
+      "customers_affected": 87
+    },
+    {
+      "scenario": 1090,
+      "flow_ls": 16.289,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 351.84240000000005,
+      "lost_kl_conventional": 4222.108800000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1699,
+      "flow_ls": 19.623,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1801.3914000000002,
+      "lost_kl_conventional": 5086.2816,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1980,
+      "flow_ls": 19.55,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1829.8800000000003,
+      "lost_kl_conventional": 5067.360000000001,
+      "customers_affected": 1
+    },
+    {
+      "scenario": 156,
+      "flow_ls": 15.6,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1460.1599999999999,
+      "lost_kl_conventional": 4043.5199999999995,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 835,
+      "flow_ls": 11.35,
+      "t_stop_h": 2.5,
+      "how": "auto-isolated",
+      "lost_kl_system": 102.15,
+      "lost_kl_conventional": 2941.92,
+      "customers_affected": 56
+    },
+    {
+      "scenario": 1217,
+      "flow_ls": 13.009,
+      "t_stop_h": 6.5,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 304.4106,
+      "lost_kl_conventional": 3371.9328,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 757,
+      "flow_ls": 18.842,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 406.9872,
+      "lost_kl_conventional": 4883.846399999999,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1560,
+      "flow_ls": 14.139,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1323.4104,
+      "lost_kl_conventional": 3664.8288,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1962,
+      "flow_ls": 21.03,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 1930.5540000000003,
+      "lost_kl_conventional": 5450.976000000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 700,
+      "flow_ls": 23.042,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 497.70720000000006,
+      "lost_kl_conventional": 5972.486400000001,
+      "customers_affected": 17
+    },
+    {
+      "scenario": 1306,
+      "flow_ls": 16.308,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1526.4288000000001,
+      "lost_kl_conventional": 4227.033600000001,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1585,
+      "flow_ls": 21.733,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 449.87309999999997,
+      "lost_kl_conventional": 5633.1936,
+      "customers_affected": 2
+    },
+    {
+      "scenario": 681,
+      "flow_ls": 19.628,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 406.29960000000005,
+      "lost_kl_conventional": 5087.5776000000005,
+      "customers_affected": 66
+    },
+    {
+      "scenario": 719,
+      "flow_ls": 16.878,
+      "t_stop_h": 5.75,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 349.37460000000004,
+      "lost_kl_conventional": 4374.7776,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 985,
+      "flow_ls": 18.816,
+      "t_stop_h": 26.75,
+      "how": "wider crew search",
+      "lost_kl_system": 1811.9808,
+      "lost_kl_conventional": 4877.1072,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 115,
+      "flow_ls": 12.428,
+      "t_stop_h": 27.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1208.0016000000003,
+      "lost_kl_conventional": 3221.3376000000007,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1520,
+      "flow_ls": 17.319,
+      "t_stop_h": 27.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1683.4068,
+      "lost_kl_conventional": 4489.0848,
+      "customers_affected": 8
+    },
+    {
+      "scenario": 377,
+      "flow_ls": 22.376,
+      "t_stop_h": 25.5,
+      "how": "wider crew search",
+      "lost_kl_system": 2054.1168000000002,
+      "lost_kl_conventional": 5799.8592,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 1102,
+      "flow_ls": 9.997,
+      "t_stop_h": 6.0,
+      "how": "zone + acoustic pinpoint",
+      "lost_kl_system": 215.9352,
+      "lost_kl_conventional": 2591.2224,
+      "customers_affected": 0
+    },
+    {
+      "scenario": 184,
+      "flow_ls": 13.13,
+      "t_stop_h": 26.0,
+      "how": "wider crew search",
+      "lost_kl_system": 1228.968,
+      "lost_kl_conventional": 3403.2960000000003,
+      "customers_affected": 37
+    },
+    {
+      "scenario": 1825,
+      "flow_ls": 14.75,
+      "t_stop_h": 2.0,
+      "how": "auto-isolated",
+      "lost_kl_system": 106.2,
+      "lost_kl_conventional": 3823.2000000000003,
+      "customers_affected": 0
+    }
+  ]
+}

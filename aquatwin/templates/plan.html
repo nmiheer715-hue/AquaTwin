@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AquaTwin Sensor Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Planning sheet: map (plan or 3D) with proposed zones, meters and ranked loggers; side panel with the coverage curve. */
+:root{color-scheme:dark;--bg:#0b1219;--panel:#101a24;--raise:#15212d;--line:#213041;--fg:#dde6ee;--muted:#8597a8;--faint:#5b6c7c;--accent:#5ec8dc;--meter:#e3a63d;--ok:#45b383;
+--sans:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;--cond:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box} html,body{margin:0;height:100%} [hidden]{display:none!important} body{background:var(--bg);color:var(--fg);font:14px/1.45 var(--sans)}
+.app{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:12px;min-height:100%;padding:14px max(16px,env(safe-area-inset-right,0px)) 14px max(16px,env(safe-area-inset-left,0px))}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;min-width:0;display:flex;flex-direction:column}
+.panel h2{font:600 12px var(--cond);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0;padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mapwrap{position:relative;padding:8px;flex:1;min-height:360px;overflow:hidden} svg.map{width:100%;height:100%;display:block;transition:opacity .35s ease}
+#map3d{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none;transition:opacity .35s ease;cursor:grab}
+#map3d.on{opacity:1;pointer-events:auto} .mapwrap.is3d svg.map{opacity:0;pointer-events:none}
+.hint3d{position:absolute;left:14px;bottom:10px;color:var(--muted);font-size:11.5px;background:rgba(16,26,36,.8);padding:4px 8px;border-radius:4px;pointer-events:none}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;text-transform:none;letter-spacing:0}
+.seg button{border:0;border-radius:0;padding:3px 10px;font:500 12px var(--sans);background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:#062029}
+button{font:500 13px var(--sans);color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:6px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)} button.primary{background:var(--accent);color:#062029;border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.body{padding:12px 14px;display:flex;flex-direction:column;gap:14px}
+h1{font:600 22px var(--cond);margin:0} .sub{color:var(--muted);font-size:12.5px}
+.big{display:flex;gap:22px;flex-wrap:wrap} .big div{display:flex;flex-direction:column} .big label{color:var(--muted);font-size:11px;letter-spacing:.04em} .big output{font:500 24px var(--mono)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:12.5px} th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line)} th{color:var(--muted);font-weight:500} td{font-family:var(--mono)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 14px 12px;color:var(--muted);font-size:11.5px} .legend i{display:inline-block;width:16px;height:3px;margin-right:6px;vertical-align:2px;border-radius:2px} .legend i.dot{width:10px;height:10px;border-radius:50%;vertical-align:-1px}
+.chart svg{width:100%;height:140px;display:block} .chart text{fill:var(--muted);font:10px var(--mono)}
+.note{color:var(--muted);font-size:12px}
+.banner{display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:var(--raise);border:1px solid var(--accent);border-radius:8px;font-size:13px}
+.banner .row{display:flex;gap:8px;flex-wrap:wrap}
+body.previewing .planonly{display:none}
+select{font:500 12px var(--sans);color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:6px;padding:3px 6px;text-transform:none;letter-spacing:0}
+.health{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.health h3{font:600 15px var(--cond);margin:0}
+.health p{margin:0;font-size:13px} .health .num{font-family:var(--mono)}
+.scale{display:inline-block;width:90px;height:8px;border-radius:4px;vertical-align:0;margin:0 6px}
+@media (prefers-reduced-motion:reduce){svg.map,#map3d{transition:none}}
+@media (max-width:900px){.app{grid-template-columns:1fr}}
+</style></head><body>
+<div class="app">
+  <section class="panel"><h2><span>Network and proposed monitoring</span>
+    <span style="display:flex;gap:8px;align-items:center">
+      <select id="layer" aria-label="Map colour" hidden>
+        <option value="zones">Colour: zones</option><option value="drop">Colour: pressure saving</option>
+        <option value="age">Colour: water age</option><option value="chlorine">Colour: chlorine</option></select>
+      <span class="seg" role="group" aria-label="Map view"><button id="v2d" aria-pressed="true">Plan</button><button id="v3d" aria-pressed="false">3D terrain</button></span>
+    </span></h2>
+    <div class="mapwrap" id="mapwrap">
+      <svg class="map" id="map" role="img" aria-label="Network map with recommended loggers"></svg>
+      <canvas id="map3d" aria-label="3D network view: drag to orbit, scroll to zoom"></canvas>
+      <div class="hint3d" id="hint3d" hidden>Drag to orbit · scroll to zoom · taller column = higher-priority logger</div>
+    </div>
+    <div class="legend" id="legend"></div></section>
+  <section class="panel"><h2><span>Sensor plan</span><button id="openbtn" title="Draw any EPANET network in plan and 3D">Open network file</button></h2>
+    <input id="openfile" type="file" accept=".inp" hidden>
+    <div class="body">
+      <div class="banner" id="banner" hidden role="status"><span id="banner-text"></span>
+        <span class="row"><button id="banner-plan" class="primary" hidden>Plan sensors for this network</button><button id="banner-back">Back to this plan</button></span></div>
+      <div><h1 id="name"></h1><div class="sub" id="sub"></div></div>
+      <div class="planonly"><label for="k" class="sub">Pressure loggers to install: <b id="kval"></b></label><input id="k" type="range" min="1"></div>
+      <div class="big planonly"><div><label>Leaks detectable</label><output id="det"></output></div><div><label>Localisable to 300 m</label><output id="loc"></output></div><div><label>Estimated hardware</label><output id="cost"></output></div></div>
+      <div class="chart planonly"><svg id="curve" viewBox="0 0 400 140" preserveAspectRatio="none" role="img" aria-label="Coverage curve"></svg></div>
+      <div class="note planonly">Coverage for a 2.5 L/s leak at night: detectable = at least one logger sees a 3 cm drop; localisable = in a simulation with logger noise, the best-matching location is within 300 m of the real one. Hardware at ₹4,650 per logger node, plus one flow meter per inlet.</div>
+      <table class="planonly"><thead><tr><th>Zone</th><th>Junctions</th><th>Demand L/s</th><th>Loggers</th><th>Inlet meters</th></tr></thead><tbody id="zones"></tbody></table>
+      <div class="planonly health" id="health" hidden>
+        <h3>Smart pressure management</h3><div id="pm"></div>
+        <h3>Water quality</h3><div id="wq"></div>
+      </div>
+    </div></section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/*__TERRAIN3D__*/
+/*__INP__*/
+/*__DATA__*/
+(function(){
+const NS="http://www.w3.org/2000/svg",$=id=>document.getElementById(id);
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const P=DATA.plan,K=P.curve.length;
+const zoneOf={};(P.zone_members||[]).forEach(([n,z])=>zoneOf[n]=z);
+let PREVIEW=null;
+const map=$("map");map.setAttribute("preserveAspectRatio","xMidYMin meet");
+const gBase=el("g",{},map),gLayer=el("g",{},map),g=el("g",{},map);
+const HL=DATA.health;let LAYER="zones";
+/* data layers: colour every customer junction by a value */
+const lerp=(a,b,t)=>a+(b-a)*t,hex=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+const ramp=(stops,t)=>{t=Math.max(0,Math.min(1,t));const n=stops.length-1,i=Math.min(n-1,Math.floor(t*n)),f=t*n-i,a=hex(stops[i]),b=hex(stops[i+1]);
+ return"#"+a.map((v,k)=>Math.round(lerp(v,b[k],f)).toString(16).padStart(2,"0")).join("")};
+const LAYERS={
+ drop:{name:"Average pressure saving",unit:"m",vals:HL&&HL.drop,max:()=>Math.max(1,...HL.drop.filter(v=>v!=null)),col:(v,m)=>ramp(["#4a5d70","#2f8fb0","#7fe3f2"],v/m),lo:"0 m",hi:m=>m.toFixed(0)+" m"},
+ age:{name:"Water age",unit:"h",vals:HL&&HL.age,max:()=>Math.max(6,quant(HL.age,0.95)),col:(v,m)=>ramp(["#45b383","#e3a63d","#e5574e"],v/m),lo:"0 h",hi:m=>m.toFixed(0)+" h+"},
+ chlorine:{name:"Lowest chlorine residual",unit:"mg/L",vals:HL&&HL.chlorine,max:()=>1,col:v=>v<0.2?"#e5574e":ramp(["#e3a63d","#45b383"],(v-0.2)/0.6),lo:"<0.2",hi:()=>"0.8+ mg/L"}};
+function quant(a,q){const s=a.filter(v=>v!=null).sort((x,y)=>x-y);return s.length?s[Math.floor(q*(s.length-1))]:1}
+function layerDots(){if(!HL||LAYER==="zones"||PREVIEW)return[];const L=LAYERS[LAYER],m=L.max();
+ return HL.nodes.map((p,i)=>L.vals[i]==null?null:{p,color:L.col(L.vals[i],m)}).filter(Boolean)}
+function pipeColorFn(){const dots=layerDots();if(!dots.length)return null;const m=new Map(dots.map(d=>[d.p[0]+","+d.p[1],d.color]));return(x,y)=>m.get(x+","+y)||null}
+function drawLayer(){gLayer.replaceChildren();const fn=pipeColorFn();
+ if(fn){const by={};DATA.geo.zones.forEach(z=>{const s=z.segs||[];for(let i=0;i<s.length;i+=6){const c=fn(s[i],s[i+1])||fn(s[i+3],s[i+4])||"#33414f";(by[c]=by[c]||[]).push(`M${s[i]} ${s[i+1]}L${s[i+3]} ${s[i+4]}`)}});
+  for(const[c,p]of Object.entries(by))el("path",{d:p.join(""),stroke:c,"stroke-width":3,fill:"none","stroke-linecap":"round"},gLayer)}
+ layerDots().forEach(d=>el("circle",{cx:d.p[0],cy:d.p[1],r:3.2,fill:d.color,stroke:"#0b1219","stroke-width":0.8},gLayer));
+ if(HL&&LAYER==="chlorine"&&!PREVIEW)HL.cl_sensors.forEach(p=>el("rect",{x:p[0]-6,y:p[1]-6,width:12,height:12,fill:"none",stroke:"#b48ef0","stroke-width":2.2},gLayer));
+ if(HL&&LAYER==="drop"&&!PREVIEW)HL.prvs.forEach(v=>el("circle",{cx:v.p[0],cy:v.p[1],r:7,fill:"none",stroke:"#5ec8dc","stroke-width":2.4},gLayer));
+ const lg=$("layerlegend");if(!lg)return;if(LAYER==="zones"||!HL){lg.hidden=true;return}
+ const L=LAYERS[LAYER],m=L.max(),stops=LAYER==="drop"?"#22313f,#2f6f8f,#5ec8dc":LAYER==="age"?"#45b383,#e3a63d,#e5574e":"#e5574e,#e3a63d,#45b383";
+ lg.hidden=false;lg.innerHTML=`${L.name}: ${L.lo}<span class="scale" style="background:linear-gradient(90deg,${stops})"></span>${L.hi(m)}`+
+  (LAYER==="chlorine"?` · <span style="color:#b48ef0">□</span> recommended chlorine sensor`:"")+(LAYER==="drop"?` · <span style="color:#5ec8dc">○</span> PRV with smart schedule`:"")}
+function buildBase(geo,showPlan){
+ map.setAttribute("viewBox",`-10 -10 ${geo.W+20} ${geo.H+20}`);gBase.replaceChildren();
+ geo.zones.forEach(z=>el("path",{d:z.path,stroke:z.color,"stroke-width":2,fill:"none","stroke-linecap":"round"},gBase));
+ if(showPlan)DATA.boundaries.forEach(b=>el("rect",{x:b.p[0]-5,y:b.p[1]-5,width:10,height:10,fill:"var(--meter)",transform:`rotate(45 ${b.p[0]} ${b.p[1]})`},gBase));
+ for(const[n,p]of Object.entries(geo.sources)){el("rect",{x:p[0]-6,y:p[1]-6,width:12,height:12,rx:2,fill:"var(--fg)"},gBase)}
+ if(showPlan)DATA.existing.forEach(s=>el("circle",{cx:s.p[0],cy:s.p[1],r:5,fill:"none",stroke:"var(--ok)","stroke-width":2},gBase));
+ $("legend").innerHTML=geo.zones.map(z=>`<span><i style="background:${z.color}"></i>${z.id==="other"?"Unzoned":z.label||z.id}</span>`).join("")+
+  (showPlan?`<span><i class="dot" style="background:var(--meter)"></i>Inlet meter (zone boundary)</span><span><i class="dot" style="background:var(--accent)"></i>Recommended logger</span>`+(DATA.existing.length?`<span><i class="dot" style="background:transparent;border:2px solid var(--ok)"></i>Existing logger</span>`:""):`<span><i class="dot" style="background:var(--fg)"></i>Reservoir / tank</span>`)}
+buildBase(DATA.geo,true);
+$("name").textContent=DATA.name;$("sub").textContent=`${P.junctions} junctions · ${P.pipes} pipes · ${P.zones.length} proposed metered zone${P.zones.length===1?"":"s"}`;
+$("k").max=K;$("k").value=K;
+
+/* 3D: the plan's network, or any network the user opens */
+const T3=Terrain3D({canvas:$("map3d"),wrap:$("mapwrap"),hint:$("hint3d"),geo:DATA.geo});
+if(!T3){$("v3d").disabled=true;$("v3d").title="3D needs an internet connection to load three.js"}
+let lastPipeLayer=null;
+function marks3d(k){if(!T3)return;
+ const key=PREVIEW?"preview":LAYER;if(key!==lastPipeLayer){lastPipeLayer=key;T3.setPipeColor(PREVIEW?null:pipeColorFn())}
+ if(PREVIEW){T3.setMarkers({});return}
+ const showLoggers=LAYER==="zones";
+ T3.setMarkers({columns:showLoggers?DATA.recommended.slice(0,k).map(s=>({id:s.rank,p:s.p,h:40+90*(1-(s.rank-1)/Math.max(1,K)),color:"#5ec8dc"})):
+   (LAYER==="chlorine"&&HL?HL.cl_sensors.map((p,i)=>({id:"cl"+i,p,h:70,color:"#b48ef0"})):[]),
+  boxes:LAYER==="drop"&&HL?HL.prvs.map(v=>({p:v.p,color:"#5ec8dc"})):DATA.boundaries.map(b=>({p:b.p,color:"#e3a63d"})),
+  sensors:DATA.existing.map(s=>s.p),dots:layerDots()})}
+function setView(on){$("v2d").setAttribute("aria-pressed",String(!on));$("v3d").setAttribute("aria-pressed",String(on));
+ if(!T3)return;if(on&&!T3.on){marks3d(+$("k").value);T3.enter()}else if(!on&&T3.on)T3.exit()}
+$("v2d").onclick=()=>setView(false);$("v3d").onclick=()=>setView(true);
+
+function curve(k){const s=$("curve");s.replaceChildren();const W=400,H=140,pl=30,pb=16,pt=8;const X=i=>pl+(i/(K))*(W-pl-6),Y=v=>pt+(1-v)*(H-pt-pb);
+ [0,.5,1].forEach(v=>{el("line",{x1:pl,x2:W-6,y1:Y(v),y2:Y(v),stroke:"var(--line)","vector-effect":"non-scaling-stroke"},s);const t=el("text",{x:2,y:Y(v)+3},s);t.textContent=(v*100)+"%"});
+ const d=[[0,0],...P.curve.map(c=>[c.sensors,c.detectable])],l=[[0,0],...P.curve.map(c=>[c.sensors,c.localisable])];
+ el("polyline",{points:d.map(([i,v])=>`${X(i)},${Y(v)}`).join(" "),fill:"none",stroke:"var(--accent)","stroke-width":2,"vector-effect":"non-scaling-stroke"},s);
+ el("polyline",{points:l.map(([i,v])=>`${X(i)},${Y(v)}`).join(" "),fill:"none",stroke:"var(--ok)","stroke-width":2,"vector-effect":"non-scaling-stroke"},s);
+ el("line",{x1:X(k),x2:X(k),y1:pt,y2:H-pb,stroke:"var(--fg)","stroke-dasharray":"3 3","vector-effect":"non-scaling-stroke"},s);
+ const t1=el("text",{x:X(K)-60,y:Y(P.curve[K-1].detectable)-4},s);t1.textContent="detectable";const t2=el("text",{x:X(K)-60,y:Y(P.curve[K-1].localisable)+12},s);t2.textContent="localisable"}
+function render(){const k=+$("k").value,c=P.curve[k-1];$("kval").textContent=k;$("det").textContent=Math.round(c.detectable*100)+"%";$("loc").textContent=Math.round(c.localisable*100)+"%";
+ $("cost").textContent="₹"+(k*4650).toLocaleString("en-IN");g.replaceChildren();
+ if(!PREVIEW&&LAYER==="zones")DATA.recommended.slice(0,k).forEach(s=>{el("circle",{cx:s.p[0],cy:s.p[1],r:6,fill:"var(--accent)",stroke:"var(--bg)","stroke-width":1.5},g);const t=el("text",{x:s.p[0]+8,y:s.p[1]-6,fill:"var(--fg)","font-size":11,"font-family":"IBM Plex Mono,monospace"},g);t.textContent=s.rank});
+ curve(k);drawLayer();if(T3&&T3.on)marks3d(k);
+ $("zones").innerHTML=P.zones.map(z=>`<tr><td>${z.id}</td><td>${z.junctions}</td><td>${z.base_demand_ls}</td><td>${DATA.recommended.slice(0,k).filter(s=>(zoneOf[s.id]||"")===z.id).length}</td><td>${z.inlet_meters.join(", ")||"–"}</td></tr>`).join("")}
+$("k").oninput=render;
+/* network health card */
+if(HL){$("layer").hidden=false;$("health").hidden=false;
+ const leg=document.createElement("div");leg.id="layerlegend";leg.className="legend";leg.hidden=true;$("legend").after(leg);
+ const pm=P.pressure_management||{},wq=P.water_quality||{};
+ $("pm").innerHTML=(pm.areas&&pm.areas.length)?pm.areas.map(a=>`<p><b>${a.id}</b> (${a.prvs.join(", ")}): turn down by ${Math.max(...a.schedule_reduction_m)-Math.min(...a.schedule_reduction_m)<0.5?`<span class="num">${Math.max(...a.schedule_reduction_m).toFixed(1)} m</span> all day`:`<span class="num">${Math.min(...a.schedule_reduction_m).toFixed(1)}–${Math.max(...a.schedule_reduction_m).toFixed(1)} m</span>, most at night`}. Average pressure <span class="num">${a.mean_pressure_before_m} → ${a.mean_pressure_after_m} m</span>, every customer kept at or above <span class="num">${pm.min_service_m + pm.margin_m} m</span>. Leakage <span class="num">−${Math.round(a.leakage_reduction.N1_1_0*100)}%</span> (range ${Math.round(a.leakage_reduction.N1_0_5*100)}–${Math.round(a.leakage_reduction.N1_1_5*100)}%).</p>`).join("")
+  :`<p>${pm.note||"No pressure-reducing valves in this network."}</p>`;
+ $("wq").innerHTML=`<p>Water age: median <span class="num">${wq.age_hours.median} h</span>, oldest 5% over <span class="num">${wq.age_hours.p95} h</span>.</p>
+  <p>Chlorine (1.0 mg/L dosed at sources): median <span class="num">${wq.chlorine_mg_l.median} mg/L</span>; <span class="num">${wq.below_limit}</span> junction${wq.below_limit===1?"":"s"} below the 0.2 mg/L tap minimum. Recommended chlorine sensors: <span class="num">${wq.chlorine_sensors.length}</span>.</p>`;
+ $("layer").onchange=e=>{LAYER=e.target.value;drawLayer();if(T3&&T3.on)marks3d(+$("k").value);render()}}
+
+/* open another network (.inp) */
+const inApp=location.protocol.startsWith("http")&&location.pathname.startsWith("/job/");
+$("openbtn").onclick=()=>$("openfile").click();
+$("openfile").onchange=async e=>{const f=e.target.files[0];if(!f)return;
+ try{const net=parseInp(await f.text(),f.name.replace(/\.inp$/i,""));PREVIEW={net,file:f};
+  buildBase(net.geo,false);if(T3){T3.setGeo(net.geo);marks3d(0)}render();const s=net.stats;
+  $("name").textContent=s.name+" (your network)";$("sub").textContent=`${s.junctions} junctions · ${s.pipes} pipes · ${s.districts} natural district${s.districts===1?"":"s"} (split by pumps and valves)`;
+  $("banner-text").innerHTML=`Showing <b>${s.name}</b> from its own map: ${s.pumps} pumps, ${s.valves} valves, ${s.reservoirs} reservoir${s.reservoirs===1?"":"s"}, ${s.tanks} tank${s.tanks===1?"":"s"}. `+(inApp?"Run the planner to get districts, logger locations and coverage.":"Open this file in the AquaTwin app to plan loggers for it.");
+  $("banner-plan").hidden=!inApp;$("banner").hidden=false;document.body.classList.add("previewing")}
+ catch(err){$("banner-text").textContent="Could not open this file: "+err.message;$("banner-plan").hidden=true;$("banner").hidden=false}
+ e.target.value=""};
+$("banner-back").onclick=()=>{PREVIEW=null;document.body.classList.remove("previewing");$("banner").hidden=true;buildBase(DATA.geo,true);if(T3){T3.setGeo(DATA.geo);lastPipeLayer=null}
+ $("name").textContent=DATA.name;$("sub").textContent=`${P.junctions} junctions · ${P.pipes} pipes · ${P.zones.length} proposed metered zones`;render()};
+$("banner-plan").onclick=async()=>{if(!PREVIEW)return;const fd=new FormData();fd.append("inp",PREVIEW.file,PREVIEW.file.name);fd.append("name",PREVIEW.net.stats.name);
+ $("banner-text").textContent="Starting the sensor plan…";const r=await fetch("/plan",{method:"POST",body:fd});location.href=r.url};
+render();
+})();
+</script></body></html>

@@ -1,0 +1,209 @@
+{
+ "leak_volume_2019_m3": 653942.3,
+ "saved_m3": {
+  "0.5": 59670.9,
+  "1.0": 111947.1,
+  "1.5": 157818.1
+ },
+ "saved_share": {
+  "0.5": 0.091,
+  "1.0": 0.171,
+  "1.5": 0.241
+ },
+ "saved_eur_at_0_80": {
+  "0.5": 47737,
+  "1.0": 89558,
+  "1.5": 126254
+ },
+ "saved_inr_at_20": {
+  "0.5": 1193417,
+  "1.0": 2238942,
+  "1.5": 3156362
+ },
+ "leaks": [
+  {
+   "link": "p257",
+   "volume_m3": 58839.6,
+   "in_prv_area": false,
+   "saved_m3_N1_0.5": 0.0,
+   "saved_m3_N1_1.0": 0.0,
+   "saved_m3_N1_1.5": 0.0
+  },
+  {
+   "link": "p427",
+   "volume_m3": 43750.1,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 5481.1,
+   "saved_m3_N1_1.0": 10274.1,
+   "saved_m3_N1_1.5": 14465.7
+  },
+  {
+   "link": "p810",
+   "volume_m3": 59673.8,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 5799.1,
+   "saved_m3_N1_1.0": 11033.2,
+   "saved_m3_N1_1.5": 15757.7
+  },
+  {
+   "link": "p654",
+   "volume_m3": 47338.9,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 4276.4,
+   "saved_m3_N1_1.0": 8165.7,
+   "saved_m3_N1_1.5": 11702.9
+  },
+  {
+   "link": "p523",
+   "volume_m3": 11128.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1060.1,
+   "saved_m3_N1_1.0": 2019.1,
+   "saved_m3_N1_1.5": 2886.4
+  },
+  {
+   "link": "p827",
+   "volume_m3": 8560.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 939.4,
+   "saved_m3_N1_1.0": 1775.5,
+   "saved_m3_N1_1.5": 2519.7
+  },
+  {
+   "link": "p280",
+   "volume_m3": 40388.2,
+   "in_prv_area": false,
+   "saved_m3_N1_0.5": 0.0,
+   "saved_m3_N1_1.0": 0.0,
+   "saved_m3_N1_1.5": 0.0
+  },
+  {
+   "link": "p653",
+   "volume_m3": 13072.5,
+   "in_prv_area": false,
+   "saved_m3_N1_0.5": 0.0,
+   "saved_m3_N1_1.0": 0.0,
+   "saved_m3_N1_1.5": 0.0
+  },
+  {
+   "link": "p710",
+   "volume_m3": 37060.8,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 4132.9,
+   "saved_m3_N1_1.0": 7803.9,
+   "saved_m3_N1_1.5": 11064.8
+  },
+  {
+   "link": "p514",
+   "volume_m3": 18805.6,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1801.2,
+   "saved_m3_N1_1.0": 3429.5,
+   "saved_m3_N1_1.5": 4901.5
+  },
+  {
+   "link": "p331",
+   "volume_m3": 64690.9,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 10105.8,
+   "saved_m3_N1_1.0": 18630.2,
+   "saved_m3_N1_1.5": 25821.2
+  },
+  {
+   "link": "p193",
+   "volume_m3": 44600.2,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 4544.9,
+   "saved_m3_N1_1.0": 8625.5,
+   "saved_m3_N1_1.5": 12289.5
+  },
+  {
+   "link": "p277",
+   "volume_m3": 28876.5,
+   "in_prv_area": false,
+   "saved_m3_N1_0.5": 0.0,
+   "saved_m3_N1_1.0": 0.0,
+   "saved_m3_N1_1.5": 0.0
+  },
+  {
+   "link": "p142",
+   "volume_m3": 22023.2,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 2191.1,
+   "saved_m3_N1_1.0": 4163.7,
+   "saved_m3_N1_1.5": 5939.7
+  },
+  {
+   "link": "p680",
+   "volume_m3": 22475.1,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 4840.0,
+   "saved_m3_N1_1.0": 8637.7,
+   "saved_m3_N1_1.5": 11617.6
+  },
+  {
+   "link": "p586",
+   "volume_m3": 14441.1,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1363.6,
+   "saved_m3_N1_1.0": 2598.2,
+   "saved_m3_N1_1.5": 3716.0
+  },
+  {
+   "link": "p721",
+   "volume_m3": 36347.6,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 3796.4,
+   "saved_m3_N1_1.0": 7195.4,
+   "saved_m3_N1_1.5": 10238.7
+  },
+  {
+   "link": "p800",
+   "volume_m3": 16261.1,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1948.9,
+   "saved_m3_N1_1.0": 3663.7,
+   "saved_m3_N1_1.5": 5172.4
+  },
+  {
+   "link": "p123",
+   "volume_m3": 12506.7,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1359.5,
+   "saved_m3_N1_1.0": 2570.9,
+   "saved_m3_N1_1.5": 3650.3
+  },
+  {
+   "link": "p455",
+   "volume_m3": 10585.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1038.9,
+   "saved_m3_N1_1.0": 1975.7,
+   "saved_m3_N1_1.5": 2820.3
+  },
+  {
+   "link": "p762",
+   "volume_m3": 17532.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 1743.7,
+   "saved_m3_N1_1.0": 3313.5,
+   "saved_m3_N1_1.5": 4726.9
+  },
+  {
+   "link": "p426",
+   "volume_m3": 21357.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 2829.6,
+   "saved_m3_N1_1.0": 5283.7,
+   "saved_m3_N1_1.5": 7412.0
+  },
+  {
+   "link": "p879",
+   "volume_m3": 3626.4,
+   "in_prv_area": true,
+   "saved_m3_N1_0.5": 418.1,
+   "saved_m3_N1_1.0": 787.8,
+   "saved_m3_N1_1.5": 1114.9
+  }
+ ]
+}

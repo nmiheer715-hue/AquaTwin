@@ -1,0 +1,14 @@
+﻿92 junctions, 88 leak candidates, 8 cpus
+  200/2388 scenarios, 87s
+  400/2388 scenarios, 141s
+  600/2388 scenarios, 195s
+  800/2388 scenarios, 250s
+  1000/2388 scenarios, 309s
+  1200/2388 scenarios, 369s
+  1400/2388 scenarios, 425s
+  1600/2388 scenarios, 479s
+  1800/2388 scenarios, 533s
+  2000/2388 scenarios, 598s
+  2200/2388 scenarios, 658s
+done: 2388/2388 converged in 713s
+saved D:\bms_app\ihack_water\data\dataset.npz

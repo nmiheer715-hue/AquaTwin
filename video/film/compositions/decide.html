@@ -1,0 +1,66 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .chip { position: absolute; left: 280px; top: 46px; display: flex; align-items: baseline; gap: 18px; }
+    .chip .n { font: 600 20px "IBM Plex Mono", monospace; color: #0b1219; background: #5ec8dc; border-radius: 6px; padding: 4px 10px; }
+    .chip .h { font: 600 36px Inter, sans-serif; letter-spacing: -0.01em; }
+    .frame { position: absolute; left: 280px; top: 112px; width: 1360px; height: 765px; border: 1px solid #2a3a4c; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #0b1219; }
+    .frame video { position: absolute; left: 0; top: 0; width: 1360px; height: 765px; object-fit: cover; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+    .steps { position: absolute; left: 960px; top: 30px; width: 680px; display: flex; gap: 12px; }
+    .step { flex: 1; border-left: 3px solid #213041; padding: 2px 0 2px 10px; }
+    .step .k { font: 600 13px "IBM Plex Mono", monospace; color: #5ec8dc; letter-spacing: .06em; }
+    .step .t { font: 500 14px/1.25 Inter, sans-serif; color: #b8c6d3; }
+    #de-card { position: absolute; inset: 0; background: #0b1219; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; }
+    #de-card .pair { display: flex; gap: 90px; }
+    #de-card .half { width: 560px; }
+    #de-card .lab { font: 600 22px "IBM Plex Mono", monospace; color: #8597a8; letter-spacing: .08em; }
+    #de-card .big { font: 800 84px/1.05 Inter, sans-serif; letter-spacing: -0.03em; margin-top: 12px; }
+    #de-card .big b { color: #5ec8dc; font-weight: 800; }
+    #de-card .sub { font: 400 26px/1.4 Inter, sans-serif; color: #b8c6d3; margin-top: 12px; }
+  </style>
+  <div id="root" data-composition-id="decide" data-width="1920" data-height="1080">
+    <div class="chip" id="de-chip"><span class="n">03</span><span class="h">Decide: the AI finds the leak</span></div>
+    <div class="frame" id="de-frame">
+      <video id="de-v1" class="clip" data-start="0" data-duration="21.5" src="assets/shots/replay.mp4" muted playsinline></video>
+      <video id="de-v2" class="clip" data-start="21.5" data-duration="9.5" data-media-start="1.5" src="assets/shots/detail.mp4" muted playsinline></video>
+      <video id="de-v3" class="clip" data-start="31" data-duration="29" data-media-start="2.5" src="assets/shots/terrain.mp4" muted playsinline></video>
+    </div>
+    <div class="steps" id="de-steps">
+      <div class="step" id="de-s1"><div class="k">1 · BALANCE</div><div class="t">Water balance or night flow</div></div>
+      <div class="step" id="de-s2"><div class="k">2 · LEARN</div><div class="t">Normal week, noise</div></div>
+      <div class="step" id="de-s3"><div class="k">3 · DETECT</div><div class="t">Rise above 4× noise</div></div>
+      <div class="step" id="de-s4"><div class="k">4 · LOCATE</div><div class="t">Match twin signatures</div></div>
+    </div>
+    <div id="de-card" data-layout-allow-occlusion class="clip" data-start="60" data-duration="5">
+      <div class="pair">
+        <div class="half" id="de-h1"><div class="lab">FLOW</div><div class="big">says <b>how big</b></div><div class="sub">The night-flow rise gives the leak size in m³/h.</div></div>
+        <div class="half" id="de-h2"><div class="lab">PRESSURE</div><div class="big">says <b>where</b></div><div class="sub">The pattern of pressure drops points to the pipe.</div></div>
+      </div>
+    </div>
+    <p id="de-cap1" class="clip cap" data-start="0.3" data-duration="6"><span>For each district, AquaTwin keeps a water balance, or watches the minimum night flow.</span></p>
+    <p id="de-cap2" class="clip cap" data-start="6.5" data-duration="6.5"><span>It learns what a normal week looks like, so every city gets its own thresholds.</span></p>
+    <p id="de-cap3" class="clip cap" data-start="13.2" data-duration="8"><span>When night flow rises and stays up, that's a new leak. The rise tells us its size.</span></p>
+    <p id="de-cap4" class="clip cap" data-start="21.6" data-duration="9.2"><span>Here, 12.8 cubic metres an hour. To find where, it matches the pressure drop at every logger to leak signatures from the hydraulic twin.</span></p>
+    <p id="de-cap5" class="clip cap" data-start="31.2" data-duration="14"><span>In 3D, each column rises from the suspected pipe. Its height is the leak size.</span></p>
+    <p id="de-cap6" class="clip cap" data-start="45.4" data-duration="14.4"><span>The rings mark the candidate zone a crew would search.</span></p>
+    <p id="de-cap7" class="clip cap" data-start="60.2" data-duration="4.6"><span>Flow says how big. Pressure says where.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    rise("#de-chip .n", 0.1); rise("#de-chip .h", 0.25);
+    tl.fromTo("#de-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    // step list lights up with the narration
+    [["#de-s1", 0.6], ["#de-s2", 6.6], ["#de-s3", 13.3], ["#de-s4", 21.7]].forEach(([s, t]) => {
+      tl.fromTo(s, { opacity: 0.25, borderLeftColor: "#213041" }, { opacity: 1, borderLeftColor: "#5ec8dc", duration: 0.4 }, t);
+    });
+    tl.to("#de-steps", { opacity: 0, duration: 0.5 }, 30.6);
+    // closing card
+    rise("#de-h1", 60.2, 0.6); rise("#de-h2", 60.9, 0.6);
+    ["#de-cap1", "#de-cap2", "#de-cap3", "#de-cap4", "#de-cap5", "#de-cap6", "#de-cap7"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
+    window.__timelines["decide"] = tl;
+  </script>
+</template>
+

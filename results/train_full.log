@@ -1,0 +1,39 @@
+﻿2000 leak scenarios (1400 train / 600 test), 300 normal days
+  sensor  1: node    10  physics top-1 (train) = 0.007
+  sensor  2: node   139  physics top-1 (train) = 0.028
+  sensor  3: node   241  physics top-1 (train) = 0.053
+  sensor  4: node   143  physics top-1 (train) = 0.062
+  sensor  5: node   151  physics top-1 (train) = 0.080
+  sensor  6: node   261  physics top-1 (train) = 0.102
+  sensor  7: node   206  physics top-1 (train) = 0.120
+  sensor  8: node   119  physics top-1 (train) = 0.130
+  sensor  9: node   147  physics top-1 (train) = 0.133
+  sensor 10: node    15  physics top-1 (train) = 0.140
+alarm thresholds flow 10.64 sd, pressure 41.58 sd; false alarms on 1/150 unseen normal days
+{
+ "detection_rate": 0.2683333333333333,
+ "detection_rate_ge_2ls": 0.3333333333333333,
+ "median_detect_delay_h": 0.75,
+ "false_alarm_days": 1
+}
+by size: [{"flow_ls": "1-2", "n": 117, "detected": 0.0, "median_delay_h": null}, {"flow_ls": "2-5", "n": 170, "detected": 0.0058823529411764705, "median_delay_h": 0.75}, {"flow_ls": "5-10", "n": 102, "detected": 0.0392156862745098, "median_delay_h": 0.75}, {"flow_ls": "10-20", "n": 154, "detected": 0.6428571428571429, "median_delay_h": 0.75}, {"flow_ls": "20+", "n": 57, "detected": 1.0, "median_delay_h": 0.5}]
+localisation: {
+ "hybrid": {
+  "top1": 0.11801242236024845,
+  "top3": 0.30434782608695654,
+  "top5": 0.42857142857142855
+ },
+ "ml_only": {
+  "top1": 0.13043478260869565,
+  "top5": 0.42857142857142855
+ },
+ "physics_only": {
+  "top1": 0.11801242236024845,
+  "top5": 0.39751552795031053
+ },
+ "random_guess_top5": 0.056818181818181816,
+ "median_error_m": 967.74,
+ "p90_error_m": 3663.696,
+ "within_500m": 0.3105590062111801,
+ "top5_ge_2ls": 0.42857142857142855
+}

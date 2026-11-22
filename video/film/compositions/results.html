@@ -1,0 +1,72 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .chip { position: absolute; left: 280px; top: 46px; display: flex; align-items: baseline; gap: 18px; }
+    .chip .n { font: 600 20px "IBM Plex Mono", monospace; color: #0b1219; background: #5ec8dc; border-radius: 6px; padding: 4px 10px; }
+    .chip .h { font: 600 36px Inter, sans-serif; letter-spacing: -0.01em; }
+    .frame { position: absolute; left: 280px; top: 112px; width: 1360px; height: 765px; border: 1px solid #2a3a4c; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #0b1219; }
+    .frame video { position: absolute; left: 0; top: 0; width: 1360px; height: 765px; object-fit: cover; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+    .tag { position: absolute; left: 320px; top: 150px; background: rgba(11,18,25,.92); border: 1px solid #45b383; border-radius: 6px; padding: 8px 14px; font: 600 20px Inter, sans-serif; color: #45b383; }
+    #re-board { position: absolute; inset: 0; background: #0b1219; }
+    #re-board .head { position: absolute; left: 240px; top: 120px; font: 700 48px Inter, sans-serif; letter-spacing: -0.02em; }
+    #re-board .sub { position: absolute; left: 240px; top: 190px; font: 400 24px Inter, sans-serif; color: #8597a8; }
+    .row { position: absolute; left: 240px; width: 1440px; height: 62px; display: flex; align-items: center; }
+    .row .name { width: 430px; font: 500 26px Inter, sans-serif; color: #b8c6d3; }
+    .row .bar { height: 40px; border-radius: 6px; background: #2a3a4c; }
+    .row .val { margin-left: 18px; font: 600 26px "IBM Plex Mono", monospace; color: #dde6ee; }
+    .row.us .name { color: #5ec8dc; font-weight: 700; }
+    .row.us .bar { background: #5ec8dc; }
+    .row .meta { margin-left: 22px; font: 500 20px "IBM Plex Mono", monospace; color: #8597a8; }
+    #re-note { position: absolute; left: 240px; top: 760px; width: 1440px; font: 400 22px/1.45 Inter, sans-serif; color: #8597a8; }
+    #re-unseen { position: absolute; inset: 0; background: #0b1219; display: flex; align-items: center; justify-content: center; gap: 80px; }
+    #re-unseen .big { font: 700 150px/1 "IBM Plex Mono", monospace; color: #45b383; }
+    #re-unseen .txt { width: 720px; }
+    #re-unseen .txt .a { font: 700 46px/1.15 Inter, sans-serif; letter-spacing: -0.02em; }
+    #re-unseen .txt .b { font: 400 26px/1.4 Inter, sans-serif; color: #b8c6d3; margin-top: 16px; }
+  </style>
+  <div id="root" data-composition-id="results" data-width="1920" data-height="1080">
+    <div class="chip" id="re-chip"><span class="n">05</span><span class="h">Results on the international benchmark</span></div>
+    <div class="frame" id="re-frame">
+      <video id="re-v1" class="clip" data-start="0" data-duration="21.5" data-media-start="3" src="assets/shots/answer.mp4" muted playsinline></video>
+    </div>
+    <div id="re-t1" class="clip tag" data-start="0.6" data-duration="20.6">Answer key on: green = real leak, red = false alarm</div>
+    <div id="re-board" data-layout-allow-occlusion class="clip" data-start="21.5" data-duration="15.5">
+      <div class="head" id="re-head">BattLeDIM 2020: economic score on the 2019 data</div>
+      <div class="sub" id="re-sub">18 teams from 13 countries · official scoring: water saved minus crew costs</div>
+      <div class="row us" style="top: 270px;"><div class="name">AquaTwin (ours)</div><div class="bar" id="re-b1" style="width: 680px;"></div><div class="val">€303k</div><div class="meta">15/23 · 6 false</div></div>
+      <div class="row" style="top: 340px;"><div class="name">Tongji (China)</div><div class="bar" id="re-b2" style="width: 594px;"></div><div class="val">€265k</div><div class="meta">56% · 3 false</div></div>
+      <div class="row" style="top: 410px;"><div class="name">Under Pressure (NL/DE/FR)</div><div class="bar" id="re-b3" style="width: 584px;"></div><div class="val">€261k</div><div class="meta">65% · 4 false</div></div>
+      <div class="row" style="top: 480px;"><div class="name">IRI (Spain/France)</div><div class="bar" id="re-b4" style="width: 473px;"></div><div class="val">€211k</div><div class="meta">43% · 1 false</div></div>
+      <div class="row" style="top: 550px;"><div class="name">Leakbusters (DE/US)</div><div class="bar" id="re-b5" style="width: 438px;"></div><div class="val">€195k</div><div class="meta">47% · 7 false</div></div>
+      <div class="row" style="top: 620px;"><div class="name">Tsinghua (China)</div><div class="bar" id="re-b6" style="width: 377px;"></div><div class="val">€168k</div><div class="meta">47% · 5 false</div></div>
+      <div id="re-note">The 2020 teams submitted blind; the 2019 answer key is public now. We developed on 2018 and list every choice made after seeing 2019 in our repository. Fair claim: competitive with the best published methods.</div>
+    </div>
+    <div id="re-unseen" data-layout-allow-occlusion class="clip" data-start="37" data-duration="8">
+      <div class="big" id="re-45">4 / 5</div>
+      <div class="txt"><div class="a" id="re-ua">bursts caught in the right district on a city AquaTwin had never seen</div><div class="b" id="re-ub">EPANET Net3, 90 days of simulated SCADA, set up automatically from its network file, no tuning.</div></div>
+    </div>
+    <p id="re-cap1" class="clip cap" data-start="0.3" data-duration="10.5"><span>We scored AquaTwin with the official algorithm of BattLeDIM, where 18 teams from 13 countries competed on this town.</span></p>
+    <p id="re-cap2" class="clip cap" data-start="11" data-duration="10.4"><span>It found 15 of 23 leaks with 6 false alarms, worth €303,000 in water saved.</span></p>
+    <p id="re-cap3" class="clip cap" data-start="21.7" data-duration="15.1"><span>That's in line with the winning teams from TU Delft and Tongji University, who submitted blind. We're open about what we tuned after seeing the answers.</span></p>
+    <p id="re-cap4" class="clip cap" data-start="37.2" data-duration="7.6"><span>On a second city it had never seen, it caught 4 of 5 bursts in the right district.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    rise("#re-chip .n", 0.1); rise("#re-chip .h", 0.25);
+    tl.fromTo("#re-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    tl.fromTo("#re-t1", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.6);
+    rise("#re-head", 21.7, 0.6); rise("#re-sub", 22.1, 0.5);
+    ["#re-b1", "#re-b2", "#re-b3", "#re-b4", "#re-b5", "#re-b6"].forEach((b, i) =>
+      tl.fromTo(b, { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.9, ease: "power3.out" }, 22.6 + i * 0.18));
+    tl.fromTo(".row .val, .row .meta, .row .name", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.03 }, 22.5);
+    rise("#re-note", 25.5, 0.6);
+    tl.fromTo("#re-45", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 37.2);
+    rise("#re-ua", 37.6, 0.5); rise("#re-ub", 38.1, 0.5);
+    ["#re-cap1", "#re-cap2", "#re-cap3", "#re-cap4"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
+    window.__timelines["results"] = tl;
+  </script>
+</template>
+

@@ -1,0 +1,25 @@
+{
+  "factors": {
+    "roughness": {
+      "A": 0.971,
+      "B": 0.8988,
+      "C": 0.8551
+    },
+    "demand": {
+      "P-Residential": 0.8612,
+      "P-Commercial": 0.8626,
+      "P-Industrial": 1.1447
+    }
+  },
+  "loss_before": 116.43,
+  "loss_after": 5.309,
+  "pressure_rmse_m": {
+    "before": 0.161,
+    "after": 0.145
+  },
+  "net_inflow_rmse_m3h": {
+    "before": 21.338,
+    "after": 3.583
+  },
+  "evaluations": 150
+}

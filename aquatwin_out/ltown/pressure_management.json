@@ -1,0 +1,103 @@
+{
+ "min_service_m": 17.0,
+ "margin_m": 2.0,
+ "n1": 1.0,
+ "areas": [
+  {
+   "id": "PRV area 1",
+   "prvs": [
+    "PRV-1",
+    "PRV-2"
+   ],
+   "junctions": 627,
+   "settings_m": {
+    "PRV-1": 40.0,
+    "PRV-2": 50.0
+   },
+   "schedule_reduction_m": [
+    10.1,
+    10.4,
+    10.7,
+    10.7,
+    10.7,
+    10.7,
+    10.4,
+    9.8,
+    9.3,
+    9.3,
+    9.3,
+    9.3,
+    9.3,
+    9.3,
+    9.3,
+    9.6,
+    9.6,
+    9.6,
+    9.6,
+    9.6,
+    9.6,
+    9.3,
+    9.6,
+    9.8
+   ],
+   "mean_pressure_before_m": 48.01,
+   "mean_pressure_after_m": 38.24,
+   "night_pressure_before_m": 48.63,
+   "night_pressure_after_m": 38.02,
+   "min_pressure_after_m": 18.98,
+   "leakage_reduction": {
+    "N1_0_5": 0.1099,
+    "N1_1_0": 0.2073,
+    "N1_1_5": 0.2938
+   },
+   "junctions_already_below_floor": 0
+  },
+  {
+   "id": "PRV area 2",
+   "prvs": [
+    "PRV-3"
+   ],
+   "junctions": 27,
+   "settings_m": {
+    "PRV-3": 35.0
+   },
+   "schedule_reduction_m": [
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1,
+    14.1
+   ],
+   "mean_pressure_before_m": 37.2,
+   "mean_pressure_after_m": 23.1,
+   "night_pressure_before_m": 37.21,
+   "night_pressure_after_m": 23.11,
+   "min_pressure_after_m": 19.09,
+   "leakage_reduction": {
+    "N1_0_5": 0.2127,
+    "N1_1_0": 0.38,
+    "N1_1_5": 0.5116
+   },
+   "junctions_already_below_floor": 0
+  }
+ ]
+}

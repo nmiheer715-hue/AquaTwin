@@ -1,0 +1,35 @@
+﻿{
+ "assumptions": {
+  "conventional_run_h": 72.0,
+  "crew_pinpoint_h": 4.0,
+  "crew_wide_h": 24.0,
+  "evidence_h": 1.0,
+  "valve_h": 0.25,
+  "cost_inr_per_kl": 20.0
+ },
+ "detected_leaks": 161,
+ "outcome_counts": {
+  "auto-isolated": 19,
+  "wider crew search": 92,
+  "zone + acoustic pinpoint": 50
+ },
+ "median_time_to_stop_h": 25.75,
+ "water_lost_kl": {
+  "system": 177162.48990000002,
+  "conventional": 761744.4768000001,
+  "saved_pct": 76.74253042906999
+ },
+ "cost_saved_inr": 11691639.738,
+ "per_leak_saved_kl_median": 3583.4129999999996,
+ "isolation_impact": {
+  "median_customers_affected": 0.0,
+  "max_customers_affected": 87,
+  "total_junctions": 92
+ },
+ "valve_verification": {
+  "n": 14,
+  "leak_flow_before_ls_median": 16.65390501151808,
+  "leak_flow_after_ls_median": 0.0,
+  "stopped_share": 1.0
+ }
+}

@@ -1,0 +1,21 @@
+﻿{
+  "name": "L-Town (BattLeDIM)",
+  "inp": "../battledim/raw/L-TOWN.inp",
+  "csv": {"sep": ";", "decimal": ","},
+  "pressures": ["../battledim/raw/2018_SCADA_Pressures.csv", "../battledim/raw/2019_SCADA_Pressures.csv"],
+  "flows": ["../battledim/raw/2018_SCADA_Flows.csv", "../battledim/raw/2019_SCADA_Flows.csv"],
+  "levels": ["../battledim/raw/2018_SCADA_Levels.csv", "../battledim/raw/2019_SCADA_Levels.csv"],
+  "amr": ["../battledim/raw/2018_SCADA_Demands.csv", "../battledim/raw/2019_SCADA_Demands.csv"],
+  "flow_units": "m3/h",
+  "amr_units": "L/h",
+  "pattern_period": "day_of_year",
+  "history_days": 7,
+  "report_from": "2019-01-01",
+  "k_sigma": 4.0,
+  "repairs": "ltown_repairs_2018.csv",
+  "currency": "€",
+  "cost_per_m3": 0.8,
+  "false_alarm_cost": 500,
+  "outdir": "../aquatwin_out/ltown"
+}
+

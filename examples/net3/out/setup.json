@@ -1,0 +1,226 @@
+{
+  "name": "Net3 city (simulated SCADA)",
+  "zones": [
+    {
+      "id": "Z1",
+      "junctions": 23,
+      "meters": [
+        [
+          "60",
+          1
+        ],
+        [
+          "177",
+          -1
+        ],
+        [
+          "225",
+          -1
+        ],
+        [
+          "10",
+          1
+        ],
+        [
+          "116",
+          -1
+        ],
+        [
+          "171",
+          -1
+        ],
+        [
+          "129",
+          -1
+        ]
+      ],
+      "tanks": [],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 87.58,
+      "sigma_m3h": 5.954,
+      "threshold_m3h": 23.818,
+      "weekly_effect_m3h": [
+        0.0,
+        2.51,
+        -0.6,
+        0.0,
+        -3.07,
+        11.89,
+        4.04
+      ]
+    },
+    {
+      "id": "Z2",
+      "junctions": 21,
+      "meters": [
+        [
+          "273",
+          -1
+        ],
+        [
+          "189",
+          1
+        ],
+        [
+          "202",
+          1
+        ]
+      ],
+      "tanks": [],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 37.85,
+      "sigma_m3h": 25.534,
+      "threshold_m3h": 102.136,
+      "weekly_effect_m3h": [
+        -12.35,
+        13.29,
+        3.57,
+        -3.09,
+        -11.68,
+        57.69,
+        33.57
+      ]
+    },
+    {
+      "id": "Z3",
+      "junctions": 23,
+      "meters": [
+        [
+          "180",
+          -1
+        ],
+        [
+          "177",
+          1
+        ],
+        [
+          "225",
+          1
+        ],
+        [
+          "116",
+          1
+        ],
+        [
+          "189",
+          -1
+        ],
+        [
+          "202",
+          -1
+        ]
+      ],
+      "tanks": [
+        "1"
+      ],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 27.89,
+      "sigma_m3h": 6.661,
+      "threshold_m3h": 26.643,
+      "weekly_effect_m3h": [
+        -6.07,
+        2.44,
+        0.0,
+        0.0,
+        -1.52,
+        18.64,
+        6.92
+      ]
+    },
+    {
+      "id": "Z4",
+      "junctions": 14,
+      "meters": [
+        [
+          "171",
+          1
+        ],
+        [
+          "129",
+          1
+        ]
+      ],
+      "tanks": [
+        "3"
+      ],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 24.03,
+      "sigma_m3h": 48.499,
+      "threshold_m3h": 193.997,
+      "weekly_effect_m3h": [
+        7.8,
+        -20.86,
+        -23.75,
+        -4.4,
+        -6.53,
+        -46.16,
+        3.59
+      ]
+    },
+    {
+      "id": "Z5",
+      "junctions": 9,
+      "meters": [
+        [
+          "273",
+          1
+        ]
+      ],
+      "tanks": [
+        "2"
+      ],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 15.04,
+      "sigma_m3h": 0.856,
+      "threshold_m3h": 3.424,
+      "weekly_effect_m3h": [
+        0.0,
+        1.05,
+        -0.36,
+        0.35,
+        -0.89,
+        -0.04,
+        1.21
+      ]
+    },
+    {
+      "id": "Z6",
+      "junctions": 2,
+      "meters": [
+        [
+          "180",
+          1
+        ]
+      ],
+      "tanks": [],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 0.16,
+      "sigma_m3h": 0.011,
+      "threshold_m3h": 0.043,
+      "weekly_effect_m3h": [
+        -0.01,
+        0.01,
+        0.0,
+        -0.0,
+        -0.01,
+        0.02,
+        0.01
+      ]
+    }
+  ],
+  "sensors": 10,
+  "days": 90,
+  "step_min": 15.0,
+  "warnings": [
+    "Z3 has 1 pressure sensor(s): localisation in this zone will be coarse",
+    "Z4 has 2 pressure sensor(s): localisation in this zone will be coarse",
+    "Z5 has 0 pressure sensor(s): localisation in this zone will be coarse",
+    "Z6 has 0 pressure sensor(s): localisation in this zone will be coarse"
+  ]
+}

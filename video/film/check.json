@@ -1,0 +1,2319 @@
+﻿node.exe : [hyperframes] check: the report is saved to 
+D:\bms_app\ihack_water\video\film\.hyperframes\artifacts\checks\4e055623-4fe5-408c-a050-038c4e6abf97.json when the 
+check ends, unless a warning says it could not be saved
+At line:1 char:1
++ & "D:\/node.exe" "D:\/node_modules/npm/bin/npx-cli.js" --yes hyperfra ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([hyperframes] c...ld not be saved:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[hyperframes] browserGpuMode probe → hardware (WebGL renderer vendor="Google Inc. (Intel)" renderer="ANGLE (Intel, 
+Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)")
+[INFO] [Compiler] Fetched 11 font face(s) for "Inter" from Google Fonts (cached to C:\Users\YOGA Slim 7 
+Pro\.cache\hyperframes\fonts\inter)
+[INFO] [Compiler] Fetched 9 font face(s) for "IBM Plex Mono" from Google Fonts (cached to C:\Users\YOGA Slim 7 
+Pro\.cache\hyperframes\fonts\ibm-plex-mono)
+[INFO] [Compiler] Injected deterministic @font-face rules for 2 requested font families
+[hyperframes] check: starting Chrome
+[hyperframes] check: loading the page
+[hyperframes] check: waiting for the page to be ready
+[hyperframes] check: checking samples
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: running the overlap pass
+[hyperframes] check: craft 1/599
+[hyperframes] check: craft 2/599
+[hyperframes] check: craft 3/599
+[hyperframes] check: craft 4/599
+[hyperframes] check: craft 5/599
+[hyperframes] check: craft 6/599
+[hyperframes] check: craft 7/599
+[hyperframes] check: craft 8/599
+[hyperframes] check: craft 9/599
+[hyperframes] check: craft 10/599
+[hyperframes] check: craft 11/599
+[hyperframes] check: craft 12/599
+[hyperframes] check: craft 13/599
+[hyperframes] check: craft 14/599
+[hyperframes] check: craft 15/599
+[hyperframes] check: craft 16/599
+[hyperframes] check: craft 17/599
+[hyperframes] check: craft 18/599
+[hyperframes] check: craft 19/599
+[hyperframes] check: craft 20/599
+[hyperframes] check: craft 21/599
+[hyperframes] check: craft 22/599
+[hyperframes] check: craft 23/599
+[hyperframes] check: craft 24/599
+[hyperframes] check: craft 25/599
+[hyperframes] check: craft 26/599
+[hyperframes] check: craft 27/599
+[hyperframes] check: craft 28/599
+[hyperframes] check: craft 29/599
+[hyperframes] check: craft 30/599
+[hyperframes] check: craft 31/599
+[hyperframes] check: craft 32/599
+[hyperframes] check: craft 33/599
+[hyperframes] check: craft 34/599
+[hyperframes] check: craft 35/599
+[hyperframes] check: craft 36/599
+[hyperframes] check: craft 37/599
+[hyperframes] check: craft 38/599
+[hyperframes] check: craft 39/599
+[hyperframes] check: craft 40/599
+[hyperframes] check: craft 41/599
+[hyperframes] check: craft 42/599
+[hyperframes] check: craft 43/599
+[hyperframes] check: craft 44/599
+[hyperframes] check: craft 45/599
+[hyperframes] check: craft 46/599
+[hyperframes] check: craft 47/599
+[hyperframes] check: craft 48/599
+[hyperframes] check: craft 49/599
+[hyperframes] check: craft 50/599
+[hyperframes] check: craft 51/599
+[hyperframes] check: craft 52/599
+[hyperframes] check: craft 53/599
+[hyperframes] check: craft 54/599
+[hyperframes] check: craft 55/599
+[hyperframes] check: craft 56/599
+[hyperframes] check: craft 57/599
+[hyperframes] check: craft 58/599
+[hyperframes] check: craft 59/599
+[hyperframes] check: craft 60/599
+[hyperframes] check: craft 61/599
+[hyperframes] check: craft 62/599
+[hyperframes] check: craft 63/599
+[hyperframes] check: craft 64/599
+[hyperframes] check: craft 65/599
+[hyperframes] check: craft 66/599
+[hyperframes] check: craft 67/599
+[hyperframes] check: craft 68/599
+[hyperframes] check: craft 69/599
+[hyperframes] check: craft 70/599
+[hyperframes] check: craft 71/599
+[hyperframes] check: craft 72/599
+[hyperframes] check: craft 73/599
+[hyperframes] check: craft 74/599
+[hyperframes] check: craft 75/599
+[hyperframes] check: craft 76/599
+[hyperframes] check: craft 77/599
+[hyperframes] check: craft 78/599
+[hyperframes] check: craft 79/599
+[hyperframes] check: craft 80/599
+[hyperframes] check: craft 81/599
+[hyperframes] check: craft 82/599
+[hyperframes] check: craft 83/599
+[hyperframes] check: craft 84/599
+[hyperframes] check: craft 85/599
+[hyperframes] check: craft 86/599
+[hyperframes] check: craft 87/599
+[hyperframes] check: craft 88/599
+[hyperframes] check: craft 89/599
+[hyperframes] check: craft 90/599
+[hyperframes] check: craft 91/599
+[hyperframes] check: craft 92/599
+[hyperframes] check: craft 93/599
+[hyperframes] check: craft 94/599
+[hyperframes] check: craft 95/599
+[hyperframes] check: craft 96/599
+[hyperframes] check: craft 97/599
+[hyperframes] check: craft 98/599
+[hyperframes] check: craft 99/599
+[hyperframes] check: craft 100/599
+[hyperframes] check: craft 101/599
+[hyperframes] check: craft 102/599
+[hyperframes] check: craft 103/599
+[hyperframes] check: craft 104/599
+[hyperframes] check: craft 105/599
+[hyperframes] check: craft 106/599
+[hyperframes] check: craft 107/599
+[hyperframes] check: craft 108/599
+[hyperframes] check: craft 109/599
+[hyperframes] check: craft 110/599
+[hyperframes] check: craft 111/599
+[hyperframes] check: craft 112/599
+[hyperframes] check: craft 113/599
+[hyperframes] check: craft 114/599
+[hyperframes] check: craft 115/599
+[hyperframes] check: craft 116/599
+[hyperframes] check: craft 117/599
+[hyperframes] check: craft 118/599
+[hyperframes] check: craft 119/599
+[hyperframes] check: craft 120/599
+[hyperframes] check: craft 121/599
+[hyperframes] check: craft 122/599
+[hyperframes] check: craft 123/599
+[hyperframes] check: craft 124/599
+[hyperframes] check: craft 125/599
+[hyperframes] check: craft 126/599
+[hyperframes] check: craft 127/599
+[hyperframes] check: craft 128/599
+[hyperframes] check: craft 129/599
+[hyperframes] check: craft 130/599
+[hyperframes] check: craft 131/599
+[hyperframes] check: craft 132/599
+[hyperframes] check: craft 133/599
+[hyperframes] check: craft 134/599
+[hyperframes] check: craft 135/599
+[hyperframes] check: craft 136/599
+[hyperframes] check: craft 137/599
+[hyperframes] check: craft 138/599
+[hyperframes] check: craft 139/599
+[hyperframes] check: craft 140/599
+[hyperframes] check: craft 141/599
+[hyperframes] check: craft 142/599
+[hyperframes] check: craft 143/599
+[hyperframes] check: craft 144/599
+[hyperframes] check: craft 145/599
+[hyperframes] check: craft 146/599
+[hyperframes] check: craft 147/599
+[hyperframes] check: craft 148/599
+[hyperframes] check: craft 149/599
+[hyperframes] check: craft 150/599
+[hyperframes] check: craft 151/599
+[hyperframes] check: craft 152/599
+[hyperframes] check: craft 153/599
+[hyperframes] check: craft 154/599
+[hyperframes] check: craft 155/599
+[hyperframes] check: craft 156/599
+[hyperframes] check: craft 157/599
+[hyperframes] check: craft 158/599
+[hyperframes] check: craft 159/599
+[hyperframes] check: craft 160/599
+[hyperframes] check: craft 161/599
+[hyperframes] check: craft 162/599
+[hyperframes] check: craft 163/599
+[hyperframes] check: craft 164/599
+[hyperframes] check: craft 165/599
+[hyperframes] check: craft 166/599
+[hyperframes] check: craft 167/599
+[hyperframes] check: craft 168/599
+[hyperframes] check: craft 169/599
+[hyperframes] check: craft 170/599
+[hyperframes] check: craft 171/599
+[hyperframes] check: craft 172/599
+[hyperframes] check: craft 173/599
+[hyperframes] check: craft 174/599
+[hyperframes] check: craft 175/599
+[hyperframes] check: craft 176/599
+[hyperframes] check: craft 177/599
+[hyperframes] check: craft 178/599
+[hyperframes] check: craft 179/599
+[hyperframes] check: craft 180/599
+[hyperframes] check: craft 181/599
+[hyperframes] check: craft 182/599
+[hyperframes] check: craft 183/599
+[hyperframes] check: craft 184/599
+[hyperframes] check: craft 185/599
+[hyperframes] check: craft 186/599
+[hyperframes] check: craft 187/599
+[hyperframes] check: craft 188/599
+[hyperframes] check: craft 189/599
+[hyperframes] check: craft 190/599
+[hyperframes] check: craft 191/599
+[hyperframes] check: craft 192/599
+[hyperframes] check: craft 193/599
+[hyperframes] check: craft 194/599
+[hyperframes] check: craft 195/599
+[hyperframes] check: craft 196/599
+[hyperframes] check: craft 197/599
+[hyperframes] check: craft 198/599
+[hyperframes] check: craft 199/599
+[hyperframes] check: craft 200/599
+[hyperframes] check: craft 201/599
+[hyperframes] check: craft 202/599
+[hyperframes] check: craft 203/599
+[hyperframes] check: craft 204/599
+[hyperframes] check: craft 205/599
+[hyperframes] check: craft 206/599
+[hyperframes] check: craft 207/599
+[hyperframes] check: craft 208/599
+[hyperframes] check: craft 209/599
+[hyperframes] check: craft 210/599
+[hyperframes] check: craft 211/599
+[hyperframes] check: craft 212/599
+[hyperframes] check: craft 213/599
+[hyperframes] check: craft 214/599
+[hyperframes] check: craft 215/599
+[hyperframes] check: craft 216/599
+[hyperframes] check: craft 217/599
+[hyperframes] check: craft 218/599
+[hyperframes] check: craft 219/599
+[hyperframes] check: craft 220/599
+[hyperframes] check: craft 221/599
+[hyperframes] check: craft 222/599
+[hyperframes] check: craft 223/599
+[hyperframes] check: craft 224/599
+[hyperframes] check: craft 225/599
+[hyperframes] check: craft 226/599
+[hyperframes] check: craft 227/599
+[hyperframes] check: craft 228/599
+[hyperframes] check: craft 229/599
+[hyperframes] check: craft 230/599
+[hyperframes] check: craft 231/599
+[hyperframes] check: craft 232/599
+[hyperframes] check: craft 233/599
+[hyperframes] check: craft 234/599
+[hyperframes] check: craft 235/599
+[hyperframes] check: craft 236/599
+[hyperframes] check: craft 237/599
+[hyperframes] check: craft 238/599
+[hyperframes] check: craft 239/599
+[hyperframes] check: craft 240/599
+[hyperframes] check: craft 241/599
+[hyperframes] check: craft 242/599
+[hyperframes] check: craft 243/599
+[hyperframes] check: craft 244/599
+[hyperframes] check: craft 245/599
+[hyperframes] check: craft 246/599
+[hyperframes] check: craft 247/599
+[hyperframes] check: craft 248/599
+[hyperframes] check: craft 249/599
+[hyperframes] check: craft 250/599
+[hyperframes] check: craft 251/599
+[hyperframes] check: craft 252/599
+[hyperframes] check: craft 253/599
+[hyperframes] check: craft 254/599
+[hyperframes] check: craft 255/599
+[hyperframes] check: craft 256/599
+[hyperframes] check: craft 257/599
+[hyperframes] check: craft 258/599
+[hyperframes] check: craft 259/599
+[hyperframes] check: craft 260/599
+[hyperframes] check: craft 261/599
+[hyperframes] check: craft 262/599
+[hyperframes] check: craft 263/599
+[hyperframes] check: craft 264/599
+[hyperframes] check: craft 265/599
+[hyperframes] check: craft 266/599
+[hyperframes] check: craft 267/599
+[hyperframes] check: craft 268/599
+[hyperframes] check: craft 269/599
+[hyperframes] check: craft 270/599
+[hyperframes] check: craft 271/599
+[hyperframes] check: craft 272/599
+[hyperframes] check: craft 273/599
+[hyperframes] check: craft 274/599
+[hyperframes] check: craft 275/599
+[hyperframes] check: craft 276/599
+[hyperframes] check: craft 277/599
+[hyperframes] check: craft 278/599
+[hyperframes] check: craft 279/599
+[hyperframes] check: craft 280/599
+[hyperframes] check: craft 281/599
+[hyperframes] check: craft 282/599
+[hyperframes] check: craft 283/599
+[hyperframes] check: craft 284/599
+[hyperframes] check: craft 285/599
+[hyperframes] check: craft 286/599
+[hyperframes] check: craft 287/599
+[hyperframes] check: craft 288/599
+[hyperframes] check: craft 289/599
+[hyperframes] check: craft 290/599
+[hyperframes] check: craft 291/599
+[hyperframes] check: craft 292/599
+[hyperframes] check: craft 293/599
+[hyperframes] check: craft 294/599
+[hyperframes] check: craft 295/599
+[hyperframes] check: craft 296/599
+[hyperframes] check: craft 297/599
+[hyperframes] check: craft 298/599
+[hyperframes] check: craft 299/599
+[hyperframes] check: craft 300/599
+[hyperframes] check: craft 301/599
+[hyperframes] check: craft 302/599
+[hyperframes] check: craft 303/599
+[hyperframes] check: craft 304/599
+[hyperframes] check: craft 305/599
+[hyperframes] check: craft 306/599
+[hyperframes] check: craft 307/599
+[hyperframes] check: craft 308/599
+[hyperframes] check: craft 309/599
+[hyperframes] check: craft 310/599
+[hyperframes] check: craft 311/599
+[hyperframes] check: craft 312/599
+[hyperframes] check: craft 313/599
+[hyperframes] check: craft 314/599
+[hyperframes] check: craft 315/599
+[hyperframes] check: craft 316/599
+[hyperframes] check: craft 317/599
+[hyperframes] check: craft 318/599
+[hyperframes] check: craft 319/599
+[hyperframes] check: craft 320/599
+[hyperframes] check: craft 321/599
+[hyperframes] check: craft 322/599
+[hyperframes] check: craft 323/599
+[hyperframes] check: craft 324/599
+[hyperframes] check: craft 325/599
+[hyperframes] check: craft 326/599
+[hyperframes] check: craft 327/599
+[hyperframes] check: craft 328/599
+[hyperframes] check: craft 329/599
+[hyperframes] check: craft 330/599
+[hyperframes] check: craft 331/599
+[hyperframes] check: craft 332/599
+[hyperframes] check: craft 333/599
+[hyperframes] check: craft 334/599
+[hyperframes] check: craft 335/599
+[hyperframes] check: craft 336/599
+[hyperframes] check: craft 337/599
+[hyperframes] check: craft 338/599
+[hyperframes] check: craft 339/599
+[hyperframes] check: craft 340/599
+[hyperframes] check: craft 341/599
+[hyperframes] check: craft 342/599
+[hyperframes] check: craft 343/599
+[hyperframes] check: craft 344/599
+[hyperframes] check: craft 345/599
+[hyperframes] check: craft 346/599
+[hyperframes] check: craft 347/599
+[hyperframes] check: craft 348/599
+[hyperframes] check: craft 349/599
+[hyperframes] check: craft 350/599
+[hyperframes] check: craft 351/599
+[hyperframes] check: craft 352/599
+[hyperframes] check: craft 353/599
+[hyperframes] check: craft 354/599
+[hyperframes] check: craft 355/599
+[hyperframes] check: craft 356/599
+[hyperframes] check: craft 357/599
+[hyperframes] check: craft 358/599
+[hyperframes] check: craft 359/599
+[hyperframes] check: craft 360/599
+[hyperframes] check: craft 361/599
+[hyperframes] check: craft 362/599
+[hyperframes] check: craft 363/599
+[hyperframes] check: craft 364/599
+[hyperframes] check: craft 365/599
+[hyperframes] check: craft 366/599
+[hyperframes] check: craft 367/599
+[hyperframes] check: craft 368/599
+[hyperframes] check: craft 369/599
+[hyperframes] check: craft 370/599
+[hyperframes] check: craft 371/599
+[hyperframes] check: craft 372/599
+[hyperframes] check: craft 373/599
+[hyperframes] check: craft 374/599
+[hyperframes] check: craft 375/599
+[hyperframes] check: craft 376/599
+[hyperframes] check: craft 377/599
+[hyperframes] check: craft 378/599
+[hyperframes] check: craft 379/599
+[hyperframes] check: craft 380/599
+[hyperframes] check: craft 381/599
+[hyperframes] check: craft 382/599
+[hyperframes] check: craft 383/599
+[hyperframes] check: craft 384/599
+[hyperframes] check: craft 385/599
+[hyperframes] check: craft 386/599
+[hyperframes] check: craft 387/599
+[hyperframes] check: craft 388/599
+[hyperframes] check: craft 389/599
+[hyperframes] check: craft 390/599
+[hyperframes] check: craft 391/599
+[hyperframes] check: craft 392/599
+[hyperframes] check: craft 393/599
+[hyperframes] check: craft 394/599
+[hyperframes] check: craft 395/599
+[hyperframes] check: craft 396/599
+[hyperframes] check: craft 397/599
+[hyperframes] check: craft 398/599
+[hyperframes] check: craft 399/599
+[hyperframes] check: craft 400/599
+[hyperframes] check: craft 401/599
+[hyperframes] check: craft 402/599
+[hyperframes] check: craft 403/599
+[hyperframes] check: craft 404/599
+[hyperframes] check: craft 405/599
+[hyperframes] check: craft 406/599
+[hyperframes] check: craft 407/599
+[hyperframes] check: craft 408/599
+[hyperframes] check: craft 409/599
+[hyperframes] check: craft 410/599
+[hyperframes] check: craft 411/599
+[hyperframes] check: craft 412/599
+[hyperframes] check: craft 413/599
+[hyperframes] check: craft 414/599
+[hyperframes] check: craft 415/599
+[hyperframes] check: craft 416/599
+[hyperframes] check: craft 417/599
+[hyperframes] check: craft 418/599
+[hyperframes] check: craft 419/599
+[hyperframes] check: craft 420/599
+[hyperframes] check: craft 421/599
+[hyperframes] check: craft 422/599
+[hyperframes] check: craft 423/599
+[hyperframes] check: craft 424/599
+[hyperframes] check: craft 425/599
+[hyperframes] check: craft 426/599
+[hyperframes] check: craft 427/599
+[hyperframes] check: craft 428/599
+[hyperframes] check: craft 429/599
+[hyperframes] check: craft 430/599
+[hyperframes] check: craft 431/599
+[hyperframes] check: craft 432/599
+[hyperframes] check: craft 433/599
+[hyperframes] check: craft 434/599
+[hyperframes] check: craft 435/599
+[hyperframes] check: craft 436/599
+[hyperframes] check: craft 437/599
+[hyperframes] check: craft 438/599
+[hyperframes] check: craft 439/599
+[hyperframes] check: craft 440/599
+[hyperframes] check: craft 441/599
+[hyperframes] check: craft 442/599
+[hyperframes] check: craft 443/599
+[hyperframes] check: craft 444/599
+[hyperframes] check: craft 445/599
+[hyperframes] check: craft 446/599
+[hyperframes] check: craft 447/599
+[hyperframes] check: craft 448/599
+[hyperframes] check: craft 449/599
+[hyperframes] check: craft 450/599
+[hyperframes] check: craft 451/599
+[hyperframes] check: craft 452/599
+[hyperframes] check: craft 453/599
+[hyperframes] check: craft 454/599
+[hyperframes] check: craft 455/599
+[hyperframes] check: craft 456/599
+[hyperframes] check: craft 457/599
+[hyperframes] check: craft 458/599
+[hyperframes] check: craft 459/599
+[hyperframes] check: craft 460/599
+[hyperframes] check: craft 461/599
+[hyperframes] check: craft 462/599
+[hyperframes] check: craft 463/599
+[hyperframes] check: craft 464/599
+[hyperframes] check: craft 465/599
+[hyperframes] check: craft 466/599
+[hyperframes] check: craft 467/599
+[hyperframes] check: craft 468/599
+[hyperframes] check: craft 469/599
+[hyperframes] check: craft 470/599
+[hyperframes] check: craft 471/599
+[hyperframes] check: craft 472/599
+[hyperframes] check: craft 473/599
+[hyperframes] check: craft 474/599
+[hyperframes] check: craft 475/599
+[hyperframes] check: craft 476/599
+[hyperframes] check: craft 477/599
+[hyperframes] check: craft 478/599
+[hyperframes] check: craft 479/599
+[hyperframes] check: craft 480/599
+[hyperframes] check: craft 481/599
+[hyperframes] check: craft 482/599
+[hyperframes] check: craft 483/599
+[hyperframes] check: craft 484/599
+[hyperframes] check: craft 485/599
+[hyperframes] check: craft 486/599
+[hyperframes] check: craft 487/599
+[hyperframes] check: craft 488/599
+[hyperframes] check: craft 489/599
+[hyperframes] check: craft 490/599
+[hyperframes] check: craft 491/599
+[hyperframes] check: craft 492/599
+[hyperframes] check: craft 493/599
+[hyperframes] check: craft 494/599
+[hyperframes] check: craft 495/599
+[hyperframes] check: craft 496/599
+[hyperframes] check: craft 497/599
+[hyperframes] check: craft 498/599
+[hyperframes] check: craft 499/599
+[hyperframes] check: craft 500/599
+[hyperframes] check: craft 501/599
+[hyperframes] check: craft 502/599
+[hyperframes] check: craft 503/599
+[hyperframes] check: craft 504/599
+[hyperframes] check: craft 505/599
+[hyperframes] check: craft 506/599
+[hyperframes] check: craft 507/599
+[hyperframes] check: craft 508/599
+[hyperframes] check: craft 509/599
+[hyperframes] check: craft 510/599
+[hyperframes] check: craft 511/599
+[hyperframes] check: craft 512/599
+[hyperframes] check: craft 513/599
+[hyperframes] check: craft 514/599
+[hyperframes] check: craft 515/599
+[hyperframes] check: craft 516/599
+[hyperframes] check: craft 517/599
+[hyperframes] check: craft 518/599
+[hyperframes] check: craft 519/599
+[hyperframes] check: craft 520/599
+[hyperframes] check: craft 521/599
+[hyperframes] check: craft 522/599
+[hyperframes] check: craft 523/599
+[hyperframes] check: craft 524/599
+[hyperframes] check: craft 525/599
+[hyperframes] check: craft 526/599
+[hyperframes] check: craft 527/599
+[hyperframes] check: craft 528/599
+[hyperframes] check: craft 529/599
+[hyperframes] check: craft 530/599
+[hyperframes] check: craft 531/599
+[hyperframes] check: craft 532/599
+[hyperframes] check: craft 533/599
+[hyperframes] check: craft 534/599
+[hyperframes] check: craft 535/599
+[hyperframes] check: craft 536/599
+[hyperframes] check: craft 537/599
+[hyperframes] check: craft 538/599
+[hyperframes] check: craft 539/599
+[hyperframes] check: craft 540/599
+[hyperframes] check: craft 541/599
+[hyperframes] check: craft 542/599
+[hyperframes] check: craft 543/599
+[hyperframes] check: craft 544/599
+[hyperframes] check: craft 545/599
+[hyperframes] check: craft 546/599
+[hyperframes] check: craft 547/599
+[hyperframes] check: craft 548/599
+[hyperframes] check: craft 549/599
+[hyperframes] check: craft 550/599
+[hyperframes] check: craft 551/599
+[hyperframes] check: craft 552/599
+[hyperframes] check: craft 553/599
+[hyperframes] check: craft 554/599
+[hyperframes] check: craft 555/599
+[hyperframes] check: craft 556/599
+[hyperframes] check: craft 557/599
+[hyperframes] check: craft 558/599
+[hyperframes] check: craft 559/599
+[hyperframes] check: craft 560/599
+[hyperframes] check: craft 561/599
+[hyperframes] check: craft 562/599
+[hyperframes] check: craft 563/599
+[hyperframes] check: craft 564/599
+[hyperframes] check: craft 565/599
+[hyperframes] check: craft 566/599
+[hyperframes] check: craft 567/599
+[hyperframes] check: craft 568/599
+[hyperframes] check: craft 569/599
+[hyperframes] check: craft 570/599
+[hyperframes] check: craft 571/599
+[hyperframes] check: craft 572/599
+[hyperframes] check: craft 573/599
+[hyperframes] check: craft 574/599
+[hyperframes] check: craft 575/599
+[hyperframes] check: craft 576/599
+[hyperframes] check: craft 577/599
+[hyperframes] check: craft 578/599
+[hyperframes] check: craft 579/599
+[hyperframes] check: craft 580/599
+[hyperframes] check: craft 581/599
+[hyperframes] check: craft 582/599
+[hyperframes] check: craft 583/599
+[hyperframes] check: craft 584/599
+[hyperframes] check: craft 585/599
+[hyperframes] check: craft 586/599
+[hyperframes] check: craft 587/599
+[hyperframes] check: craft 588/599
+[hyperframes] check: craft 589/599
+[hyperframes] check: craft 590/599
+[hyperframes] check: craft 591/599
+[hyperframes] check: craft 592/599
+[hyperframes] check: craft 593/599
+[hyperframes] check: craft 594/599
+[hyperframes] check: craft 595/599
+[hyperframes] check: craft 596/599
+[hyperframes] check: craft 597/599
+[hyperframes] check: craft 598/599
+[hyperframes] check: craft 599/599
+[hyperframes] check: overlap 1/22
+[hyperframes] check: overlap 2/22
+[hyperframes] check: overlap 3/22
+[hyperframes] check: overlap 4/22
+[hyperframes] check: overlap 5/22
+[hyperframes] check: overlap 6/22
+[hyperframes] check: overlap 7/22
+[hyperframes] check: overlap 8/22
+[hyperframes] check: overlap 9/22
+[hyperframes] check: overlap 10/22
+[hyperframes] check: overlap 11/22
+[hyperframes] check: overlap 12/22
+[hyperframes] check: overlap 13/22
+[hyperframes] check: overlap 14/22
+[hyperframes] check: overlap 15/22
+[hyperframes] check: overlap 16/22
+[hyperframes] check: overlap 17/22
+[hyperframes] check: overlap 18/22
+[hyperframes] check: overlap 19/22
+[hyperframes] check: overlap 20/22
+[hyperframes] check: overlap 21/22
+[hyperframes] check: overlap 22/22
+[hyperframes] check: checking samples
+[hyperframes] check: analyze 0/3
+[hyperframes] check: analyzing the samples
+[hyperframes] check: analyze 1/3
+[hyperframes] check: analyze 2/3
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 18,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_media_start_basis_ambiguous",
+        "severity": "warning",
+        "message": "<video id=\"ac-v2\"> has data-start=\"10\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+        "selector": "#ac-v2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\act.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Keep data-start=\"10\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "3 tl.fromTo() calls target \"proxy (unresolved DOM association)\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "proxy (unresolved DOM association)",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\act.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 28s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 8 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\act.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_media_start_basis_ambiguous",
+        "severity": "warning",
+        "message": "<video id=\"ay-v2\"> has data-start=\"3.5\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+        "selector": "#ay-v2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Keep data-start=\"3.5\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+      },
+      {
+        "code": "nested_media_start_basis_ambiguous",
+        "severity": "warning",
+        "message": "<video id=\"ay-v3\"> has data-start=\"8.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+        "selector": "#ay-v3",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Keep data-start=\"8.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#ay-pk1\" for attr between 39.50s and 40.50s.",
+        "selector": "#ay-pk1",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#ay-pk2\" for attr between 40.50s and 41.00s.",
+        "selector": "#ay-pk2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#ay-pk3\" for attr between 41.20s and 41.80s.",
+        "selector": "#ay-pk3",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "4 tl.fromTo() calls target \"#ay-pk1\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#ay-pk1",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 39.5s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "4 tl.fromTo() calls target \"#ay-pk2\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#ay-pk2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 40.5s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "4 tl.fromTo() calls target \"#ay-pk3\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#ay-pk3",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 41.2s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 9 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\anycity.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_media_start_basis_ambiguous",
+        "severity": "warning",
+        "message": "<video id=\"de-v2\"> has data-start=\"21.5\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+        "selector": "#de-v2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\decide.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Keep data-start=\"21.5\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+      },
+      {
+        "code": "nested_media_start_basis_ambiguous",
+        "severity": "warning",
+        "message": "<video id=\"de-v3\"> has data-start=\"31\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+        "selector": "#de-v3",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\decide.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Keep data-start=\"31\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 8 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\decide.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 8 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\perceive.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 8 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\problem.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "This HTML file has 7 timed elements. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\bms_app\\ihack_water\\video\\film\\compositions\\results.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 8
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "connector_orphan",
+        "severity": "info",
+        "time": 273.889,
+        "selector": "#ay-hw > svg:nth-of-type(1) > path:nth-of-type(1)",
+        "message": "Connector shaft is visible while both endpoints are not on stage.",
+        "rect": {
+          "left": 540,
+          "top": 330,
+          "right": 880,
+          "bottom": 510,
+          "width": 340,
+          "height": 180
+        },
+        "containerSelector": "#ay-hw > svg:nth-of-type(1)",
+        "fixHint": "Show the shaft only after both ends are on, and hide it with the earlier exit. Do not give the line its own clock.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/anycity.html",
+        "bbox": {
+          "x": 540,
+          "y": 330,
+          "width": 340,
+          "height": 180
+        },
+        "firstSeen": 273.889,
+        "lastSeen": 273.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          273.889
+        ]
+      },
+      {
+        "code": "connector_orphan",
+        "severity": "info",
+        "time": 273.889,
+        "selector": "#ay-hw > svg:nth-of-type(1) > path:nth-of-type(3)",
+        "message": "Connector shaft is visible while both endpoints are not on stage.",
+        "rect": {
+          "left": 1140,
+          "top": 450,
+          "right": 1250,
+          "bottom": 510,
+          "width": 110,
+          "height": 60
+        },
+        "containerSelector": "#ay-hw > svg:nth-of-type(1)",
+        "fixHint": "Show the shaft only after both ends are on, and hide it with the earlier exit. Do not give the line its own clock.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/anycity.html",
+        "bbox": {
+          "x": 1140,
+          "y": 450,
+          "width": 110,
+          "height": 60
+        },
+        "firstSeen": 273.889,
+        "lastSeen": 273.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          273.889
+        ]
+      },
+      {
+        "code": "connector_orphan",
+        "severity": "info",
+        "time": 273.889,
+        "selector": "#ay-hw > svg:nth-of-type(1) > path:nth-of-type(4)",
+        "message": "Connector shaft is visible while both endpoints are not on stage.",
+        "rect": {
+          "left": 1140,
+          "top": 580,
+          "right": 1250,
+          "bottom": 620,
+          "width": 110,
+          "height": 40
+        },
+        "containerSelector": "#ay-hw > svg:nth-of-type(1)",
+        "fixHint": "Show the shaft only after both ends are on, and hide it with the earlier exit. Do not give the line its own clock.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/anycity.html",
+        "bbox": {
+          "x": 1140,
+          "y": 580,
+          "width": 110,
+          "height": 40
+        },
+        "firstSeen": 273.889,
+        "lastSeen": 273.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          273.889
+        ]
+      }
+    ],
+    "duration": 290,
+    "samples": [
+      16.111,
+      48.333,
+      80.556,
+      112.778,
+      145,
+      177.222,
+      209.444,
+      241.667,
+      273.889
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false,
+    "faceCheck": {
+      "ran": true,
+      "candidates": 7,
+      "faces": 0
+    }
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      16.111,
+      80.556,
+      145,
+      209.444,
+      273.889
+    ],
+    "checked": 84,
+    "passed": 84
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 15,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 290 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 7 text elements stay under it for 0.5 s or more, the smallest \"LONDON · THAMES WATER\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "LONDON · THAMES WATER",
+        "selector": "#pr-c1 > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/problem.html",
+        "bbox": {
+          "x": 273,
+          "y": 285.66,
+          "width": 309.16,
+          "height": 26
+        },
+        "time": 12.588,
+        "times": [
+          12.588,
+          12.588,
+          13.556,
+          13.556,
+          14.04,
+          14.04,
+          27.596
+        ],
+        "fontPx": 22,
+        "floorPx": 28,
+        "seconds": 12.587,
+        "elements": [
+          {
+            "selector": "#pr-c1 > div:nth-of-type(1)",
+            "text": "LONDON · THAMES WATER",
+            "fontPx": 22,
+            "time": 12.588,
+            "seconds": 12.587
+          },
+          {
+            "selector": "#pr-c2 > div:nth-of-type(1)",
+            "text": "VALENCIA · GLOBAL OMNIUM",
+            "fontPx": 22,
+            "time": 13.556,
+            "seconds": 11.619
+          },
+          {
+            "selector": "#pr-c3 > div:nth-of-type(1)",
+            "text": "WASHINGTON · DC WATER",
+            "fontPx": 22,
+            "time": 14.04,
+            "seconds": 11.135
+          },
+          {
+            "selector": "#pr-track",
+            "text": "i-Hack 2026 · TIH Physical AI Hackathon · Track 4: AI in Water Management",
+            "fontPx": 24,
+            "time": 27.596,
+            "seconds": 7.746
+          },
+          {
+            "selector": "#pr-c1 > div:nth-of-type(3)",
+            "text": "acoustic sensors read by AI, with satellite data",
+            "fontPx": 26,
+            "time": 12.588,
+            "seconds": 12.587
+          },
+          {
+            "selector": "#pr-c2 > div:nth-of-type(3)",
+            "text": "of the whole network, running on live pressure and flow",
+            "fontPx": 26,
+            "time": 13.556,
+            "seconds": 11.619
+          },
+          {
+            "selector": "#pr-c3 > div:nth-of-type(3)",
+            "text": "pressure sensors triangulating leaks in near real time",
+            "fontPx": 26,
+            "time": 14.04,
+            "seconds": 11.135
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.36 s (14.52–18.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 14.524,
+        "seconds": 4.357,
+        "floorSeconds": 3,
+        "until": 18.881
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 4.84 s (19.85–24.69 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 19.85,
+        "seconds": 4.841,
+        "floorSeconds": 3,
+        "until": 24.691
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 6.29 s (28.08–34.37 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 28.08,
+        "seconds": 6.294,
+        "floorSeconds": 3,
+        "until": 34.374
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 10 text elements stay under it for 0.5 s or more, the smallest \"DESIGN · STAGE 3 PROTOTYPE\" at 15 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "DESIGN · STAGE 3 PROTOTYPE",
+        "selector": "div.d",
+        "dataAttributes": {},
+        "sourceFile": "compositions/perceive.html",
+        "bbox": {
+          "x": 1278.64,
+          "y": 521,
+          "width": 249.61,
+          "height": 19
+        },
+        "time": 50.351,
+        "times": [
+          35.342,
+          38.731,
+          41.636,
+          44.541,
+          50.351,
+          50.351,
+          50.835,
+          50.835,
+          50.835,
+          50.835
+        ],
+        "fontPx": 15,
+        "floorPx": 28,
+        "seconds": 14.04,
+        "elements": [
+          {
+            "selector": "div.d",
+            "text": "DESIGN · STAGE 3 PROTOTYPE",
+            "fontPx": 15,
+            "time": 50.351,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#pe-node > ul:nth-of-type(1) > li:nth-of-type(1)",
+            "text": "ESP32 microcontroller",
+            "fontPx": 19,
+            "time": 50.835,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#pe-node > ul:nth-of-type(1) > li:nth-of-type(2)",
+            "text": "0–10 bar pressure transducer",
+            "fontPx": 19,
+            "time": 50.835,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#pe-node > ul:nth-of-type(1) > li:nth-of-type(3)",
+            "text": "16-bit ADC (ADS1115)",
+            "fontPx": 19,
+            "time": 50.835,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#pe-node > ul:nth-of-type(1) > li:nth-of-type(4)",
+            "text": "LoRa radio, 2+ years on battery",
+            "fontPx": 19,
+            "time": 50.835,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#pe-chip > span:nth-of-type(1)",
+            "text": "02",
+            "fontPx": 20,
+            "time": 35.342,
+            "seconds": 30.017
+          },
+          {
+            "selector": "#pe-c1 > div:nth-of-type(2)",
+            "text": "pressure loggers on the mains",
+            "fontPx": 20,
+            "time": 38.731,
+            "seconds": 7.746
+          },
+          {
+            "selector": "#pe-c2 > div:nth-of-type(2)",
+            "text": "smart water meters (district C)",
+            "fontPx": 20,
+            "time": 41.636,
+            "seconds": 7.746
+          },
+          {
+            "selector": "#pe-c3 > div:nth-of-type(2)",
+            "text": "found automatically from the meters",
+            "fontPx": 20,
+            "time": 44.541,
+            "seconds": 7.746
+          },
+          {
+            "selector": "#pe-node > div:nth-of-type(1)",
+            "text": "AquaTwin pressure node",
+            "fontPx": 22,
+            "time": 50.351,
+            "seconds": 14.04
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 13 text elements stay under it for 0.5 s or more, the smallest \"1 · BALANCE\" at 13 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "1 · BALANCE",
+        "selector": "#de-s1 > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/decide.html",
+        "bbox": {
+          "x": 973,
+          "y": 32,
+          "width": 94.39,
+          "height": 17
+        },
+        "time": 65.843,
+        "times": [
+          65.359,
+          65.843,
+          65.843,
+          72.137,
+          72.137,
+          78.431,
+          78.431,
+          87.145,
+          87.145,
+          125.392,
+          125.392,
+          126.361,
+          126.361
+        ],
+        "fontPx": 13,
+        "floorPx": 28,
+        "seconds": 30.017,
+        "elements": [
+          {
+            "selector": "#de-s1 > div:nth-of-type(1)",
+            "text": "1 · BALANCE",
+            "fontPx": 13,
+            "time": 65.843,
+            "seconds": 30.017
+          },
+          {
+            "selector": "#de-s2 > div:nth-of-type(1)",
+            "text": "2 · LEARN",
+            "fontPx": 13,
+            "time": 72.137,
+            "seconds": 23.723
+          },
+          {
+            "selector": "#de-s3 > div:nth-of-type(1)",
+            "text": "3 · DETECT",
+            "fontPx": 13,
+            "time": 78.431,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#de-s4 > div:nth-of-type(1)",
+            "text": "4 · LOCATE",
+            "fontPx": 13,
+            "time": 87.145,
+            "seconds": 8.715
+          },
+          {
+            "selector": "#de-s1 > div:nth-of-type(2)",
+            "text": "Water balance or night flow",
+            "fontPx": 14,
+            "time": 65.843,
+            "seconds": 30.017
+          },
+          {
+            "selector": "#de-s2 > div:nth-of-type(2)",
+            "text": "Normal week, noise",
+            "fontPx": 14,
+            "time": 72.137,
+            "seconds": 23.723
+          },
+          {
+            "selector": "#de-s3 > div:nth-of-type(2)",
+            "text": "Rise above 4× noise",
+            "fontPx": 14,
+            "time": 78.431,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#de-s4 > div:nth-of-type(2)",
+            "text": "Match twin signatures",
+            "fontPx": 14,
+            "time": 87.145,
+            "seconds": 8.715
+          },
+          {
+            "selector": "#de-chip > span:nth-of-type(1)",
+            "text": "03",
+            "fontPx": 20,
+            "time": 65.359,
+            "seconds": 64.875
+          },
+          {
+            "selector": "#de-h1 > div:nth-of-type(1)",
+            "text": "FLOW",
+            "fontPx": 22,
+            "time": 125.392,
+            "seconds": 4.842
+          },
+          {
+            "selector": "#de-h2 > div:nth-of-type(1)",
+            "text": "PRESSURE",
+            "fontPx": 22,
+            "time": 126.361,
+            "seconds": 3.873
+          },
+          {
+            "selector": "#de-h1 > div:nth-of-type(3)",
+            "text": "The night-flow rise gives the leak size in m³/h.",
+            "fontPx": 26,
+            "time": 125.392,
+            "seconds": 4.842
+          },
+          {
+            "selector": "#de-h2 > div:nth-of-type(3)",
+            "text": "The pattern of pressure drops points to the pipe.",
+            "fontPx": 26,
+            "time": 126.361,
+            "seconds": 3.873
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 10 text elements stay under it for 0.5 s or more, the smallest \"VALVE ISOLATION\" at 18 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "VALVE ISOLATION",
+        "selector": "#ac-st1 > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/act.html",
+        "bbox": {
+          "x": 271,
+          "y": 315,
+          "width": 183.61,
+          "height": 23
+        },
+        "time": 158.314,
+        "times": [
+          130.234,
+          130.718,
+          141.369,
+          147.663,
+          158.314,
+          158.314,
+          158.798,
+          158.798,
+          159.282,
+          159.282
+        ],
+        "fontPx": 18,
+        "floorPx": 28,
+        "seconds": 16.945,
+        "elements": [
+          {
+            "selector": "#ac-st1 > div:nth-of-type(1)",
+            "text": "VALVE ISOLATION",
+            "fontPx": 18,
+            "time": 158.314,
+            "seconds": 16.945
+          },
+          {
+            "selector": "#ac-st2 > div:nth-of-type(1)",
+            "text": "SMART PRESSURE",
+            "fontPx": 18,
+            "time": 158.798,
+            "seconds": 16.461
+          },
+          {
+            "selector": "#ac-st3 > div:nth-of-type(1)",
+            "text": "WATER QUALITY",
+            "fontPx": 18,
+            "time": 159.282,
+            "seconds": 15.977
+          },
+          {
+            "selector": "#ac-chip > span:nth-of-type(1)",
+            "text": "04",
+            "fontPx": 20,
+            "time": 130.234,
+            "seconds": 45.025
+          },
+          {
+            "selector": "#ac-t1",
+            "text": "Dispatch a crew · close the isolation valves",
+            "fontPx": 20,
+            "time": 130.718,
+            "seconds": 9.198
+          },
+          {
+            "selector": "#ac-t2",
+            "text": "Smart pressure management: saving per junction",
+            "fontPx": 20,
+            "time": 141.369,
+            "seconds": 5.809
+          },
+          {
+            "selector": "#ac-t3",
+            "text": "Water quality: chlorine residual and water age",
+            "fontPx": 20,
+            "time": 147.663,
+            "seconds": 9.682
+          },
+          {
+            "selector": "#ac-st1 > div:nth-of-type(3)",
+            "text": "of simulated tests where closing the valves on the right node stopped the leak flow completely",
+            "fontPx": 25,
+            "time": 158.314,
+            "seconds": 16.945
+          },
+          {
+            "selector": "#ac-st2 > div:nth-of-type(3)",
+            "text": "saved on the real 2019 leaks (17 %), every home kept above 17 m. Leakage −21 % in district A, −38 % in B",
+            "fontPx": 25,
+            "time": 158.798,
+            "seconds": 16.461
+          },
+          {
+            "selector": "#ac-st3 > div:nth-of-type(3)",
+            "text": "below the 0.2 mg/L chlorine minimum, and 5 chlorine sensor sites recommended. Simulated from the twin",
+            "fontPx": 25,
+            "time": 159.282,
+            "seconds": 15.977
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 14.53 s (160.25–174.78 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 160.25,
+        "seconds": 14.525,
+        "floorSeconds": 3,
+        "until": 174.775
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 23 text elements stay under it for 0.5 s or more, the smallest \"05\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "05",
+        "selector": "#re-chip > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/results.html",
+        "bbox": {
+          "x": 290,
+          "y": 64.05,
+          "width": 24,
+          "height": 27
+        },
+        "time": 175.259,
+        "times": [
+          175.259,
+          175.743,
+          197.529,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.013,
+          198.497,
+          198.497,
+          198.497,
+          198.497,
+          198.497,
+          200.918,
+          213.506
+        ],
+        "fontPx": 20,
+        "floorPx": 28,
+        "seconds": 45.025,
+        "elements": [
+          {
+            "selector": "#re-chip > span:nth-of-type(1)",
+            "text": "05",
+            "fontPx": 20,
+            "time": 175.259,
+            "seconds": 45.025
+          },
+          {
+            "selector": "#re-t1",
+            "text": "Answer key on: green = real leak, red = false alarm",
+            "fontPx": 20,
+            "time": 175.743,
+            "seconds": 20.818
+          },
+          {
+            "selector": "div.row.us > div:nth-of-type(4)",
+            "text": "15/23 · 6 false",
+            "fontPx": 20,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(4) > div:nth-of-type(4)",
+            "text": "56% · 3 false",
+            "fontPx": 20,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(5) > div:nth-of-type(4)",
+            "text": "65% · 4 false",
+            "fontPx": 20,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(6) > div:nth-of-type(4)",
+            "text": "43% · 1 false",
+            "fontPx": 20,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(7) > div:nth-of-type(4)",
+            "text": "47% · 7 false",
+            "fontPx": 20,
+            "time": 198.497,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(8) > div:nth-of-type(4)",
+            "text": "47% · 5 false",
+            "fontPx": 20,
+            "time": 198.497,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#re-note",
+            "text": "The 2020 teams submitted blind; the 2019 answer key is public now. We developed on 2018 and list every choice made after seeing 2019 in our repository. Fair claim: competitive with the best published methods.",
+            "fontPx": 22,
+            "time": 200.918,
+            "seconds": 11.135
+          },
+          {
+            "selector": "#re-sub",
+            "text": "18 teams from 13 countries · official scoring: water saved minus crew costs",
+            "fontPx": 24,
+            "time": 197.529,
+            "seconds": 14.524
+          },
+          {
+            "selector": "div.row.us > div:nth-of-type(1)",
+            "text": "AquaTwin (ours)",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "div.row.us > div:nth-of-type(3)",
+            "text": "€303k",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(4) > div:nth-of-type(1)",
+            "text": "Tongji (China)",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(4) > div:nth-of-type(3)",
+            "text": "€265k",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(5) > div:nth-of-type(1)",
+            "text": "Under Pressure (NL/DE/FR)",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(5) > div:nth-of-type(3)",
+            "text": "€261k",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(6) > div:nth-of-type(1)",
+            "text": "IRI (Spain/France)",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(6) > div:nth-of-type(3)",
+            "text": "€211k",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(7) > div:nth-of-type(1)",
+            "text": "Leakbusters (DE/US)",
+            "fontPx": 26,
+            "time": 198.013,
+            "seconds": 14.04
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(7) > div:nth-of-type(3)",
+            "text": "€195k",
+            "fontPx": 26,
+            "time": 198.497,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(8) > div:nth-of-type(1)",
+            "text": "Tsinghua (China)",
+            "fontPx": 26,
+            "time": 198.497,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#re-board > div:nth-of-type(8) > div:nth-of-type(3)",
+            "text": "€168k",
+            "fontPx": 26,
+            "time": 198.497,
+            "seconds": 13.556
+          },
+          {
+            "selector": "#re-ub",
+            "text": "EPANET Net3, 90 days of simulated SCADA, set up automatically from its network file, no tuning.",
+            "fontPx": 26,
+            "time": 213.506,
+            "seconds": 6.778
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 10.17 s (201.40–211.57 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 201.402,
+        "seconds": 10.167,
+        "floorSeconds": 3,
+        "until": 211.569
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 5.33 s (213.99–219.32 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 213.99,
+        "seconds": 5.326,
+        "floorSeconds": 3,
+        "until": 219.316
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 36 text elements stay under it for 0.5 s or more, the smallest \"ESP32 · 0–10 bar\" at 17 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "ESP32 · 0–10 bar",
+        "selector": "#ay-n1 > text:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/anycity.html",
+        "bbox": {
+          "x": 278,
+          "y": 590,
+          "width": 135.48,
+          "height": 20
+        },
+        "time": 255.142,
+        "times": [
+          220.284,
+          220.768,
+          224.157,
+          228.998,
+          254.658,
+          255.142,
+          255.142,
+          255.142,
+          255.142,
+          255.626,
+          255.626,
+          255.626,
+          255.626,
+          256.11,
+          256.11,
+          256.11,
+          256.11,
+          256.594,
+          256.594,
+          256.594,
+          257.078,
+          257.078,
+          257.078,
+          257.078,
+          257.078,
+          257.563,
+          257.563,
+          257.563,
+          257.563,
+          258.047,
+          258.047,
+          258.047,
+          258.047,
+          259.015,
+          259.015,
+          259.015
+        ],
+        "fontPx": 17,
+        "floorPx": 28,
+        "seconds": 20.334,
+        "elements": [
+          {
+            "selector": "#ay-n1 > text:nth-of-type(3)",
+            "text": "ESP32 · 0–10 bar",
+            "fontPx": 17,
+            "time": 255.142,
+            "seconds": 20.334
+          },
+          {
+            "selector": "#ay-n2 > text:nth-of-type(3)",
+            "text": "ESP32 · 0–10 bar",
+            "fontPx": 17,
+            "time": 255.626,
+            "seconds": 19.85
+          },
+          {
+            "selector": "#ay-n3 > text:nth-of-type(3)",
+            "text": "existing SCADA",
+            "fontPx": 17,
+            "time": 256.11,
+            "seconds": 19.366
+          },
+          {
+            "selector": "#ay-gw > text:nth-of-type(2)",
+            "text": "433 / 865 MHz",
+            "fontPx": 17,
+            "time": 256.594,
+            "seconds": 18.882
+          },
+          {
+            "selector": "#ay-gw > text:nth-of-type(3)",
+            "text": "tested ESP32 + RA-02 link",
+            "fontPx": 17,
+            "time": 256.594,
+            "seconds": 18.882
+          },
+          {
+            "selector": "#ay-ai > text:nth-of-type(2)",
+            "text": "EPANET model of the network",
+            "fontPx": 17,
+            "time": 257.078,
+            "seconds": 18.398
+          },
+          {
+            "selector": "#ay-ai > text:nth-of-type(3)",
+            "text": "detect · locate · schedule",
+            "fontPx": 17,
+            "time": 257.078,
+            "seconds": 18.398
+          },
+          {
+            "selector": "#ay-ai > text:nth-of-type(4)",
+            "text": "water quality",
+            "fontPx": 17,
+            "time": 257.078,
+            "seconds": 18.398
+          },
+          {
+            "selector": "#ay-vn > text:nth-of-type(2)",
+            "text": "ESP32 + relay + motorised valve,",
+            "fontPx": 17,
+            "time": 257.563,
+            "seconds": 17.913
+          },
+          {
+            "selector": "#ay-vn > text:nth-of-type(3)",
+            "text": "limit-switch feedback; PRV pilot",
+            "fontPx": 17,
+            "time": 257.563,
+            "seconds": 17.913
+          },
+          {
+            "selector": "#ay-qn > text:nth-of-type(2)",
+            "text": "ESP32 + chlorine (ORP) and",
+            "fontPx": 17,
+            "time": 258.047,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#ay-qn > text:nth-of-type(3)",
+            "text": "turbidity probes",
+            "fontPx": 17,
+            "time": 258.047,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#ay-lab",
+            "text": "DESIGN · STAGE 3 PROTOTYPE AND PILOT",
+            "fontPx": 18,
+            "time": 254.658,
+            "seconds": 20.818
+          },
+          {
+            "selector": "#ay-n1 > text:nth-of-type(4)",
+            "text": "₹4,650",
+            "fontPx": 18,
+            "time": 255.142,
+            "seconds": 20.334
+          },
+          {
+            "selector": "#ay-n2 > text:nth-of-type(4)",
+            "text": "₹4,650",
+            "fontPx": 18,
+            "time": 255.626,
+            "seconds": 19.85
+          },
+          {
+            "selector": "#ay-n3 > text:nth-of-type(4)",
+            "text": "reused",
+            "fontPx": 18,
+            "time": 256.11,
+            "seconds": 19.366
+          },
+          {
+            "selector": "#ay-ai > text:nth-of-type(5)",
+            "text": "local server or cloud",
+            "fontPx": 18,
+            "time": 257.078,
+            "seconds": 18.398
+          },
+          {
+            "selector": "#ay-vn > text:nth-of-type(4)",
+            "text": "isolate leaks · pressure schedule",
+            "fontPx": 18,
+            "time": 257.563,
+            "seconds": 17.913
+          },
+          {
+            "selector": "#ay-qn > text:nth-of-type(4)",
+            "text": "≈ ₹2,500 extra",
+            "fontPx": 18,
+            "time": 258.047,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#ay-chip > span:nth-of-type(1)",
+            "text": "06",
+            "fontPx": 20,
+            "time": 220.284,
+            "seconds": 55.192
+          },
+          {
+            "selector": "#ay-t1",
+            "text": "Upload any EPANET network, with or without SCADA data",
+            "fontPx": 20,
+            "time": 220.768,
+            "seconds": 2.905
+          },
+          {
+            "selector": "#ay-t2",
+            "text": "A different city (Net3), drawn from its own network file",
+            "fontPx": 20,
+            "time": 224.157,
+            "seconds": 4.357
+          },
+          {
+            "selector": "#ay-t3",
+            "text": "Sensor planner: coverage and cost for 1 to 31 loggers",
+            "fontPx": 20,
+            "time": 228.998,
+            "seconds": 25.175
+          },
+          {
+            "selector": "#ay-rig > text:nth-of-type(3)",
+            "text": "Pilot: one district of 2,000–5,000 connections, about ₹50,000 of sensors.",
+            "fontPx": 20,
+            "time": 259.015,
+            "seconds": 16.461
+          },
+          {
+            "selector": "#ay-n1 > text:nth-of-type(1)",
+            "text": "Pressure",
+            "fontPx": 22,
+            "time": 255.142,
+            "seconds": 20.334
+          },
+          {
+            "selector": "#ay-n1 > text:nth-of-type(2)",
+            "text": "node",
+            "fontPx": 22,
+            "time": 255.142,
+            "seconds": 20.334
+          },
+          {
+            "selector": "#ay-n2 > text:nth-of-type(1)",
+            "text": "Pressure",
+            "fontPx": 22,
+            "time": 255.626,
+            "seconds": 19.85
+          },
+          {
+            "selector": "#ay-n2 > text:nth-of-type(2)",
+            "text": "node",
+            "fontPx": 22,
+            "time": 255.626,
+            "seconds": 19.85
+          },
+          {
+            "selector": "#ay-n3 > text:nth-of-type(1)",
+            "text": "Flow + tank",
+            "fontPx": 22,
+            "time": 256.11,
+            "seconds": 19.366
+          },
+          {
+            "selector": "#ay-n3 > text:nth-of-type(2)",
+            "text": "meters",
+            "fontPx": 22,
+            "time": 256.11,
+            "seconds": 19.366
+          },
+          {
+            "selector": "#ay-gw > text:nth-of-type(1)",
+            "text": "LoRa gateway",
+            "fontPx": 22,
+            "time": 256.594,
+            "seconds": 18.882
+          },
+          {
+            "selector": "#ay-ai > text:nth-of-type(1)",
+            "text": "AquaTwin twin + AI",
+            "fontPx": 22,
+            "time": 257.078,
+            "seconds": 18.398
+          },
+          {
+            "selector": "#ay-vn > text:nth-of-type(1)",
+            "text": "Valve node",
+            "fontPx": 22,
+            "time": 257.563,
+            "seconds": 17.913
+          },
+          {
+            "selector": "#ay-qn > text:nth-of-type(1)",
+            "text": "Quality node",
+            "fontPx": 22,
+            "time": 258.047,
+            "seconds": 17.429
+          },
+          {
+            "selector": "#ay-rig > text:nth-of-type(1)",
+            "text": "Finale rig: tabletop pipe loop, 3 pressure nodes, flow sensor,",
+[hyperframes] check: report saved to 
+D:\bms_app\ihack_water\video\film\.hyperframes\artifacts\checks\4e055623-4fe5-408c-a050-038c4e6abf97.json
+            "fontPx": 22,
+            "time": 259.015,
+            "seconds": 16.461
+          },
+          {
+            "selector": "#ay-rig > text:nth-of-type(2)",
+            "text": "solenoid \"bursts\", motorised valve, same code running live.",
+            "fontPx": 22,
+            "time": 259.015,
+            "seconds": 16.461
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"Track 4 · AI in Water Management · i-...\" at 24 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Track 4 · AI in Water Management · i-Hack 2026, TIH IIT Bombay",
+        "selector": "#cl-meta > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/close.html",
+        "bbox": {
+          "x": 513.59,
+          "y": 613.11,
+          "width": 892.82,
+          "height": 32
+        },
+        "time": 278.381,
+        "times": [
+          276.928,
+          277.412,
+          277.896,
+          278.381,
+          278.381,
+          278.381
+        ],
+        "fontPx": 24,
+        "floorPx": 28,
+        "seconds": 11.619,
+        "elements": [
+          {
+            "selector": "#cl-meta > div:nth-of-type(1)",
+            "text": "Track 4 · AI in Water Management · i-Hack 2026, TIH IIT Bombay",
+            "fontPx": 24,
+            "time": 278.381,
+            "seconds": 11.619
+          },
+          {
+            "selector": "#cl-team",
+            "text": "Team Green Byte · Miheer Nikam · Nihaal R",
+            "fontPx": 24,
+            "time": 278.381,
+            "seconds": 11.619
+          },
+          {
+            "selector": "#cl-repo",
+            "text": "Code and data: GitHub link in our submission",
+            "fontPx": 24,
+            "time": 278.381,
+            "seconds": 11.619
+          },
+          {
+            "selector": "#cl-three > span:nth-of-type(1)",
+            "text": "SENSE",
+            "fontPx": 26,
+            "time": 276.928,
+            "seconds": 13.072
+          },
+          {
+            "selector": "#cl-three > span:nth-of-type(2)",
+            "text": "DECIDE",
+            "fontPx": 26,
+            "time": 277.412,
+            "seconds": 12.588
+          },
+          {
+            "selector": "#cl-three > span:nth-of-type(3)",
+            "text": "ACT",
+            "fontPx": 26,
+            "time": 277.896,
+            "seconds": 12.104
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.13 s (278.87–287.00 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 278.865,
+        "seconds": 8.135,
+        "floorSeconds": 3,
+        "until": 287
+      }
+    ],
+    "enabled": true,
+    "step": 0.48400000000000887,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "4e055623-4fe5-408c-a050-038c4e6abf97",
+    "revision": null,
+    "report": "D:\\bms_app\\ihack_water\\video\\film\\.hyperframes\\artifacts\\checks\\4e055623-4fe5-408c-a050-038c4e6abf97.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.9.80",
+    "latestVersion": "0.9.80",
+    "updateAvailable": false,
+    "checkedAt": "2026-11-22T14:27:30.972Z",
+    "skillsOutdated": 0,
+    "skillsMissing": 0
+  }
+}

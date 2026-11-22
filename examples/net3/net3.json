@@ -1,0 +1,23 @@
+{
+ "name": "Net3 city (simulated SCADA)",
+ "inp": "Net3.inp",
+ "csv": {
+  "sep": ",",
+  "decimal": "."
+ },
+ "pressures": [
+  "pressures.csv"
+ ],
+ "flows": [
+  "flows.csv"
+ ],
+ "levels": [
+  "levels.csv"
+ ],
+ "flow_units": "m3/h",
+ "pattern_period": "calendar",
+ "history_days": 7,
+ "report_from": "2026-01-19",
+ "k_sigma": 4.0,
+ "outdir": "out"
+}

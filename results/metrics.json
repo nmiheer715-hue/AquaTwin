@@ -1,0 +1,102 @@
+{
+  "network": "Net3",
+  "junctions": 92,
+  "leak_candidates": 88,
+  "n_train": 1400,
+  "n_test": 600,
+  "n_normal_test_days": 150,
+  "sensors": [
+    "10",
+    "139",
+    "241",
+    "143",
+    "151",
+    "261",
+    "206",
+    "119",
+    "147",
+    "15"
+  ],
+  "n_pressure_sensors": 10,
+  "n_flow_meters": 2,
+  "noise": {
+    "pressure_m": 0.05,
+    "flow_frac": 0.002,
+    "demand_local_sd": 0.05,
+    "demand_global_sd": 0.02
+  },
+  "alarm_thresholds_sd": {
+    "flow_sd": 10.639144449305912,
+    "pressure_sd": 41.5775958767337
+  },
+  "false_alarm_days": 1,
+  "supply_noise_ls": 1.381163252517581,
+  "mean_supply_ls": 690.5816040039062,
+  "detection_rate": 0.2683333333333333,
+  "detection_rate_ge_2ls": 0.3333333333333333,
+  "median_detect_delay_h": 0.75,
+  "localisation": {
+    "hybrid": {
+      "top1": 0.11801242236024845,
+      "top3": 0.30434782608695654,
+      "top5": 0.42857142857142855
+    },
+    "ml_only": {
+      "top1": 0.13043478260869565,
+      "top5": 0.42857142857142855
+    },
+    "physics_only": {
+      "top1": 0.11801242236024845,
+      "top5": 0.39751552795031053
+    },
+    "random_guess_top5": 0.056818181818181816,
+    "median_error_m": 967.74,
+    "p90_error_m": 3663.696,
+    "within_500m": 0.3105590062111801,
+    "top5_ge_2ls": 0.42857142857142855
+  },
+  "detection_by_leak_size": [
+    {
+      "flow_ls": "1-2",
+      "n": 117,
+      "detected": 0.0,
+      "median_delay_h": null
+    },
+    {
+      "flow_ls": "2-5",
+      "n": 170,
+      "detected": 0.0058823529411764705,
+      "median_delay_h": 0.75
+    },
+    {
+      "flow_ls": "5-10",
+      "n": 102,
+      "detected": 0.0392156862745098,
+      "median_delay_h": 0.75
+    },
+    {
+      "flow_ls": "10-20",
+      "n": 154,
+      "detected": 0.6428571428571429,
+      "median_delay_h": 0.75
+    },
+    {
+      "flow_ls": "20+",
+      "n": 57,
+      "detected": 1.0,
+      "median_delay_h": 0.5
+    }
+  ],
+  "sensor_placement_curve": [
+    0.006666666666666667,
+    0.028333333333333332,
+    0.05333333333333334,
+    0.06166666666666667,
+    0.08,
+    0.10166666666666667,
+    0.12,
+    0.13,
+    0.13333333333333333,
+    0.14
+  ]
+}

@@ -1,0 +1,355 @@
+<title>AquaTwin Control Room</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: control-room console. Header with clock + replay, map dominant on the left,
+   alarm feed and alarm detail on the right, two signal strips along the bottom.
+   One deliberate dark look (control rooms run dark); every colour set explicitly. */
+:root {
+  color-scheme: dark;
+  --bg: #0b1219;        /* pipe-ink */
+  --panel: #101a24;
+  --raise: #15212d;
+  --line: #213041;
+  --fg: #dde6ee;
+  --muted: #8597a8;
+  --faint: #5b6c7c;
+  --accent: #5ec8dc;    /* treated water */
+  --ok: #45b383;        /* confirmed leak */
+  --warn: #e3a63d;      /* open alarm */
+  --crit: #e5574e;      /* false alarm / missed */
+  --dA: #557390;        /* district A pipes */
+  --dB: #b08b5c;        /* district B pipes */
+  --dC: #63a27f;        /* district C pipes */
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.45 var(--sans); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.app { display: grid; grid-template-rows: auto 1fr auto; gap: 12px; min-height: 100%;
+  padding-block: 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* header */
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand b { font: 600 20px/1 var(--cond); letter-spacing: .02em; }
+.brand span { color: var(--muted); font-size: 12px; }
+.clock { font: 500 15px/1 var(--mono); color: var(--fg); font-variant-numeric: tabular-nums; }
+.clock small { color: var(--muted); font: 400 11px var(--sans); text-transform: uppercase; letter-spacing: .08em; margin-right: 6px; }
+.replay { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; min-width: 0; }
+.replay input[type=range] { flex: 1; accent-color: var(--accent); min-width: 0; }
+button { font: 500 13px var(--sans); color: var(--fg); background: var(--raise); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, .alarm:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: #062029; border-color: var(--accent); }
+.toggle { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; cursor: pointer; user-select: none; }
+.toggle input { accent-color: var(--ok); }
+
+.kpis { display: flex; flex-wrap: wrap; gap: 8px 22px; width: 100%; padding: 10px 14px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+.kpi { display: flex; flex-direction: column; gap: 2px; min-width: 110px; }
+.kpi label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.kpi output { font: 500 18px/1.1 var(--mono); font-variant-numeric: tabular-nums; }
+.kpi output.ok { color: var(--ok); } .kpi output.crit { color: var(--crit); } .kpi output.warn { color: var(--warn); }
+
+/* main */
+main { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr); gap: 12px; min-height: 0; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; min-width: 0; display: flex; flex-direction: column; }
+.panel h2 { font: 600 12px var(--cond); text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+  margin: 0; padding: 10px 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; }
+.panel h2 em { font-style: normal; color: var(--faint); font-family: var(--sans); letter-spacing: .04em; text-transform: none; font-weight: 400; }
+.mapwrap { position: relative; padding: 8px; flex: 1; min-height: 320px; }
+svg.map { width: 100%; height: 100%; display: block; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 8px 14px 12px; color: var(--muted); font-size: 11.5px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.legend i.ln { width: 16px; height: 3px; border-radius: 2px; vertical-align: 2px; }
+
+.side { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 12px; min-height: 0; }
+.detail { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.detail .head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.detail .title { font: 600 16px var(--cond); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 13px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.log { font: 12px var(--mono); color: var(--accent); min-height: 1.2em; }
+.verdict { font-size: 12.5px; padding: 8px 10px; border-radius: 6px; background: var(--raise); border-left: 3px solid var(--faint); }
+.verdict.hit { border-left-color: var(--ok); } .verdict.false { border-left-color: var(--crit); } .verdict.repeat { border-left-color: var(--faint); }
+
+.feed { overflow: auto; min-height: 160px; }
+.alarm { display: grid; grid-template-columns: 4px 1fr auto; gap: 0 10px; padding: 9px 14px 9px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.alarm:hover { background: var(--raise); }
+.alarm.sel { background: var(--raise); }
+.alarm .stripe { border-radius: 0 2px 2px 0; background: var(--warn); }
+.alarm .stripe.hit { background: var(--ok); } .alarm .stripe.false { background: var(--crit); } .alarm .stripe.repeat { background: var(--faint); }
+.alarm .l1 { font-weight: 500; }
+.alarm .l2 { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+.alarm .when { color: var(--muted); font: 12px var(--mono); text-align: right; white-space: nowrap; }
+.chip { font: 500 11px var(--sans); padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.chip.A { color: #a9bccf; border-color: var(--dA); } .chip.B { color: #d8b88f; border-color: var(--dB); } .chip.C { color: #9fd0b5; border-color: var(--dC); }
+.pill { font: 600 10.5px var(--sans); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; }
+.pill.open { background: rgba(227,166,61,.15); color: var(--warn); }
+.pill.hit { background: rgba(69,179,131,.15); color: var(--ok); }
+.pill.false { background: rgba(229,87,78,.15); color: var(--crit); }
+.pill.repeat { background: rgba(133,151,168,.15); color: var(--muted); }
+.empty { color: var(--muted); padding: 18px 14px; font-size: 13px; }
+
+/* signals */
+.signals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chart { padding: 6px 10px 10px; }
+.chart svg { width: 100%; height: 150px; display: block; }
+.chart text { fill: var(--muted); font: 10px var(--mono); }
+.now { color: var(--fg); font-family: var(--mono); }
+
+@keyframes ping { from { r: 6; opacity: .9; } to { r: 22; opacity: 0; } }
+.ping { animation: ping 1.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .ping { animation: none; opacity: .5; } }
+
+@media (min-width: 901px) {
+  .app { height: 100%; }
+  main { overflow: hidden; }
+  .side > .panel:last-child { min-height: 0; }
+}
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+  .signals { grid-template-columns: 1fr; }
+  .mapwrap { min-height: 260px; }
+}
+</style>
+
+<div class="app">
+  <header>
+    <div class="brand"><b>AquaTwin</b><span>L-Town water network · leak control room</span></div>
+    <div class="clock"><small>Network time</small><span id="clock">2019-01-01 04:00</span></div>
+    <div class="replay">
+      <button id="play" class="primary" aria-label="Play replay">Play</button>
+      <input id="day" type="range" min="0" max="364" value="110" aria-label="Day of 2019">
+    </div>
+    <label class="toggle"><input id="key" type="checkbox"> Compare with answer key</label>
+    <div class="kpis" aria-live="polite">
+      <div class="kpi"><label>Alarms raised</label><output id="k-alarms">0</output></div>
+      <div class="kpi"><label>Open alarms (14 days)</label><output id="k-open" class="warn">0</output></div>
+      <div class="kpi"><label>Sensors online</label><output>33 + 82 meters</output></div>
+      <div class="kpi"><label>Leaks found</label><output id="k-found" class="ok">–</output></div>
+      <div class="kpi"><label>False alarms</label><output id="k-false" class="crit">–</output></div>
+      <div class="kpi"><label>Water value saved</label><output id="k-eur">–</output></div>
+      <div class="kpi"><label>Year: exact pipe · in zone</label><output id="k-zone">–</output></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Network <em>3 districts · 782 junctions · 909 pipes</em></h2>
+      <div class="mapwrap"><svg class="map" id="map" role="img" aria-label="L-Town network map with alarms"></svg></div>
+      <div class="legend">
+        <span><i class="ln" style="background:var(--dA)"></i>District A</span>
+        <span><i class="ln" style="background:var(--dB)"></i>District B</span>
+        <span><i class="ln" style="background:var(--dC)"></i>District C (smart-metered)</span>
+        <span><i style="background:var(--accent)"></i>Pressure sensor</span>
+        <span><i style="background:var(--warn)"></i>Alarm, suspected pipe</span>
+        <span><i style="background:transparent;border:2px solid var(--warn)"></i>Candidate zone</span>
+        <span id="lg-key" hidden><i style="background:var(--ok)"></i>Real leak (answer key)</span>
+      </div>
+    </section>
+
+    <div class="side">
+      <section class="panel" id="detail-panel">
+        <h2>Selected alarm <em id="d-id"></em></h2>
+        <div class="detail" id="detail"></div>
+      </section>
+      <section class="panel">
+        <h2>Alarm feed <em id="feed-count"></em></h2>
+        <div class="feed" id="feed"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="signals">
+    <section class="panel"><h2>Minimum night flow · districts A+B <em>weekday-adjusted, m³/h · <span class="now" id="now-ab"></span></em></h2>
+      <div class="chart"><svg id="ch-ab" viewBox="0 0 600 150" preserveAspectRatio="none" role="img" aria-label="Night flow chart"></svg></div></section>
+    <section class="panel"><h2>Water balance loss · district C <em>supply − tank − meters, m³/h · <span class="now" id="now-c"></span></em></h2>
+      <div class="chart"><svg id="ch-c" viewBox="0 0 600 150" preserveAspectRatio="none" role="img" aria-label="Water balance chart"></svg></div></section>
+  </div>
+</div>
+
+<script>
+/*__DATA__*/
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const dateOf = (d) => { const t = new Date(Date.UTC(2019, 0, 1 + d)); return t.toISOString().slice(0, 10); };
+  const eur = (v) => "€" + Math.round(v).toLocaleString("en-IE");
+  const zoneName = { AB: "District A/B", C: "District C", carry: "Carried from 2018" };
+  const zoneChip = (z) => z === "C" ? "C" : (z === "AB" ? "A" : "");
+
+  const state = { day: 110, key: false, sel: null, playing: false, actions: {} };
+  DATA.alarms.forEach((a, i) => a.i = i);
+
+  /* ---------- map ---------- */
+  const map = $("map");
+  map.setAttribute("viewBox", `-10 -10 ${DATA.W + 20} ${DATA.H + 20}`);
+  map.setAttribute("preserveAspectRatio", "xMidYMin meet");
+  const pipeCol = { A: "var(--dA)", B: "var(--dB)", C: "var(--dC)" };
+  for (const k of ["A", "B", "C"]) el("path", { d: DATA.paths[k], stroke: pipeCol[k], "stroke-width": 2.2, fill: "none", "stroke-linecap": "round" }, map);
+  const gAmr = el("g", {}, map);
+  DATA.amr.forEach((p) => el("circle", { cx: p[0], cy: p[1], r: 1.6, fill: "var(--dC)" }, gAmr));
+  DATA.sensors.forEach((s) => el("circle", { cx: s.p[0], cy: s.p[1], r: 4, fill: "var(--accent)", stroke: "var(--bg)", "stroke-width": 1.2 }, map));
+  for (const [n, p] of Object.entries(DATA.tanks)) {
+    el("rect", { x: p[0] - 7, y: p[1] - 7, width: 14, height: 14, rx: 2, fill: "var(--fg)" }, map);
+    const t = el("text", { x: p[0] + 10, y: p[1] + 4, fill: "var(--muted)", "font-size": 13, "font-family": "IBM Plex Mono, monospace" }, map); t.textContent = n;
+  }
+  const gKey = el("g", {}, map), gZone = el("g", {}, map), gAlarm = el("g", {}, map);
+
+  function drawMap() {
+    gKey.replaceChildren(); gZone.replaceChildren(); gAlarm.replaceChildren();
+    if (state.key) {
+      DATA.leaks.filter((l) => l.start <= state.day && l.end >= state.day).forEach((l) => {
+        const [x, y] = l.at, s = 6, c = l.found ? "var(--ok)" : "var(--crit)";
+        el("path", { d: `M${x - s} ${y - s}L${x + s} ${y + s}M${x + s} ${y - s}L${x - s} ${y + s}`, stroke: c, "stroke-width": 3, "stroke-linecap": "round" }, gKey);
+      });
+    }
+    const sel = state.sel != null ? DATA.alarms[state.sel] : null;
+    if (sel && sel.day <= state.day) sel.top.forEach((p, i) => el("circle", { cx: p[0], cy: p[1], r: 14 - i * 1.5, fill: "rgba(227,166,61,.10)", stroke: "var(--warn)", "stroke-width": 1.4, "stroke-dasharray": "3 3" }, gZone));
+    visible().forEach((a) => {
+      const age = state.day - a.day, col = colorOf(a);
+      if (age <= 14 && a.status !== "repeat") el("circle", { cx: a.at[0], cy: a.at[1], r: 6, fill: "none", stroke: col, "stroke-width": 2, class: "ping" }, gAlarm);
+      const c = el("circle", { cx: a.at[0], cy: a.at[1], r: a.i === state.sel ? 8 : 6, fill: col, stroke: "var(--bg)", "stroke-width": 2, opacity: age > 60 ? 0.55 : 1, style: "cursor:pointer" }, gAlarm);
+      c.addEventListener("click", () => select(a.i));
+    });
+  }
+
+  /* ---------- helpers ---------- */
+  const visible = () => DATA.alarms.filter((a) => a.day <= state.day);
+  const colorOf = (a) => !state.key ? "var(--warn)" : ({ hit: "var(--ok)", false: "var(--crit)", repeat: "var(--faint)" })[a.status];
+  const pillOf = (a) => !state.key ? ["open", "Open"] : ({ hit: ["hit", "Real leak"], false: ["false", "False alarm"], repeat: ["repeat", "Repeat"] })[a.status];
+
+  /* ---------- feed ---------- */
+  function drawFeed() {
+    const list = visible().slice().reverse(), feed = $("feed");
+    $("feed-count").textContent = list.length ? `${list.length} in 2019` : "";
+    if (!list.length) { feed.innerHTML = '<div class="empty">No alarms yet. Press Play to replay 2019.</div>'; return; }
+    feed.replaceChildren(...list.map((a) => {
+      const [pc, pt] = pillOf(a), row = document.createElement("div");
+      row.className = "alarm" + (a.i === state.sel ? " sel" : ""); row.tabIndex = 0;
+      row.innerHTML = `<div class="stripe ${state.key ? a.status : ""}"></div>
+        <div><div class="l1">${a.zone === "carry" ? "Ongoing leak from 2018" : "Leak suspected"} · pipe ${a.pipe}</div>
+        <div class="l2">${a.size != null ? "+" + a.size.toFixed(1) + " m³/h" : "year-end check"} · ${zoneName[a.zone]}</div></div>
+        <div class="when">${a.t.slice(5, 16).replace("-", " ").replace(/^(\d\d) /, (m, mm) => MONTHS[+mm - 1] + " ")}<br><span class="pill ${pc}">${pt}</span></div>`;
+      row.addEventListener("click", () => select(a.i));
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(a.i); } });
+      return row;
+    }));
+  }
+
+  /* ---------- detail ---------- */
+  function drawDetail() {
+    const box = $("detail"), a = state.sel != null ? DATA.alarms[state.sel] : null;
+    if (!a || a.day > state.day) { $("d-id").textContent = ""; box.innerHTML = '<div class="empty">Select an alarm on the map or in the feed.</div>'; return; }
+    const [pc, pt] = pillOf(a), act = state.actions[a.i] || [];
+    $("d-id").textContent = a.t;
+    const sizeLine = a.zone === "C" ? "Water-balance loss above reference" : (a.zone === "AB" ? "Night flow above reference" : "Unexplained night flow at year end");
+    box.innerHTML = `<div class="head"><span class="title">${a.zone === "carry" ? "Ongoing leak" : "Leak suspected"}</span>
+        ${zoneChip(a.zone) ? `<span class="chip ${zoneChip(a.zone)}">${zoneName[a.zone]}</span>` : `<span class="chip">${zoneName[a.zone]}</span>`}
+        <span class="pill ${pc}">${pt}</span></div>
+      <dl class="facts">
+        <dt>${sizeLine}</dt><dd>${a.size != null ? "+" + a.size.toFixed(2) + " m³/h (" + (a.size / 3.6).toFixed(1) + " L/s)" : "see year-end check"}</dd>
+        <dt>Suspected pipe</dt><dd>${a.pipe}</dd>
+        <dt>Candidate zone</dt><dd>${a.top.length ? a.top.length + " nodes, ranked by pressure match" : "from 2018 tracking"}</dd>
+        <dt>Raised</dt><dd>${a.t} (after the 02:00–04:00 night window)</dd>
+      </dl>
+      <div class="actions">
+        <button id="b-crew">${act.includes("crew") ? "Crew dispatched" : "Dispatch acoustic crew"}</button>
+        <button id="b-valve">${act.includes("valve") ? "Valves closed" : "Close isolation valves"}</button>
+      </div>
+      <div class="log" id="log">${act.map((x) => x === "crew" ? "▸ Crew sent to pipe " + a.pipe + " with the candidate zone" : "▸ Isolation valves around " + a.pipe + " closed").join("<br>")}</div>
+      ${state.key ? `<div class="verdict ${a.status}">${a.status === "hit" ? `Answer key: real leak on pipe ${a.leak}, ${a.dist} m from the reported pipe. Water value saved from this alarm: <b>${eur(a.eur)}</b>.`
+        : a.status === "repeat" ? `Answer key: this leak was already reported. No new value, no penalty.`
+        : a.zone_leak ? `Answer key: the reported pipe is more than 300 m from a leak, so it scores as a false alarm (−€500). But leak ${a.zone_leak} is inside this alarm's candidate zone, so a crew searching the zone would reach it.`
+        : `Answer key: no leak within 300 m (nearest ${a.nearest}, ${a.dist} m away). Counts as a false alarm (−€500).`}</div>` : ""}`;
+    $("b-crew").onclick = () => doAct(a.i, "crew");
+    $("b-valve").onclick = () => doAct(a.i, "valve");
+  }
+  function doAct(i, what) { const l = state.actions[i] || (state.actions[i] = []); if (!l.includes(what)) l.push(what); drawDetail(); }
+
+  /* ---------- charts ---------- */
+  function chart(svgId, series, thr, zone, nowId, unit) {
+    const svg = $(svgId); svg.replaceChildren();
+    const W = 600, H = 150, pl = 34, pr = 6, pt = 8, pb = 18;
+    const lo = Math.min(...series), hi = Math.max(...series), pad = (hi - lo) * 0.08;
+    const y0 = lo - pad, y1 = hi + pad;
+    const X = (d) => pl + (d / 364) * (W - pl - pr), Y = (v) => pt + (1 - (v - y0) / (y1 - y0)) * (H - pt - pb);
+    const ticks = 4;
+    for (let i = 0; i <= ticks; i++) {
+      const v = y0 + (i / ticks) * (y1 - y0), y = Y(v);
+      el("line", { x1: pl, x2: W - pr, y1: y, y2: y, stroke: "var(--line)", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }, svg);
+      const t = el("text", { x: 2, y: y + 3 }, svg); t.textContent = v.toFixed(unit < 1 ? 1 : 0);
+    }
+    [0, 59, 120, 181, 243, 304].forEach((d, i) => { const t = el("text", { x: X(d), y: H - 4 }, svg); t.textContent = MONTHS[i * 2]; });
+    const pts = series.map((v, d) => `${X(d).toFixed(1)},${Y(v).toFixed(1)}`);
+    el("polyline", { points: pts.slice(0, state.day + 1).join(" "), fill: "none", stroke: "var(--accent)", "stroke-width": 1.6, "vector-effect": "non-scaling-stroke" }, svg);
+    el("polyline", { points: pts.slice(state.day).join(" "), fill: "none", stroke: "var(--faint)", "stroke-width": 1, "vector-effect": "non-scaling-stroke", opacity: 0.35 }, svg);
+    visible().filter((a) => a.zone === zone || (zone === "AB" && a.zone === "carry" && false)).forEach((a) =>
+      el("line", { x1: X(a.day), x2: X(a.day), y1: pt, y2: H - pb, stroke: colorOf(a), "stroke-width": 1.2, "vector-effect": "non-scaling-stroke", opacity: .8 }, svg));
+    el("line", { x1: X(state.day), x2: X(state.day), y1: pt, y2: H - pb, stroke: "var(--fg)", "stroke-width": 1, "stroke-dasharray": "3 3", "vector-effect": "non-scaling-stroke" }, svg);
+    el("circle", { cx: X(state.day), cy: Y(series[state.day]), r: 3, fill: "var(--fg)" }, svg);
+    $(nowId).textContent = series[state.day].toFixed(unit < 1 ? 2 : 1) + " today";
+  }
+
+  /* ---------- kpis ---------- */
+  function drawKpis() {
+    const v = visible();
+    $("k-alarms").textContent = v.length;
+    $("k-open").textContent = v.filter((a) => state.day - a.day <= 14 && a.status !== "repeat").length;
+    if (state.key) {
+      $("k-found").textContent = v.filter((a) => a.status === "hit").length + " / " + DATA.score.n;
+      $("k-false").textContent = v.filter((a) => a.status === "false").length;
+      $("k-eur").textContent = eur(v.reduce((s, a) => s + a.eur, 0));
+      $("k-zone").textContent = `${DATA.score.tp} · ${DATA.score.zone} of ${DATA.score.n}`;
+    } else { $("k-found").textContent = "–"; $("k-false").textContent = "–"; $("k-eur").textContent = "–"; $("k-zone").textContent = "–"; }
+  }
+
+  /* ---------- wiring ---------- */
+  function render() {
+    $("clock").textContent = dateOf(state.day) + " 04:00";
+    $("day").value = state.day;
+    $("lg-key").hidden = !state.key;
+    drawMap(); drawFeed(); drawDetail(); drawKpis();
+    chart("ch-ab", DATA.series.ab, DATA.thr.ab, "AB", "now-ab", 1);
+    chart("ch-c", DATA.series.c, DATA.thr.c, "C", "now-c", 0.1);
+  }
+  function select(i) { state.sel = i; render(); }
+
+  $("day").addEventListener("input", (e) => { state.day = +e.target.value; render(); });
+  $("key").addEventListener("change", (e) => { state.key = e.target.checked; render(); });
+  let timer = null;
+  function setPlay(on) {
+    state.playing = on; $("play").textContent = on ? "Pause" : "Play"; $("play").setAttribute("aria-label", on ? "Pause replay" : "Play replay");
+    clearInterval(timer);
+    if (on) {
+      if (state.day >= 364) state.day = 0;
+      timer = setInterval(() => {
+        state.day++;
+        const fresh = DATA.alarms.filter((a) => a.day === state.day);
+        if (fresh.length) state.sel = fresh[fresh.length - 1].i;
+        if (state.day >= 364) setPlay(false);
+        render();
+      }, 140);
+    }
+  }
+  $("play").addEventListener("click", () => setPlay(!state.playing));
+  document.addEventListener("keydown", (e) => { if (e.code === "Space" && e.target.tagName !== "BUTTON" && e.target.tagName !== "INPUT") { e.preventDefault(); setPlay(!state.playing); } });
+
+  // open on a realistic moment: the latest alarm on or before 21 April (the largest leak of the year)
+  const start = DATA.alarms.filter((a) => a.day <= 110).pop();
+  state.day = 110; state.sel = start ? start.i : null;
+  render();
+})();
+</script>

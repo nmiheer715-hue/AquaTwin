@@ -1,0 +1,57 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .chip { position: absolute; left: 280px; top: 46px; display: flex; align-items: baseline; gap: 18px; }
+    .chip .n { font: 600 20px "IBM Plex Mono", monospace; color: #0b1219; background: #5ec8dc; border-radius: 6px; padding: 4px 10px; }
+    .chip .h { font: 600 36px Inter, sans-serif; letter-spacing: -0.01em; }
+    .frame { position: absolute; left: 280px; top: 112px; width: 1360px; height: 765px; border: 1px solid #2a3a4c; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #0b1219; }
+    .frame video { position: absolute; left: 0; top: 0; width: 1360px; height: 765px; object-fit: cover; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+    .tag { position: absolute; left: 320px; top: 150px; background: rgba(11,18,25,.92); border: 1px solid #5ec8dc; border-radius: 6px; padding: 8px 14px; font: 600 20px Inter, sans-serif; color: #5ec8dc; }
+    #ac-stats { position: absolute; inset: 0; background: #0b1219; }
+    #ac-stats .head { position: absolute; left: 240px; top: 150px; font: 700 52px Inter, sans-serif; letter-spacing: -0.02em; }
+    #ac-stats .grid { position: absolute; left: 240px; top: 280px; width: 1440px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .stat { background: #101a24; border: 1px solid #213041; border-radius: 10px; padding: 34px 30px; min-height: 380px; }
+    .stat .k { font: 600 18px "IBM Plex Mono", monospace; color: #8597a8; letter-spacing: .08em; }
+    .stat .v { font: 600 76px/1.05 "IBM Plex Mono", monospace; margin: 22px 0 14px; }
+    .stat .v.ok { color: #45b383; } .stat .v.acc { color: #5ec8dc; } .stat .v.warn { color: #e3a63d; }
+    .stat .t { font: 400 25px/1.4 Inter, sans-serif; color: #b8c6d3; }
+  </style>
+  <div id="root" data-composition-id="act" data-width="1920" data-height="1080">
+    <div class="chip" id="ac-chip"><span class="n">04</span><span class="h">Act: valves, pressure, water quality</span></div>
+    <div class="frame" id="ac-frame">
+      <video id="ac-v1" class="clip" data-start="0" data-duration="10" data-media-start="11" src="assets/shots/detail.mp4" muted playsinline></video>
+      <video id="ac-v2" class="clip" data-start="10" data-duration="17" data-media-start="1" src="assets/shots/health.mp4" muted playsinline></video>
+    </div>
+    <div id="ac-t1" class="clip tag" data-start="0.5" data-duration="9">Dispatch a crew · close the isolation valves</div>
+    <div id="ac-t2" class="clip tag" data-start="11" data-duration="6">Smart pressure management: saving per junction</div>
+    <div id="ac-t3" class="clip tag" data-start="17.5" data-duration="9.4">Water quality: chlorine residual and water age</div>
+    <div id="ac-stats" data-layout-allow-occlusion class="clip" data-start="27" data-duration="12">
+      <div class="head" id="ac-head">One twin, three results on L-Town</div>
+      <div class="grid">
+        <div class="stat" id="ac-st1"><div class="k">VALVE ISOLATION</div><div class="v ok"><span id="ac-n1">0</span>%</div><div class="t">of simulated tests where closing the valves on the right node stopped the leak flow completely</div></div>
+        <div class="stat" id="ac-st2"><div class="k">SMART PRESSURE</div><div class="v acc"><span id="ac-n2">0</span> m³</div><div class="t">saved on the real 2019 leaks (17 %), every home kept above 17 m. Leakage −21 % in district A, −38 % in B</div></div>
+        <div class="stat" id="ac-st3"><div class="k">WATER QUALITY</div><div class="v warn"><span id="ac-n3">0</span> junctions</div><div class="t">below the 0.2 mg/L chlorine minimum, and 5 chlorine sensor sites recommended. Simulated from the twin</div></div>
+      </div>
+    </div>
+    <p id="ac-cap1" class="clip cap" data-start="0.3" data-duration="9.6"><span>The system acts. It closes motorised valves around a leak, or sends a crew to the zone.</span></p>
+    <p id="ac-cap2" class="clip cap" data-start="10.2" data-duration="7.2"><span>It also runs smart pressure management, turning the valves down hour by hour while every home stays above 17 metres.</span></p>
+    <p id="ac-cap3" class="clip cap" data-start="17.6" data-duration="9.2"><span>And the same twin tracks water quality: where chlorine falls below the safe limit, and where sensors should go.</span></p>
+    <p id="ac-cap4" class="clip cap" data-start="27.2" data-duration="11.6"><span>In simulation, closing the right valves stopped the leak every time, and pressure management saves a sixth of all leaked water.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    rise("#ac-chip .n", 0.1); rise("#ac-chip .h", 0.25);
+    tl.fromTo("#ac-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    ["#ac-t1", "#ac-t2", "#ac-t3"].forEach((t) => tl.fromTo(t, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, parseFloat(document.querySelector(t).dataset.start)));
+    rise("#ac-head", 27.2, 0.6); rise("#ac-st1", 27.8); rise("#ac-st2", 28.4); rise("#ac-st3", 29.0);
+    const count = (id, to, at, fmt) => { const o = { v: 0 }; tl.fromTo(o, { v: 0 }, { v: to, duration: 1.4, ease: "power2.out", onUpdate: () => { document.getElementById(id).textContent = fmt(o.v); } }, at); };
+    const intIN = (v) => Math.round(v).toLocaleString("en-US");
+    count("ac-n1", 100, 28.0, intIN); count("ac-n2", 111947, 28.6, intIN); count("ac-n3", 5, 29.2, intIN);
+    ["#ac-cap1", "#ac-cap2", "#ac-cap3", "#ac-cap4"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
+    window.__timelines["act"] = tl;
+  </script>
+</template>
+

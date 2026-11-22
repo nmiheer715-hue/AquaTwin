@@ -1,0 +1,85 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; color: #dde6ee; }
+    .cap span { display: inline-block; }
+    #pr-line1, #pr-line2 { position: absolute; left: 240px; width: 1440px; }
+    #pr-line1 { top: 300px; font: 700 76px/1.1 Inter, sans-serif; letter-spacing: -0.02em; }
+    #pr-line2 { top: 440px; font: 400 40px/1.35 Inter, sans-serif; color: #8597a8; max-width: 1200px; }
+    #pr-pipe { position: absolute; left: 240px; top: 620px; width: 1440px; height: 140px; }
+    .card-row { position: absolute; left: 240px; top: 250px; width: 1440px; display: flex; gap: 32px; }
+    .city { flex: 1; background: #101a24; border: 1px solid #213041; border-radius: 10px; padding: 34px 32px; }
+    .city .place { font: 600 22px Inter, sans-serif; color: #5ec8dc; letter-spacing: 0.04em; }
+    .city .big { font: 600 64px/1.05 "IBM Plex Mono", monospace; margin: 18px 0 10px; }
+    .city .what { font: 400 26px/1.35 Inter, sans-serif; color: #b8c6d3; }
+    #pr-stamp { position: absolute; left: 240px; top: 640px; width: 1440px; font: 500 34px Inter, sans-serif; color: #e3a63d; }
+    #pr-title { position: absolute; left: 0; width: 1920px; top: 330px; text-align: center; }
+    #pr-title .name { font: 800 150px/1 Inter, sans-serif; letter-spacing: -0.04em; }
+    #pr-title .name b { color: #5ec8dc; font-weight: 800; }
+    #pr-title .tag { font: 400 40px/1.3 Inter, sans-serif; color: #b8c6d3; margin-top: 26px; }
+    #pr-title .track { display: inline-block; margin-top: 34px; font: 500 24px "IBM Plex Mono", monospace; color: #8597a8; border: 1px solid #213041; border-radius: 999px; padding: 10px 22px; }
+  </style>
+  <div id="root" data-composition-id="problem" data-width="1920" data-height="1080">
+    <!-- beat 1: the problem -->
+    <div id="pr-beat1" class="clip" data-start="0" data-duration="12">
+      <div id="pr-line1"><span id="pr-l1">Water is lost before it reaches a tap.</span></div>
+      <div id="pr-line2"><span id="pr-l2">Most of it leaks from pipes no one can see. A burst is found when a road floods; a slow leak can run for weeks.</span></div>
+      <svg id="pr-pipe" viewBox="0 0 1440 140">
+        <rect x="0" y="52" width="1440" height="36" rx="18" fill="#15212d" stroke="#2a3a4c" />
+        <rect id="pr-flow" x="0" y="64" width="1440" height="12" rx="6" fill="#2f6f8f" />
+        <g id="pr-leak" transform="translate(930 88)">
+          <circle id="pr-drop1" cx="0" cy="12" r="7" fill="#5ec8dc" />
+          <circle id="pr-drop2" cx="-14" cy="20" r="5" fill="#5ec8dc" />
+          <circle id="pr-drop3" cx="14" cy="24" r="5" fill="#5ec8dc" />
+          <circle id="pr-ring" cx="0" cy="-20" r="16" fill="none" stroke="#e5574e" stroke-width="3" />
+        </g>
+      </svg>
+    </div>
+    <!-- beat 2: utilities abroad -->
+    <div id="pr-beat2" class="clip" data-start="12" data-duration="13">
+      <div class="card-row">
+        <div class="city" id="pr-c1"><div class="place">LONDON · THAMES WATER</div><div class="big">75,000</div><div class="what">acoustic sensors read by AI, with satellite data</div></div>
+        <div class="city" id="pr-c2"><div class="place">VALENCIA · GLOBAL OMNIUM</div><div class="big">Digital twin</div><div class="what">of the whole network, running on live pressure and flow</div></div>
+        <div class="city" id="pr-c3"><div class="place">WASHINGTON · DC WATER</div><div class="big">120</div><div class="what">pressure sensors triangulating leaks in near real time</div></div>
+      </div>
+      <div id="pr-stamp"><span id="pr-st">Proprietary systems, priced for large Western utilities.</span></div>
+    </div>
+    <!-- beat 3: title -->
+    <div id="pr-beat3" class="clip" data-start="25" data-duration="10">
+      <div id="pr-title">
+        <div class="name" id="pr-name">Aqua<b>Twin</b></div>
+        <div class="tag" id="pr-tag">Physical AI that finds water leaks and shuts them off,<br>built for Indian towns on low-cost hardware.</div>
+        <div class="track" id="pr-track">i-Hack 2026 · TIH Physical AI Hackathon · Track 4: AI in Water Management</div>
+      </div>
+    </div>
+    <!-- captions: the voice-over script -->
+    <p id="pr-cap1" class="clip cap" data-start="0.4" data-duration="5.6"><span>Indian cities lose a large share of the water they treat before it reaches anyone.</span></p>
+    <p id="pr-cap2" class="clip cap" data-start="6" data-duration="6"><span>Most of it leaks from pipes we can't see. A slow leak can run for weeks.</span></p>
+    <p id="pr-cap3" class="clip cap" data-start="12" data-duration="7"><span>Utilities in London, Valencia and Washington use AI and sensors to catch these early…</span></p>
+    <p id="pr-cap4" class="clip cap" data-start="19" data-duration="6"><span>…but those systems are proprietary and expensive.</span></p>
+    <p id="pr-cap5" class="clip cap" data-start="25.4" data-duration="9.4"><span>AquaTwin brings the same approach to Indian towns, with low-cost hardware.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    // beat 1
+    rise("#pr-l1", 0.3, 0.6); rise("#pr-l2", 1.6, 0.6);
+    tl.fromTo("#pr-flow", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 2.2, ease: "power2.inOut" }, 2.6);
+    tl.fromTo("#pr-ring", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 5.0);
+    [["#pr-drop1", 5.2], ["#pr-drop2", 5.6], ["#pr-drop3", 6.0]].forEach(([s, t]) => {
+      for (let k = 0; k < 3; k++) tl.fromTo(s, { opacity: 0, y: 0 }, { opacity: 1, y: 34, duration: 1.4, ease: "power1.in" }, t + k * 1.9);
+    });
+    tl.to("#pr-flow", { fill: "#e5574e", duration: 1.5 }, 7.5);
+    // beat 2
+    rise("#pr-c1", 12.3); rise("#pr-c2", 13.1); rise("#pr-c3", 13.9); rise("#pr-st", 19.2, 0.6);
+    // beat 3
+    tl.fromTo("#pr-name", { opacity: 0, y: 24, scale: 1.04 }, { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power3.out" }, 25.3);
+    rise("#pr-tag", 26.3, 0.7); rise("#pr-track", 27.2, 0.6);
+    // captions fade in
+    ["#pr-cap1", "#pr-cap2", "#pr-cap3", "#pr-cap4", "#pr-cap5"].forEach((c) => {
+      const s = document.querySelector(c), st = parseFloat(s.dataset.start);
+      tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, st);
+    });
+    window.__timelines["problem"] = tl;
+  </script>
+</template>

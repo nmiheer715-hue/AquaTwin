@@ -1,0 +1,69 @@
+{
+  "name": "L-Town (BattLeDIM)",
+  "zones": [
+    {
+      "id": "Z1",
+      "junctions": 690,
+      "meters": [
+        [
+          "PUMP_1",
+          -1
+        ],
+        [
+          "p227",
+          1
+        ],
+        [
+          "p235",
+          1
+        ]
+      ],
+      "tanks": [],
+      "amr_coverage": 0.0,
+      "indicator": "mnf",
+      "base_demand_ls": 43.61,
+      "sigma_m3h": 1.056,
+      "threshold_m3h": 4.224,
+      "weekly_effect_m3h": [
+        -1.16,
+        -0.5,
+        -2.6,
+        -0.68,
+        10.38,
+        15.78,
+        1.8
+      ]
+    },
+    {
+      "id": "Z2",
+      "junctions": 92,
+      "meters": [
+        [
+          "PUMP_1",
+          1
+        ]
+      ],
+      "tanks": [
+        "T1"
+      ],
+      "amr_coverage": 0.906,
+      "indicator": "balance",
+      "base_demand_ls": 5.44,
+      "sigma_m3h": 0.193,
+      "threshold_m3h": 0.773,
+      "weekly_effect_m3h": [
+        -0.07,
+        0.0,
+        -0.01,
+        -0.08,
+        0.05,
+        0.13,
+        0.05
+      ]
+    }
+  ],
+  "sensors": 33,
+  "days": 730,
+  "step_min": 5.0,
+  "warnings": []
+}

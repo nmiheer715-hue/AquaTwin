@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AquaTwin Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Control-room console: clock + replay + KPIs, map left, alarm detail and feed right,
+   one signal strip per metered zone along the bottom. One deliberate dark look. */
+:root { color-scheme: dark;
+  --bg:#0b1219; --panel:#101a24; --raise:#15212d; --line:#213041; --fg:#dde6ee; --muted:#8597a8; --faint:#5b6c7c;
+  --accent:#5ec8dc; --ok:#45b383; --warn:#e3a63d; --crit:#e5574e;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace; }
+* { box-sizing:border-box } html,body { margin:0; height:100% } [hidden] { display:none !important }
+body { background:var(--bg); color:var(--fg); font:14px/1.45 var(--sans) }
+.app { display:grid; grid-template-rows:auto 1fr auto; gap:12px; min-height:100%;
+  padding-block:14px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)) }
+header { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px }
+.brand { display:flex; align-items:baseline; gap:10px; min-width:0 }
+.brand b { font:600 20px/1 var(--cond); letter-spacing:.02em } .brand span { color:var(--muted); font-size:12px }
+.clock { font:500 15px/1 var(--mono); font-variant-numeric:tabular-nums }
+.clock small { color:var(--muted); font:400 11px var(--sans); text-transform:uppercase; letter-spacing:.08em; margin-right:6px }
+.replay { display:flex; align-items:center; gap:10px; flex:1 1 320px; min-width:0 }
+.replay input[type=range] { flex:1; accent-color:var(--accent); min-width:0 }
+button { font:500 13px var(--sans); color:var(--fg); background:var(--raise); border:1px solid var(--line); border-radius:6px; padding:7px 12px; cursor:pointer }
+button:hover { border-color:var(--accent) } button.primary { background:var(--accent); color:#062029; border-color:var(--accent) }
+button:focus-visible, input:focus-visible, .alarm:focus-visible { outline:2px solid var(--accent); outline-offset:2px }
+.toggle { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:12px; cursor:pointer; user-select:none } .toggle input { accent-color:var(--ok) }
+.kpis { display:flex; flex-wrap:wrap; gap:8px 22px; width:100%; padding:10px 14px; background:var(--panel); border:1px solid var(--line); border-radius:8px }
+.kpi { display:flex; flex-direction:column; gap:2px; min-width:110px }
+.kpi label { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.08em }
+.kpi output { font:500 18px/1.1 var(--mono); font-variant-numeric:tabular-nums }
+.ok { color:var(--ok) } .crit { color:var(--crit) } .warn { color:var(--warn) }
+main { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr); gap:12px; min-height:0 }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; min-width:0; display:flex; flex-direction:column }
+.panel h2 { font:600 12px var(--cond); text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0; padding:10px 14px;
+  border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:8px }
+.panel h2 em { font-style:normal; color:var(--faint); font-family:var(--sans); letter-spacing:.04em; text-transform:none; font-weight:400 }
+.mapwrap { position:relative; padding:8px; flex:1; min-height:260px; overflow:hidden }
+svg.map { width:100%; height:100%; display:block; transition:opacity .35s ease }
+#map3d { position:absolute; inset:0; width:100%; height:100%; opacity:0; pointer-events:none; transition:opacity .35s ease; cursor:grab }
+#map3d.on { opacity:1; pointer-events:auto } #map3d:active { cursor:grabbing }
+.mapwrap.is3d svg.map { opacity:0; pointer-events:none }
+.hint3d { position:absolute; left:14px; bottom:10px; color:var(--muted); font-size:11.5px; background:rgba(16,26,36,.8); padding:4px 8px; border-radius:4px; pointer-events:none }
+.seg { display:inline-flex; border:1px solid var(--line); border-radius:6px; overflow:hidden; text-transform:none; letter-spacing:0 }
+.seg button { border:0; border-radius:0; padding:3px 10px; font:500 12px var(--sans); background:transparent; color:var(--muted) }
+.seg button[aria-pressed=true] { background:var(--accent); color:#062029 }
+.banner { width:100%; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;
+  padding:10px 14px; background:var(--raise); border:1px solid var(--accent); border-radius:8px; font-size:13px }
+.banner-actions { display:flex; gap:8px; flex-wrap:wrap }
+body.previewing .kpis, body.previewing .replay, body.previewing #keywrap, body.previewing .side, body.previewing .signals,
+body.previewing .clock { display:none }
+body.previewing main { grid-template-columns:1fr }
+body.previewing .app { grid-template-rows:auto 1fr }
+/* street-map view: a light, map-like rendering of the same network */
+.roads { display:none }
+.mapwrap.street { background:#ece6dc; border-radius:0 0 8px 8px; transition:background .35s ease }
+.mapwrap.street .roads { display:inline }
+.mapwrap.street .road-case { stroke:#c8bfb0; stroke-width:10px }
+.mapwrap.street .road-fill { stroke:#ffffff; stroke-width:7px }
+.mapwrap.street .pipes path { stroke-width:1.6px; opacity:.9 }
+.mapwrap.street text { fill:#55606b }
+.mapwrap.street .src { fill:#4a5866 }
+select { font:500 12px var(--sans); color:var(--fg); background:var(--raise); border:1px solid var(--line); border-radius:6px; padding:3px 6px; text-transform:none; letter-spacing:0 }
+.health h3 { font:600 15px var(--cond); margin:0 } .health p { margin:0; font-size:13px } .health .num { font-family:var(--mono) }
+.health .note { color:var(--muted); font-size:12px }
+.scale { display:inline-block; width:90px; height:8px; border-radius:4px; vertical-align:0; margin:0 6px }
+.detail.swap { animation:swap .22s ease-out }
+@keyframes swap { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
+@media (prefers-reduced-motion:reduce) { .detail.swap { animation:none } svg.map, #map3d { transition:none } }
+.legend { display:flex; flex-wrap:wrap; gap:6px 14px; padding:8px 14px 12px; color:var(--muted); font-size:11.5px }
+.legend i { display:inline-block; width:16px; height:3px; border-radius:2px; margin-right:6px; vertical-align:2px }
+.legend i.dot { width:10px; height:10px; border-radius:50%; vertical-align:-1px }
+.side { display:grid; grid-template-rows:auto minmax(0,1fr); gap:12px; min-height:0 }
+.detail { padding:12px 14px 14px; display:flex; flex-direction:column; gap:10px }
+.detail .head { display:flex; align-items:center; gap:8px; flex-wrap:wrap } .detail .title { font:600 16px var(--cond) }
+.facts { display:grid; grid-template-columns:auto 1fr; gap:4px 14px; font-size:13px; margin:0 }
+.facts dt { color:var(--muted) } .facts dd { margin:0; font-family:var(--mono); font-variant-numeric:tabular-nums }
+.actions { display:flex; gap:8px; flex-wrap:wrap } .log { font:12px var(--mono); color:var(--accent); min-height:1.2em }
+.verdict { font-size:12.5px; padding:8px 10px; border-radius:6px; background:var(--raise); border-left:3px solid var(--faint) }
+.verdict.hit { border-left-color:var(--ok) } .verdict.false { border-left-color:var(--crit) } .verdict.zone { border-left-color:var(--warn) }
+.feed { overflow:auto; min-height:160px }
+.alarm { display:grid; grid-template-columns:4px 1fr auto; gap:0 10px; padding:9px 14px 9px 0; border-bottom:1px solid var(--line); cursor:pointer }
+.alarm:hover, .alarm.sel { background:var(--raise) }
+.stripe { border-radius:0 2px 2px 0; background:var(--warn) } .stripe.hit { background:var(--ok) } .stripe.false { background:var(--crit) } .stripe.repeat { background:var(--faint) }
+.alarm .l1 { font-weight:500 } .alarm .l2 { color:var(--muted); font-size:12px; font-family:var(--mono) }
+.alarm .when { color:var(--muted); font:12px var(--mono); text-align:right; white-space:nowrap }
+.chip { font:500 11px var(--sans); padding:2px 7px; border-radius:999px; border:1px solid var(--line); color:var(--fg); white-space:nowrap }
+.pill { font:600 10.5px var(--sans); text-transform:uppercase; letter-spacing:.06em; padding:2px 7px; border-radius:4px }
+.pill.open { background:rgba(227,166,61,.15); color:var(--warn) } .pill.hit { background:rgba(69,179,131,.15); color:var(--ok) }
+.pill.false { background:rgba(229,87,78,.15); color:var(--crit) } .pill.repeat { background:rgba(133,151,168,.15); color:var(--muted) }
+.empty { color:var(--muted); padding:18px 14px; font-size:13px }
+.signals { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; max-height:36vh; overflow:auto }
+.chart { padding:6px 10px 10px } .chart svg { width:100%; height:110px; display:block } .chart text { fill:var(--muted); font:10px var(--mono) }
+.now { color:var(--fg); font-family:var(--mono) }
+@keyframes ping { from { r:6; opacity:.9 } to { r:22; opacity:0 } } .ping { animation:ping 1.6s ease-out infinite }
+@media (prefers-reduced-motion:reduce) { .ping { animation:none; opacity:.5 } }
+@media (min-width:901px) { .app { height:100% } main { overflow:hidden } .side > .panel:last-child { min-height:0 } }
+@media (max-width:900px) { main { grid-template-columns:1fr } .signals { max-height:none } }
+</style></head><body>
+<div class="app">
+  <header>
+    <div class="brand"><b>AquaTwin</b><span id="netname"></span></div>
+    <div class="clock"><small>Network time</small><span id="clock"></span></div>
+    <div class="replay">
+      <button id="play" class="primary" aria-label="Play replay">Play</button>
+      <input id="day" type="range" aria-label="Day">
+    </div>
+    <label class="toggle" id="keywrap" hidden><input id="key" type="checkbox"> Compare with answer key</label>
+    <button id="openbtn" title="Draw any EPANET network in plan and 3D">Open network file</button>
+    <input id="openfile" type="file" accept=".inp" hidden>
+    <div class="banner" id="banner" hidden role="status">
+      <span id="banner-text"></span>
+      <span class="banner-actions"><button id="banner-plan" class="primary" hidden>Plan sensors for this network</button>
+      <button id="banner-back">Back to the monitored network</button></span>
+    </div>
+    <div class="kpis" aria-live="polite">
+      <div class="kpi"><label>Alarms raised</label><output id="k-alarms">0</output></div>
+      <div class="kpi"><label>Open alarms (14 days)</label><output id="k-open" class="warn">0</output></div>
+      <div class="kpi"><label>Sensors online</label><output id="k-sensors"></output></div>
+      <div class="kpi kev"><label>Leaks found</label><output id="k-found" class="ok">–</output></div>
+      <div class="kpi kev"><label>False alarms</label><output id="k-false" class="crit">–</output></div>
+      <div class="kpi kev"><label>Water value saved</label><output id="k-eur">–</output></div>
+      <div class="kpi kev"><label>Year: exact pipe · in zone</label><output id="k-zone">–</output></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2><span>Network <em id="netinfo"></em></span>
+        <span style="display:flex;gap:8px;align-items:center">
+          <select id="layer" aria-label="Map colour" hidden>
+            <option value="zones">Colour: zones</option><option value="drop">Colour: pressure saving</option>
+            <option value="age">Colour: water age</option><option value="chlorine">Colour: chlorine</option></select>
+          <span class="seg" role="group" aria-label="Map view">
+            <button id="v2d" aria-pressed="true">Control room</button><button id="vst" aria-pressed="false">Street map</button><button id="v3d" aria-pressed="false">3D terrain</button>
+          </span></span></h2>
+      <div class="mapwrap" id="mapwrap">
+        <svg class="map" id="map" role="img" aria-label="Network map with alarms"></svg>
+        <canvas id="map3d" aria-label="3D network view: drag to orbit, scroll to zoom, click a column to select its alarm"></canvas>
+        <div class="hint3d" id="hint3d" hidden>Drag to orbit · scroll to zoom · column height = leak size</div>
+      </div>
+      <div class="legend" id="legend"></div>
+    </section>
+    <div class="side">
+      <section class="panel"><h2><span class="seg" role="tablist" aria-label="Side panel">
+          <button id="t-alarm" role="tab" aria-pressed="true">Selected alarm</button><button id="t-health" role="tab" aria-pressed="false" hidden>Network health</button><button id="t-fc" role="tab" aria-pressed="false" hidden>Forecast</button>
+        </span><em id="d-id"></em></h2>
+        <div class="detail" id="detail"></div>
+        <div class="detail health" id="healthpane" hidden></div>
+        <div class="detail health" id="fcpane" hidden></div></section>
+      <section class="panel"><h2>Alarm feed <em id="feed-count"></em></h2><div class="feed" id="feed"></div></section>
+    </div>
+  </main>
+
+  <div class="signals" id="signals"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/*__TERRAIN3D__*/
+/*__INP__*/
+/*__DATA__*/
+(function () {
+  const NS = "http://www.w3.org/2000/svg", $ = (id) => document.getElementById(id);
+  const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const start = new Date(DATA.start + "T00:00:00Z");
+  const dateOf = (d) => new Date(start.getTime() + d * 864e5).toISOString().slice(0, 10);
+  const EV = DATA.evaluation, CUR = EV ? EV.currency : "₹";
+  const money = (v) => (v < 0 ? "−" : "") + CUR + Math.round(Math.abs(v)).toLocaleString("en-IN");
+  const zcol = {}; DATA.geo.zones.forEach((z) => (zcol[z.id] = z.color));
+  const zones = DATA.geo.zones.filter((z) => z.id !== "other");
+  const modeName = (z) => DATA.modes[z] === "balance" ? "water balance" : "night flow";
+  const S = { day: DATA.first_day, key: false, sel: null, playing: false, actions: {} };
+
+  $("netname").textContent = DATA.name;
+  $("netinfo").textContent = `${zones.length} metered zone${zones.length === 1 ? "" : "s"} · ${DATA.n_junctions} junctions · ${DATA.n_pipes} pipes`;
+  $("k-sensors").textContent = `${DATA.sensors.length} loggers`;
+  $("day").min = 0; $("day").max = DATA.days - 1;
+  if (EV) $("keywrap").hidden = false; else document.querySelectorAll(".kev").forEach((k) => (k.hidden = true));
+
+  /* map: the base layer is redrawn for whichever network is loaded (the run's network, or one the user opens) */
+  const map = $("map");
+  map.setAttribute("preserveAspectRatio", "xMidYMin meet");
+  const gBase = el("g", {}, map), gLayer = el("g", {}, map), gKey = el("g", {}, map), gZone = el("g", {}, map), gAlarm = el("g", {}, map);
+
+  /* network health layers: colour every customer junction by pressure saving, water age or chlorine */
+  const HL = DATA.health; let LAYER = "zones";
+  const hex2 = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+  const ramp = (stops, t) => { t = Math.max(0, Math.min(1, t)); const n = stops.length - 1, i = Math.min(n - 1, Math.floor(t * n)), f = t * n - i, a = hex2(stops[i]), b = hex2(stops[i + 1]);
+    return "#" + a.map((v, k) => Math.round(v + (b[k] - v) * f).toString(16).padStart(2, "0")).join(""); };
+  const quant = (arr, q) => { const s = arr.filter((v) => v != null).sort((x, y) => x - y); return s.length ? s[Math.floor(q * (s.length - 1))] : 1; };
+  const LAYERS = {
+    drop: { name: "Average pressure saving", stops: ["#4a5d70", "#2f8fb0", "#7fe3f2"], vals: HL && HL.drop, max: () => Math.max(1, ...HL.drop.filter((v) => v != null)), lo: "0 m", hi: (m) => m.toFixed(0) + " m" },
+    age: { name: "Water age", stops: ["#45b383", "#e3a63d", "#e5574e"], vals: HL && HL.age, max: () => Math.max(6, quant(HL.age, 0.95)), lo: "0 h", hi: (m) => m.toFixed(0) + " h+" },
+    chlorine: { name: "Lowest chlorine residual", stops: ["#e5574e", "#e3a63d", "#45b383"], vals: HL && HL.chlorine, max: () => 1, lo: "<0.2", hi: () => "0.8+ mg/L",
+      col: (v) => (v < 0.2 ? "#e5574e" : ramp(["#e3a63d", "#45b383"], (v - 0.2) / 0.6)) },
+  };
+  function layerDots() {
+    if (!HL || LAYER === "zones" || PREVIEW) return [];
+    const L = LAYERS[LAYER], m = L.max();
+    return HL.nodes.map((p, i) => (L.vals[i] == null ? null : { p, color: L.col ? L.col(L.vals[i]) : ramp(L.stops, L.vals[i] / m) })).filter(Boolean);
+  }
+  // the same layer colours the pipes: each pipe takes the colour of the junction at its start (or end)
+  function pipeColorFn() {
+    const dots = layerDots(); if (!dots.length) return null;
+    const m = new Map(dots.map((d) => [d.p[0] + "," + d.p[1], d.color]));
+    return (x, y) => m.get(x + "," + y) || null;
+  }
+  function drawLayer() {
+    gLayer.replaceChildren();
+    const fn = pipeColorFn();
+    if (fn) {
+      const byColor = {};
+      (PREVIEW ? [] : DATA.geo.zones).forEach((z) => { const s = z.segs || [];
+        for (let i = 0; i < s.length; i += 6) {
+          const c = fn(s[i], s[i + 1]) || fn(s[i + 3], s[i + 4]) || "#33414f";
+          (byColor[c] = byColor[c] || []).push(`M${s[i]} ${s[i + 1]}L${s[i + 3]} ${s[i + 4]}`);
+        } });
+      for (const [c, p] of Object.entries(byColor)) el("path", { d: p.join(""), stroke: c, "stroke-width": 3, fill: "none", "stroke-linecap": "round" }, gLayer);
+    }
+    layerDots().forEach((d) => el("circle", { cx: d.p[0], cy: d.p[1], r: 3.2, fill: d.color, stroke: "var(--bg)", "stroke-width": 0.8 }, gLayer));
+    if (HL && !PREVIEW && LAYER === "chlorine") HL.cl_sensors.forEach((p) => el("rect", { x: p[0] - 6, y: p[1] - 6, width: 12, height: 12, fill: "none", stroke: "#b48ef0", "stroke-width": 2.2 }, gLayer));
+    if (HL && !PREVIEW && LAYER === "drop") HL.prvs.forEach((v) => el("circle", { cx: v.p[0], cy: v.p[1], r: 8, fill: "none", stroke: "#5ec8dc", "stroke-width": 2.4 }, gLayer));
+    let lg = $("layerlegend");
+    if (!lg) { lg = document.createElement("div"); lg.id = "layerlegend"; lg.className = "legend"; $("legend").after(lg); }
+    if (LAYER === "zones" || !HL || PREVIEW) { lg.hidden = true; return; }
+    const L = LAYERS[LAYER], m = L.max();
+    lg.hidden = false;
+    lg.innerHTML = `${L.name}: ${L.lo}<span class="scale" style="background:linear-gradient(90deg,${L.stops.join(",")})"></span>${L.hi(m)}` +
+      (LAYER === "chlorine" ? ` · <span style="color:#b48ef0">□</span> recommended chlorine sensor` : "") +
+      (LAYER === "drop" ? ` · <span style="color:#5ec8dc">○</span> PRV on the smart schedule` : "");
+  }
+  function buildBase(geo, sensors, legendExtra) {
+    map.setAttribute("viewBox", `-10 -10 ${geo.W + 20} ${geo.H + 20}`);
+    gBase.replaceChildren();
+    // street-map view: water mains run under streets, so every pipe is also drawn as a road (casing + fill)
+    const roads = el("g", { class: "roads" }, gBase);
+    geo.zones.forEach((z) => el("path", { d: z.path, class: "road-case", fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round" }, roads));
+    geo.zones.forEach((z) => el("path", { d: z.path, class: "road-fill", fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round" }, roads));
+    const pipes = el("g", { class: "pipes" }, gBase);
+    geo.zones.forEach((z) => el("path", { d: z.path, stroke: z.color, "stroke-width": 2.2, fill: "none", "stroke-linecap": "round" }, pipes));
+    sensors.forEach((p) => el("circle", { cx: p[0], cy: p[1], r: 4, fill: "var(--accent)", stroke: "var(--bg)", "stroke-width": 1.2 }, gBase));
+    for (const [n, p] of Object.entries(geo.sources)) {
+      el("rect", { x: p[0] - 7, y: p[1] - 7, width: 14, height: 14, rx: 2, fill: "var(--fg)", class: "src" }, gBase);
+      const t = el("text", { x: p[0] + 10, y: p[1] + 4, fill: "var(--muted)", "font-size": 13, "font-family": "IBM Plex Mono, monospace" }, gBase); t.textContent = n;
+    }
+    $("legend").innerHTML = geo.zones.map((z) => `<span><i style="background:${z.color}"></i>${z.label}</span>`).join("") + legendExtra;
+  }
+  const LEGEND_RUN = `<span><i class="dot" style="background:var(--accent)"></i>Pressure logger</span>` +
+    `<span><i class="dot" style="background:var(--warn)"></i>Alarm, suspected pipe</span>` +
+    `<span><i class="dot" style="background:transparent;border:2px solid var(--warn)"></i>Candidate zone</span>` +
+    (EV ? `<span id="lg-key" hidden><i class="dot" style="background:var(--ok)"></i>Real leak (answer key)</span>` : "");
+  buildBase(DATA.geo, DATA.sensors, LEGEND_RUN);
+
+  const visible = () => DATA.alarms.filter((a) => a.day <= S.day);
+  const colorOf = (a) => !S.key || !a.status ? "var(--warn)" : ({ hit: "var(--ok)", false: "var(--crit)", repeat: "var(--faint)" })[a.status];
+  const pillOf = (a) => !S.key || !a.status ? ["open", "Open"] : ({ hit: ["hit", "Real leak"], false: ["false", "False alarm"], repeat: ["repeat", "Repeat"] })[a.status];
+
+  function drawMap() {
+    drawLayer();
+    gKey.replaceChildren(); gZone.replaceChildren(); gAlarm.replaceChildren();
+    if (S.key) DATA.leaks.filter((l) => l.start <= S.day && l.end >= S.day).forEach((l) => {
+      const [x, y] = l.at, s = 6, c = l.found ? "var(--ok)" : "var(--crit)";
+      el("path", { d: `M${x - s} ${y - s}L${x + s} ${y + s}M${x + s} ${y - s}L${x - s} ${y + s}`, stroke: c, "stroke-width": 3, "stroke-linecap": "round" }, gKey);
+    });
+    const sel = S.sel != null ? DATA.alarms[S.sel] : null;
+    if (sel && sel.day <= S.day) sel.top.forEach((p, i) => el("circle", { cx: p[0], cy: p[1], r: 14 - i * 1.5, fill: "rgba(227,166,61,.10)", stroke: "var(--warn)", "stroke-width": 1.4, "stroke-dasharray": "3 3" }, gZone));
+    visible().forEach((a) => {
+      const age = S.day - a.day, c = colorOf(a);
+      if (age <= 14 && a.status !== "repeat") el("circle", { cx: a.at[0], cy: a.at[1], r: 6, fill: "none", stroke: c, "stroke-width": 2, class: "ping" }, gAlarm);
+      const dot = el("circle", { cx: a.at[0], cy: a.at[1], r: a.i === S.sel ? 8 : 6, fill: c, stroke: "var(--bg)", "stroke-width": 2, opacity: age > 60 ? 0.55 : 1, style: "cursor:pointer" }, gAlarm);
+      dot.addEventListener("click", () => select(a.i));
+    });
+  }
+
+  function drawFeed() {
+    const list = visible().slice().reverse(), feed = $("feed");
+    $("feed-count").textContent = list.length ? `${list.length} so far` : "";
+    if (!list.length) { feed.innerHTML = '<div class="empty">No alarms yet. Press Play to replay the data.</div>'; return; }
+    feed.replaceChildren(...list.map((a) => {
+      const [pc, pt] = pillOf(a), row = document.createElement("div"), mm = +a.t.slice(5, 7);
+      row.className = "alarm" + (a.i === S.sel ? " sel" : ""); row.tabIndex = 0;
+      row.innerHTML = `<div class="stripe ${S.key && a.status ? a.status : ""}"></div>
+        <div><div class="l1">${a.kind === "carry" ? "Ongoing leak" : "Leak suspected"} · pipe ${a.pipe}</div>
+        <div class="l2">+${(a.size ?? 0).toFixed(1)} m³/h · ${a.zone} (${modeName(a.zone)})</div></div>
+        <div class="when">${MONTHS[mm - 1]} ${a.t.slice(8, 16)}<br><span class="pill ${pc}">${pt}</span></div>`;
+      row.addEventListener("click", () => select(a.i));
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(a.i); } });
+      return row;
+    }));
+  }
+
+  function drawDetail() {
+    const box = $("detail"), a = S.sel != null ? DATA.alarms[S.sel] : null;
+    if (!a || a.day > S.day) { $("d-id").textContent = ""; box.innerHTML = '<div class="empty">Select an alarm on the map or in the feed.</div>'; return; }
+    const [pc, pt] = pillOf(a), act = S.actions[a.i] || [];
+    $("d-id").textContent = a.t;
+    const sizeLine = DATA.modes[a.zone] === "balance" ? "Water-balance loss above reference" : (a.kind === "carry" ? "Unexplained night flow" : "Night flow above reference");
+    let verdict = "";
+    if (S.key && a.status) {
+      if (a.status === "hit") verdict = `<div class="verdict hit">Answer key: real leak on pipe ${a.leak}, ${a.dist} m from the reported pipe. Water value saved from this alarm: <b>${money(a.value)}</b>.</div>`;
+      else if (a.status === "repeat") verdict = `<div class="verdict">Answer key: this leak was already reported. No new value, no penalty.</div>`;
+      else if (a.zone_leak) verdict = `<div class="verdict zone">Answer key: the reported pipe is more than 300 m from a leak, so it scores as a false alarm${a.value ? " (" + money(a.value) + ")" : ""}. But leak ${a.zone_leak} is inside this alarm's candidate zone, so a crew searching the zone would reach it.</div>`;
+      else verdict = `<div class="verdict false">Answer key: no leak within 300 m${a.nearest ? ` (nearest ${a.nearest}, ${a.dist} m away)` : ""}. Counts as a false alarm${a.value ? " (" + money(a.value) + ")" : ""}.</div>`;
+    }
+    box.innerHTML = `<div class="head"><span class="title">${a.kind === "carry" ? "Ongoing leak" : "Leak suspected"}</span>
+        <span class="chip" style="border-color:${zcol[a.zone] || "var(--line)"}">${a.zone} · ${modeName(a.zone)}</span>
+        <span class="pill ${pc}">${pt}</span></div>
+      <dl class="facts">
+        <dt>${sizeLine}</dt><dd>+${(a.size ?? 0).toFixed(2)} m³/h (${((a.size ?? 0) / 3.6).toFixed(1)} L/s)</dd>
+        <dt>Suspected pipe</dt><dd>${a.pipe}</dd>
+        <dt>Candidate zone</dt><dd>${a.top.length ? a.top.length + " nodes, ranked by pressure match" : "from the year-end check"}</dd>
+        <dt>Raised</dt><dd>${a.t} (after the night window ending ${String(DATA.night_end).padStart(2, "0")}:00)</dd>
+      </dl>
+      <div class="actions">
+        <button id="b-crew">${act.includes("crew") ? "Crew dispatched" : "Dispatch acoustic crew"}</button>
+        <button id="b-valve">${act.includes("valve") ? "Valves closed" : "Close isolation valves"}</button>
+      </div>
+      <div class="log">${act.map((x) => x === "crew" ? "▸ Crew sent to pipe " + a.pipe + " with the candidate zone" : "▸ Isolation valves around " + a.pipe + " closed").join("<br>")}</div>
+      ${verdict}`;
+    $("b-crew").onclick = () => doAct(a.i, "crew");
+    $("b-valve").onclick = () => doAct(a.i, "valve");
+  }
+  function doAct(i, what) { const l = S.actions[i] || (S.actions[i] = []); if (!l.includes(what)) l.push(what); drawDetail(); }
+
+  function charts() {
+    const box = $("signals"); box.replaceChildren();
+    Object.entries(DATA.series).forEach(([z, s]) => {
+      const sec = document.createElement("section"); sec.className = "panel";
+      sec.innerHTML = `<h2>${z} · ${DATA.modes[z] === "balance" ? "water-balance loss" : "minimum night flow"} <em>m³/h · alarm step ${DATA.thr[z]} · <span class="now">${s[S.day].toFixed(2)} today</span></em></h2><div class="chart"><svg viewBox="0 0 600 110" preserveAspectRatio="none" role="img" aria-label="${z} signal"></svg></div>`;
+      box.appendChild(sec);
+      const svg = sec.querySelector("svg"), W = 600, H = 110, pl = 34, pr = 6, pt = 8, pb = 16, n = s.length - 1;
+      const lo = Math.min(...s), hi = Math.max(...s), pd = (hi - lo) * 0.08 || 1, y0 = lo - pd, y1 = hi + pd;
+      const X = (d) => pl + (d / n) * (W - pl - pr), Y = (v) => pt + (1 - (v - y0) / (y1 - y0)) * (H - pt - pb);
+      for (let i = 0; i <= 3; i++) { const v = y0 + (i / 3) * (y1 - y0); el("line", { x1: pl, x2: W - pr, y1: Y(v), y2: Y(v), stroke: "var(--line)", "vector-effect": "non-scaling-stroke" }, svg); const t = el("text", { x: 2, y: Y(v) + 3 }, svg); t.textContent = v.toFixed(Math.abs(hi) < 10 ? 1 : 0); }
+      const step = Math.max(1, Math.round(n / 6));
+      for (let d = 0; d <= n; d += step) { const t = el("text", { x: X(d), y: H - 3 }, svg); const dt = new Date(start.getTime() + d * 864e5); t.textContent = MONTHS[dt.getUTCMonth()] + (n < 120 ? " " + dt.getUTCDate() : ""); }
+      const pts = s.map((v, d) => `${X(d).toFixed(1)},${Y(v).toFixed(1)}`);
+      el("polyline", { points: pts.slice(0, S.day + 1).join(" "), fill: "none", stroke: zcol[z] || "var(--accent)", "stroke-width": 1.8, "vector-effect": "non-scaling-stroke" }, svg);
+      el("polyline", { points: pts.slice(S.day).join(" "), fill: "none", stroke: "var(--faint)", "stroke-width": 1, opacity: 0.35, "vector-effect": "non-scaling-stroke" }, svg);
+      visible().filter((a) => a.zone === z).forEach((a) => el("line", { x1: X(a.day), x2: X(a.day), y1: pt, y2: H - pb, stroke: colorOf(a), "stroke-width": 1.2, "vector-effect": "non-scaling-stroke", opacity: 0.8 }, svg));
+      el("line", { x1: X(S.day), x2: X(S.day), y1: pt, y2: H - pb, stroke: "var(--fg)", "stroke-dasharray": "3 3", "vector-effect": "non-scaling-stroke" }, svg);
+      el("circle", { cx: X(S.day), cy: Y(s[S.day]), r: 3, fill: "var(--fg)" }, svg);
+    });
+  }
+
+  function kpis() {
+    const v = visible();
+    $("k-alarms").textContent = v.length;
+    $("k-open").textContent = v.filter((a) => S.day - a.day <= 14 && a.status !== "repeat").length;
+    if (!EV) return;
+    if (S.key) {
+      $("k-found").textContent = v.filter((a) => a.status === "hit").length + " / " + EV.n_leaks;
+      $("k-false").textContent = v.filter((a) => a.status === "false").length;
+      $("k-eur").textContent = money(v.reduce((s, a) => s + (a.value || 0), 0));
+      $("k-zone").textContent = `${EV.found} · ${EV.in_candidate_zone} of ${EV.n_leaks}`;
+    } else { ["k-found", "k-false", "k-eur", "k-zone"].forEach((k) => ($(k).textContent = "–")); }
+  }
+
+  /* ---------- 3D terrain view (shared module: works for the run's network and any network the user opens) ---------- */
+  const HEX = { warn: "#e3a63d", ok: "#45b383", crit: "#e5574e", faint: "#5b6c7c", accent: "#5ec8dc" };
+  const statusHex = (a) => !S.key || !a.status ? HEX.warn : ({ hit: HEX.ok, false: HEX.crit, repeat: HEX.faint })[a.status];
+  const T3 = Terrain3D({ canvas: $("map3d"), wrap: $("mapwrap"), hint: $("hint3d"), geo: DATA.geo, onPick: (id) => select(id) });
+  if (!T3) { $("v3d").disabled = true; $("v3d").title = "3D needs an internet connection to load three.js"; }
+  const V3 = T3 && {
+    update() {
+      const layerKey = PREVIEW ? "preview" : LAYER;
+      if (this._layer !== layerKey) { this._layer = layerKey; T3.setPipeColor(PREVIEW ? null : pipeColorFn()); }
+      if (PREVIEW) { T3.setMarkers({ sensors: [], columns: [] }); return; }
+      const sel = S.sel != null ? DATA.alarms[S.sel] : null;
+      T3.setMarkers({
+        sensors: DATA.sensors,
+        columns: visible().map((a) => ({ id: a.i, p: a.at, h: 26 + 13 * Math.sqrt(Math.max(0, a.size || 0)), color: statusHex(a),
+          pulse: S.day - a.day <= 14 && a.status !== "repeat", wide: a.i === S.sel })),
+        rings: sel && sel.day <= S.day ? sel.top.map((p, k) => ({ p, color: HEX.warn, opacity: 0.75 - k * 0.11 })) : [],
+        crosses: S.key ? DATA.leaks.filter((l) => l.start <= S.day && l.end >= S.day).map((l) => ({ p: l.at, color: l.found ? HEX.ok : HEX.crit })) : [],
+        dots: layerDots(),
+        boxes: !HL ? [] : LAYER === "chlorine" ? HL.cl_sensors.map((p) => ({ p, color: "#b48ef0" })) : LAYER === "drop" ? HL.prvs.map((v) => ({ p: v.p, color: HEX.accent })) : [],
+      });
+    },
+    enter() { this.update(); T3.enter(); },
+    exit() { T3.exit(); },
+    get on() { return T3.on; },
+  };
+
+  /* ---------- open another network (.inp): drawn in plan and 3D from its own map ---------- */
+  let PREVIEW = null;
+  const inApp = location.protocol.startsWith("http") && location.pathname.startsWith("/job/");
+  $("openbtn").addEventListener("click", () => $("openfile").click());
+  $("openfile").addEventListener("change", async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      const net = parseInp(await f.text(), f.name.replace(/\.inp$/i, ""));
+      PREVIEW = { net, file: f };
+      setPlay(false);
+      buildBase(net.geo, [], `<span><i class="dot" style="background:var(--fg)"></i>Reservoir / tank</span>`);
+      gKey.replaceChildren(); gZone.replaceChildren(); gAlarm.replaceChildren();
+      if (T3) { T3.setGeo(net.geo); V3.update(); }
+      const s = net.stats;
+      $("netname").textContent = s.name + " (your network)";
+      $("netinfo").textContent = `${s.districts} natural district${s.districts === 1 ? "" : "s"} · ${s.junctions} junctions · ${s.pipes} pipes`;
+      $("banner-text").innerHTML = `Showing <b>${s.name}</b>: ${s.junctions} junctions, ${s.pipes} pipes, ${s.pumps} pumps, ${s.valves} valves, ` +
+        `${s.reservoirs} reservoir${s.reservoirs === 1 ? "" : "s"}, ${s.tanks} tank${s.tanks === 1 ? "" : "s"}; ground ${s.elev[0].toFixed(0)}–${s.elev[1].toFixed(0)} (model units). ` +
+        (inApp ? "Plan sensors for it, or upload SCADA data in the app to monitor it." : "To plan sensors or monitor it, open this file in the AquaTwin app.");
+      $("banner-plan").hidden = !inApp;
+      $("banner").hidden = false;
+      document.body.classList.add("previewing");
+    } catch (err) {
+      $("banner-text").textContent = "Could not open this file: " + err.message;
+      $("banner-plan").hidden = true; $("banner").hidden = false;
+    }
+    e.target.value = "";
+  });
+  $("banner-back").addEventListener("click", () => {
+    PREVIEW = null; document.body.classList.remove("previewing"); $("banner").hidden = true;
+    buildBase(DATA.geo, DATA.sensors, LEGEND_RUN);
+    if (T3) { T3.setGeo(DATA.geo); V3._layer = null; }
+    $("netname").textContent = DATA.name;
+    $("netinfo").textContent = `${zones.length} metered zone${zones.length === 1 ? "" : "s"} · ${DATA.n_junctions} junctions · ${DATA.n_pipes} pipes`;
+    render();
+  });
+  $("banner-plan").addEventListener("click", async () => {
+    if (!PREVIEW) return;
+    const fd = new FormData(); fd.append("inp", PREVIEW.file, PREVIEW.file.name); fd.append("name", PREVIEW.net.stats.name);
+    $("banner-text").textContent = "Starting the sensor plan…";
+    const r = await fetch("/plan", { method: "POST", body: fd });
+    location.href = r.url;
+  });
+  function setView(mode) {            // "room" | "street" | "3d"
+    $("v2d").setAttribute("aria-pressed", String(mode === "room"));
+    $("vst").setAttribute("aria-pressed", String(mode === "street"));
+    $("v3d").setAttribute("aria-pressed", String(mode === "3d"));
+    $("mapwrap").classList.toggle("street", mode === "street");
+    if (!V3) return; if (mode === "3d" && !V3.on) V3.enter(); else if (mode !== "3d" && V3.on) V3.exit();
+  }
+  $("v2d").addEventListener("click", () => setView("room"));
+  $("vst").addEventListener("click", () => setView("street"));
+  $("v3d").addEventListener("click", () => setView("3d"));
+
+  /* network health: tab + map colour */
+  let TAB = "alarm";
+  function showTab(which) {           // "alarm" | "health" | "fc"   (true/false kept for older callers)
+    if (which === true) which = "health"; if (which === false) which = "alarm";
+    TAB = which;
+    $("t-alarm").setAttribute("aria-pressed", String(which === "alarm"));
+    $("t-health").setAttribute("aria-pressed", String(which === "health"));
+    $("t-fc").setAttribute("aria-pressed", String(which === "fc"));
+    $("detail").hidden = which !== "alarm"; $("healthpane").hidden = which !== "health"; $("fcpane").hidden = which !== "fc";
+    $("d-id").hidden = which !== "alarm";
+    if (which === "fc") drawForecast();
+  }
+
+  /* day-ahead forecast: yesterday + the replay day, forecast (dashed) vs measured */
+  const FC = DATA.forecast;
+  function miniChart(actual, forecast, lines, unit) {
+    const W = 380, H = 110, pl = 30, pr = 4, pt = 6, pb = 14, n = actual.length - 1;
+    const vals = actual.concat(forecast).filter((v) => v != null).concat(lines.map((l) => l.v));
+    if (!vals.length) return "";
+    let lo = Math.min(...vals), hi = Math.max(...vals); const pd = (hi - lo) * 0.1 || 1; lo -= pd; hi += pd;
+    const X = (i) => pl + (i / n) * (W - pl - pr), Y = (v) => pt + (1 - (v - lo) / (hi - lo)) * (H - pt - pb);
+    const path = (a) => a.map((v, i) => (v == null ? null : `${X(i).toFixed(1)},${Y(v).toFixed(1)}`)).filter(Boolean).join(" ");
+    return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:110px;display:block">
+      ${[0, 0.5, 1].map((f) => { const v = lo + f * (hi - lo); return `<line x1="${pl}" x2="${W - pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="#213041"/><text x="0" y="${Y(v) + 3}" fill="#8597a8" font-size="9" font-family="IBM Plex Mono">${v.toFixed(1)}</text>`; }).join("")}
+      <line x1="${X(24)}" x2="${X(24)}" y1="${pt}" y2="${H - pb}" stroke="#5b6c7c" stroke-dasharray="2 3"/>
+      <text x="${X(24) + 4}" y="${H - 3}" fill="#8597a8" font-size="9" font-family="Inter">today</text><text x="${pl}" y="${H - 3}" fill="#8597a8" font-size="9" font-family="Inter">yesterday</text>
+      ${lines.map((l) => `<line x1="${pl}" x2="${W - pr}" y1="${Y(l.v)}" y2="${Y(l.v)}" stroke="${l.c}" stroke-dasharray="4 3"/><text x="${W - pr - 2}" y="${Y(l.v) - 3}" text-anchor="end" fill="${l.c}" font-size="9" font-family="Inter">${l.t}</text>`).join("")}
+      <polyline points="${path(actual)}" fill="none" stroke="#dde6ee" stroke-width="1.6"/>
+      <polyline points="${path(forecast)}" fill="none" stroke="#5ec8dc" stroke-width="1.8" stroke-dasharray="5 3"/></svg>`;
+  }
+  function drawForecast() {
+    if (!FC) return;
+    const d0 = (S.day - DATA.first_day) * 24 - 24, sl = (a) => Array.from({ length: 48 }, (_, i) => (a[d0 + i] ?? null));
+    let html = `<h3>Day-ahead forecast · ${dateOf(S.day)}</h3><p class="note">Made at midnight from history only; white = measured, dashed blue = forecast.</p>`;
+    for (const [z, f] of Object.entries(FC.demand)) {
+      html += `<p><b>${z} demand</b> (${f.mode === "balance" ? "metered consumption" : "net inflow"}, m³/h): error <span class="num">${f.mape.model}%</span> over the test year
+        <span class="note">(same as yesterday ${f.mape.same_as_yesterday}%, same as last week ${f.mape.same_as_last_week}%)</span></p>` + miniChart(sl(f.actual), sl(f.forecast), [], "m³/h");
+    }
+    for (const [t, f] of Object.entries(FC.tanks)) {
+      html += `<p><b>Tank ${t} level</b> (m): average error <span class="num">${f.mae} m</span>, 90% within <span class="num">${f.p90} m</span>. Pump on below ${f.switch_on} m, off above ${f.switch_off} m.</p>` +
+        miniChart(sl(f.actual), sl(f.forecast), [{ v: f.switch_on, c: "#e3a63d", t: "pump on" }, { v: f.switch_off, c: "#45b383", t: "pump off" }], "m");
+    }
+    $("fcpane").innerHTML = html;
+  }
+  if (HL) {
+    $("layer").hidden = false; $("t-health").hidden = false;
+    const pm = HL.pm || {}, wq = HL.wq || {};
+    const span = (a) => { const mx = Math.max(...a.schedule_reduction_m), mn = Math.min(...a.schedule_reduction_m);
+      return mx - mn < 0.5 ? `<span class="num">${mx.toFixed(1)} m</span> all day` : `<span class="num">${mn.toFixed(1)}–${mx.toFixed(1)} m</span>, most at night`; };
+    $("healthpane").innerHTML = `<h3>Smart pressure management</h3>` +
+      ((pm.areas && pm.areas.length) ? pm.areas.map((a) => `<p><b>${a.id}</b> (${a.prvs.join(", ")}): turn down by ${span(a)}. Average pressure <span class="num">${a.mean_pressure_before_m} → ${a.mean_pressure_after_m} m</span>; every customer kept at or above <span class="num">${pm.min_service_m + pm.margin_m} m</span>. Leakage <span class="num">−${Math.round(a.leakage_reduction.N1_1_0 * 100)}%</span> (range ${Math.round(a.leakage_reduction.N1_0_5 * 100)}–${Math.round(a.leakage_reduction.N1_1_5 * 100)}%).</p>`).join("")
+        : `<p>${pm.note || "No pressure-reducing valves in this network."}</p>`) +
+      `<h3>Water quality</h3><p>Water age: median <span class="num">${wq.age_hours.median} h</span>; oldest 5% over <span class="num">${wq.age_hours.p95} h</span>.</p>` +
+      `<p>Chlorine (1.0 mg/L dosed at sources): median <span class="num">${wq.chlorine_mg_l.median} mg/L</span>; <b>${wq.below_limit}</b> junction${wq.below_limit === 1 ? "" : "s"} below the 0.2 mg/L tap minimum. Recommended chlorine sensors: <span class="num">${wq.chlorine_sensors.length}</span>.</p>` +
+      `<p class="note">Use the map colour menu to see pressure saving, water age or chlorine on the network, in plan or 3D. Quality is simulated from the network model; calibrate with measured chlorine before acting on it.</p>`;
+    $("t-alarm").addEventListener("click", () => showTab("alarm"));
+    $("t-health").addEventListener("click", () => showTab("health"));
+    $("layer").addEventListener("change", (e) => {
+      LAYER = e.target.value; render();
+      if (LAYER !== "zones") showTab(true);
+    });
+  }
+  if (FC && (Object.keys(FC.demand).length || Object.keys(FC.tanks).length)) {
+    $("t-fc").hidden = false;
+    $("t-fc").addEventListener("click", () => showTab("fc"));
+    if (!HL) $("t-alarm").addEventListener("click", () => showTab("alarm"));
+  }
+
+  function render() {
+    $("clock").textContent = dateOf(S.day) + " " + String(DATA.night_end).padStart(2, "0") + ":00";
+    $("day").value = S.day;
+    const lg = $("lg-key"); if (lg) lg.hidden = !S.key;
+    drawMap(); drawFeed(); drawDetail(); charts(); kpis();
+    if (TAB === "fc") drawForecast();
+    if (V3 && V3.on) V3.update();
+  }
+  function select(i) {
+    const changed = S.sel !== i; S.sel = i; render();
+    if (changed) { const d = $("detail"); d.classList.remove("swap"); void d.offsetWidth; d.classList.add("swap"); }
+  }
+
+  $("day").addEventListener("input", (e) => { S.day = +e.target.value; render(); });
+  $("key").addEventListener("change", (e) => { S.key = e.target.checked; render(); });
+  let timer = null;
+  function setPlay(on) {
+    S.playing = on; $("play").textContent = on ? "Pause" : "Play"; $("play").setAttribute("aria-label", on ? "Pause replay" : "Play replay");
+    clearInterval(timer);
+    if (on) {
+      if (S.day >= DATA.days - 1) S.day = DATA.first_day;
+      timer = setInterval(() => {
+        S.day++;
+        const fresh = DATA.alarms.filter((a) => a.day === S.day);
+        if (fresh.length) S.sel = fresh[fresh.length - 1].i;
+        if (S.day >= DATA.days - 1) setPlay(false);
+        render();
+      }, 140);
+    }
+  }
+  $("play").addEventListener("click", () => setPlay(!S.playing));
+  document.addEventListener("keydown", (e) => { if (e.code === "Space" && e.target.tagName !== "BUTTON" && e.target.tagName !== "INPUT") { e.preventDefault(); setPlay(!S.playing); } });
+
+  // open on a realistic moment: the largest alarm in the first third of the replay period
+  const span = DATA.days - DATA.first_day, cut = DATA.first_day + Math.round(span / 3);
+  const early = DATA.alarms.filter((a) => a.day >= DATA.first_day && a.day <= cut);
+  const pick = early.length ? early.reduce((b, a) => ((a.size || 0) > (b.size || 0) ? a : b)) : DATA.alarms.find((a) => a.day >= DATA.first_day);
+  if (pick) { S.day = pick.day; S.sel = pick.i; }
+  render();
+})();
+</script></body></html>

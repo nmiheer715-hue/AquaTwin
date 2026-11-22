@@ -1,0 +1,56 @@
+{
+ "demand": {
+  "Z1": {
+   "mode": "mnf",
+   "mean_m3h": 216.69,
+   "mape_pct": {
+    "model": 3.24,
+    "same_as_yesterday": 4.7,
+    "same_as_last_week": 4.61
+   },
+   "rmse_m3h": {
+    "model": 9.77,
+    "same_as_yesterday": 14.78,
+    "same_as_last_week": 12.6
+   },
+   "test_hours": 8760,
+   "first_test_hour": 8760
+  },
+  "Z2": {
+   "mode": "balance",
+   "mean_m3h": 34.13,
+   "mape_pct": {
+    "model": 9.48,
+    "same_as_yesterday": 14.0,
+    "same_as_last_week": 9.78
+   },
+   "rmse_m3h": {
+    "model": 4.51,
+    "same_as_yesterday": 6.47,
+    "same_as_last_week": 4.78
+   },
+   "test_hours": 8760,
+   "first_test_hour": 8760
+  }
+ },
+ "tanks": {
+  "T1": {
+   "zone": "Z2",
+   "pump": "PUMP_1",
+   "switch_on_m": 2.4,
+   "switch_off_m": 3.9,
+   "pump_flow_m3h": 43.9,
+   "mae_m": 0.193,
+   "p90_m": 0.44,
+   "level_range_m": [
+    1.95,
+    3.9
+   ],
+   "low_level_days": {
+    "measured": 242,
+    "forecast": 217,
+    "both": 213
+   }
+  }
+ }
+}

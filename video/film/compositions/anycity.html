@@ -1,0 +1,86 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0b1219; color: #dde6ee; font-family: Inter, sans-serif; overflow: hidden; }
+    .chip { position: absolute; left: 280px; top: 46px; display: flex; align-items: baseline; gap: 18px; }
+    .chip .n { font: 600 20px "IBM Plex Mono", monospace; color: #0b1219; background: #5ec8dc; border-radius: 6px; padding: 4px 10px; }
+    .chip .h { font: 600 36px Inter, sans-serif; letter-spacing: -0.01em; }
+    .frame { position: absolute; left: 280px; top: 112px; width: 1360px; height: 765px; border: 1px solid #2a3a4c; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #0b1219; }
+    .frame video { position: absolute; left: 0; top: 0; width: 1360px; height: 765px; object-fit: cover; }
+    .cap { position: absolute; left: 340px; width: 1240px; top: 905px; text-align: center; font: 500 34px/1.35 Inter, sans-serif; }
+    .cap span { display: inline-block; }
+    .tag { position: absolute; left: 320px; top: 150px; background: rgba(11,18,25,.92); border: 1px solid #5ec8dc; border-radius: 6px; padding: 8px 14px; font: 600 20px Inter, sans-serif; color: #5ec8dc; }
+    #ay-hw { position: absolute; inset: 0; background: #0b1219; }
+    #ay-hw .label { position: absolute; left: 240px; top: 112px; font: 600 18px "IBM Plex Mono", monospace; color: #e3a63d; letter-spacing: .08em; }
+    #ay-hw svg { position: absolute; left: 240px; top: 150px; width: 1440px; height: 700px; }
+    .box rect { fill: #101a24; stroke: #2a3a4c; stroke-width: 1.5; }
+    .box .t { font: 600 22px Inter, sans-serif; fill: #dde6ee; }
+    .box .s { font: 400 17px Inter, sans-serif; fill: #8597a8; }
+    .box .c { font: 600 18px "IBM Plex Mono", monospace; fill: #5ec8dc; }
+    .wire { stroke: #2a3a4c; stroke-width: 2; fill: none; stroke-dasharray: 6 6; }
+  </style>
+  <div id="root" data-composition-id="anycity" data-width="1920" data-height="1080">
+    <div class="chip" id="ay-chip"><span class="n">06</span><span class="h">Any city, and the path to hardware</span></div>
+    <div class="frame" id="ay-frame">
+      <video id="ay-v1" class="clip" data-start="0" data-duration="3.5" src="assets/shots/anycity.mp4" muted playsinline></video>
+      <video id="ay-v2" class="clip" data-start="3.5" data-duration="4.9" data-media-start="6.6" src="assets/shots/anycity.mp4" muted playsinline></video>
+      <video id="ay-v3" class="clip" data-start="8.4" data-duration="25.6" data-playback-rate="1.25" src="assets/shots/planner.mp4" muted playsinline></video>
+    </div>
+    <div id="ay-t1" class="clip tag" data-start="0.4" data-duration="3">Upload any EPANET network, with or without SCADA data</div>
+    <div id="ay-t2" class="clip tag" data-start="3.7" data-duration="4.6">A different city (Net3), drawn from its own network file</div>
+    <div id="ay-t3" class="clip tag" data-start="8.7" data-duration="25">Sensor planner: coverage and cost for 1 to 31 loggers</div>
+    <div id="ay-hw" data-layout-allow-occlusion class="clip" data-start="34" data-duration="21">
+      <div class="label" id="ay-lab">DESIGN · STAGE 3 PROTOTYPE AND PILOT</div>
+      <svg viewBox="0 0 1440 700">
+        <!-- pipe with three pressure nodes -->
+        <rect x="20" y="560" width="560" height="26" rx="13" fill="#15212d" stroke="#2a3a4c" />
+        <rect id="ay-water" x="20" y="567" width="560" height="12" rx="6" fill="#2f6f8f" />
+        <g class="box" id="ay-n1"><rect x="20" y="360" width="170" height="150" rx="10" /><text class="t" x="38" y="398">Pressure</text><text class="t" x="38" y="424">node</text><text class="s" x="38" y="456">ESP32 · 0–10 bar</text><text class="c" x="38" y="490">₹4,650</text></g>
+        <g class="box" id="ay-n2"><rect x="215" y="360" width="170" height="150" rx="10" /><text class="t" x="233" y="398">Pressure</text><text class="t" x="233" y="424">node</text><text class="s" x="233" y="456">ESP32 · 0–10 bar</text><text class="c" x="233" y="490">₹4,650</text></g>
+        <g class="box" id="ay-n3"><rect x="410" y="360" width="170" height="150" rx="10" /><text class="t" x="428" y="398">Flow + tank</text><text class="t" x="428" y="424">meters</text><text class="s" x="428" y="456">existing SCADA</text><text class="c" x="428" y="490">reused</text></g>
+        <line x1="105" y1="510" x2="105" y2="560" stroke="#2a3a4c" stroke-width="3" /><line x1="300" y1="510" x2="300" y2="560" stroke="#2a3a4c" stroke-width="3" /><line x1="495" y1="510" x2="495" y2="560" stroke="#2a3a4c" stroke-width="3" />
+        <!-- LoRa to gateway -->
+        <path class="wire" d="M300 360 C 300 220, 560 180, 640 180" />
+        <circle id="ay-pk1" cx="300" cy="360" r="7" fill="#5ec8dc" />
+        <g class="box" id="ay-gw"><rect x="640" y="120" width="220" height="120" rx="10" /><text class="t" x="660" y="160">LoRa gateway</text><text class="s" x="660" y="192">433 / 865 MHz</text><text class="s" x="660" y="218">tested ESP32 + RA-02 link</text></g>
+        <!-- twin + AI -->
+        <path class="wire" d="M750 240 L 750 300" />
+        <g class="box" id="ay-ai"><rect x="600" y="300" width="300" height="190" rx="10" style="stroke:#5ec8dc" /><text class="t" x="622" y="342">AquaTwin twin + AI</text><text class="s" x="622" y="376">EPANET model of the network</text><text class="s" x="622" y="402">detect · locate · schedule</text><text class="s" x="622" y="428">water quality</text><text class="c" x="622" y="466">local server or cloud</text></g>
+        <circle id="ay-pk2" cx="750" cy="240" r="7" fill="#5ec8dc" />
+        <!-- outputs -->
+        <path class="wire" d="M900 360 L 1010 300" /><path class="wire" d="M900 430 L 1010 470" />
+        <g class="box" id="ay-vn"><rect x="1010" y="220" width="400" height="150" rx="10" /><text class="t" x="1030" y="258">Valve node</text><text class="s" x="1030" y="290">ESP32 + relay + motorised valve,</text><text class="s" x="1030" y="314">limit-switch feedback; PRV pilot</text><text class="c" x="1030" y="350">isolate leaks · pressure schedule</text></g>
+        <g class="box" id="ay-qn"><rect x="1010" y="400" width="400" height="150" rx="10" /><text class="t" x="1030" y="438">Quality node</text><text class="s" x="1030" y="470">ESP32 + chlorine (ORP) and</text><text class="s" x="1030" y="494">turbidity probes</text><text class="c" x="1030" y="530">≈ ₹2,500 extra</text></g>
+        <circle id="ay-pk3" cx="900" cy="360" r="7" fill="#45b383" />
+        <!-- tabletop rig + pilot -->
+        <g id="ay-rig"><text x="640" y="600" style="font:600 22px Inter, sans-serif; fill:#dde6ee">Finale rig: tabletop pipe loop, 3 pressure nodes, flow sensor,</text>
+          <text x="640" y="632" style="font:600 22px Inter, sans-serif; fill:#dde6ee">solenoid "bursts", motorised valve, same code running live.</text>
+          <text x="640" y="672" style="font:400 20px Inter, sans-serif; fill:#8597a8">Pilot: one district of 2,000–5,000 connections, about ₹50,000 of sensors.</text></g>
+      </svg>
+    </div>
+    <p id="ay-cap1" class="clip cap" data-start="0.3" data-duration="8.4"><span>Any utility can start with just its pipe network file, and AquaTwin draws it from its own map.</span></p>
+    <p id="ay-cap2" class="clip cap" data-start="9" data-duration="12.5"><span>It proposes district meters and ranks where loggers should go, with the cost.</span></p>
+    <p id="ay-cap3" class="clip cap" data-start="21.7" data-duration="12.1"><span>For L-Town it predicted 64 % of leaks localisable with its 33 sensors. In the benchmark they achieved 65 %.</span></p>
+    <p id="ay-cap4" class="clip cap" data-start="34.2" data-duration="10.5"><span>For the finale we'll build a tabletop pipe loop: ESP32 pressure nodes, a flow sensor, solenoid bursts and a motorised valve…</span></p>
+    <p id="ay-cap5" class="clip cap" data-start="44.9" data-duration="9.9"><span>…running this same code live. Then a pilot in one district, for about ₹50,000 of sensors.</span></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
+    rise("#ay-chip .n", 0.1); rise("#ay-chip .h", 0.25);
+    tl.fromTo("#ay-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    ["#ay-t1", "#ay-t2", "#ay-t3"].forEach((t) => tl.fromTo(t, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, parseFloat(document.querySelector(t).dataset.start)));
+    // hardware diagram builds left to right, then data packets flow
+    rise("#ay-lab", 34.1);
+    tl.fromTo("#ay-water", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 1.2, ease: "power2.inOut" }, 34.2);
+    ["#ay-n1", "#ay-n2", "#ay-n3", "#ay-gw", "#ay-ai", "#ay-vn", "#ay-qn", "#ay-rig"].forEach((s, i) => rise(s, 34.6 + i * 0.55, 0.5));
+    for (let k = 0; k < 4; k++) {
+      const t = 39.5 + k * 3.2;
+      tl.fromTo("#ay-pk1", { attr: { cx: 300, cy: 360 }, opacity: 1 }, { attr: { cx: 640, cy: 180 }, duration: 1.0, ease: "power1.inOut" }, t);
+      tl.fromTo("#ay-pk2", { attr: { cy: 240 }, opacity: 1 }, { attr: { cy: 300 }, duration: 0.5, ease: "power1.inOut" }, t + 1.0);
+      tl.fromTo("#ay-pk3", { attr: { cx: 900, cy: 360 }, opacity: 1 }, { attr: { cx: 1010, cy: 300 }, duration: 0.6, ease: "power1.inOut" }, t + 1.7);
+    }
+    ["#ay-cap1", "#ay-cap2", "#ay-cap3", "#ay-cap4", "#ay-cap5"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
+    window.__timelines["anycity"] = tl;
+  </script>
+</template>
+

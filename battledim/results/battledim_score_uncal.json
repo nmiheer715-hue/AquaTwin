@@ -1,0 +1,310 @@
+{
+  "evaluation_2019": {
+    "score_eur": 303324.23,
+    "tp": 15,
+    "fp": 6,
+    "fn": 8,
+    "n_leaks": 23,
+    "tpr": 0.652,
+    "detected": [
+      "p427",
+      "p257",
+      "p523",
+      "p827",
+      "p280",
+      "p710",
+      "p514",
+      "p654",
+      "p331",
+      "p142",
+      "p586",
+      "p800",
+      "p762",
+      "p810",
+      "p455"
+    ],
+    "perfect_score_eur": 523153.82,
+    "zone_found": 16,
+    "zone_found_leaks": [
+      "p257",
+      "p427",
+      "p810",
+      "p654",
+      "p523",
+      "p827",
+      "p280",
+      "p653",
+      "p710",
+      "p514",
+      "p331",
+      "p142",
+      "p586",
+      "p800",
+      "p455",
+      "p762"
+    ]
+  },
+  "development_2018": {
+    "score_eur": 94084.32,
+    "tp": 8,
+    "fp": 14,
+    "n_leaks": 14,
+    "perfect_score_eur": 178872.66
+  },
+  "official_leaderboard_2020": [
+    {
+      "team": "Tongji",
+      "score_eur": 264873,
+      "tpr": 0.56,
+      "fp": 3
+    },
+    {
+      "team": "Under Pressure",
+      "score_eur": 260562,
+      "tpr": 0.65,
+      "fp": 4
+    },
+    {
+      "team": "IRI",
+      "score_eur": 210772,
+      "tpr": 0.43,
+      "fp": 1
+    },
+    {
+      "team": "Leakbusters",
+      "score_eur": 195490,
+      "tpr": 0.47,
+      "fp": 7
+    },
+    {
+      "team": "Tsinghua",
+      "score_eur": 167981,
+      "tpr": 0.47,
+      "fp": 5
+    },
+    {
+      "team": "UNIFE",
+      "score_eur": 127626,
+      "tpr": 0.43,
+      "fp": 4
+    }
+  ],
+  "rows_2019": [
+    {
+      "link": "p683",
+      "time": "2019-01-01 00:05",
+      "hit": "p427",
+      "score": 34575.65,
+      "nearest_leak": "p427",
+      "nearest_m": 254.6
+    },
+    {
+      "link": "p255",
+      "time": "2019-01-01 00:05",
+      "hit": "p257",
+      "score": 46908.14,
+      "nearest_leak": "p257",
+      "nearest_m": 98.1
+    },
+    {
+      "link": "p497",
+      "time": "2019-01-16 04:00",
+      "hit": "p523",
+      "score": 8612.0,
+      "nearest_leak": "p523",
+      "nearest_m": 107.7
+    },
+    {
+      "link": "p823",
+      "time": "2019-01-25 04:00",
+      "hit": "p827",
+      "score": 6312.24,
+      "nearest_leak": "p827",
+      "nearest_m": 203.3
+    },
+    {
+      "link": "p312",
+      "time": "2019-02-10 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p280",
+      "nearest_m": 189.2
+    },
+    {
+      "link": "p251",
+      "time": "2019-02-11 04:00",
+      "hit": "p280",
+      "score": 32167.73,
+      "nearest_leak": "p280",
+      "nearest_m": 48.8
+    },
+    {
+      "link": "p37",
+      "time": "2019-03-12 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p280",
+      "nearest_m": 416.0
+    },
+    {
+      "link": "p706",
+      "time": "2019-03-26 04:00",
+      "hit": "p710",
+      "score": 29138.62,
+      "nearest_leak": "p710",
+      "nearest_m": 206.2
+    },
+    {
+      "link": "p541",
+      "time": "2019-04-03 04:00",
+      "hit": "p514",
+      "score": 14731.21,
+      "nearest_leak": "p514",
+      "nearest_m": 134.1
+    },
+    {
+      "link": "p236",
+      "time": "2019-04-11 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p680",
+      "nearest_m": 181.0
+    },
+    {
+      "link": "p657",
+      "time": "2019-04-19 04:00",
+      "hit": "p654",
+      "score": 26337.51,
+      "nearest_leak": "p654",
+      "nearest_m": 148.4
+    },
+    {
+      "link": "p328",
+      "time": "2019-04-21 04:00",
+      "hit": "p331",
+      "score": 51349.52,
+      "nearest_leak": "p331",
+      "nearest_m": 151.8
+    },
+    {
+      "link": "p658",
+      "time": "2019-06-13 04:00",
+      "hit": "p142",
+      "score": 17017.54,
+      "nearest_leak": "p654",
+      "nearest_m": 194.4
+    },
+    {
+      "link": "p348",
+      "time": "2019-06-30 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p331",
+      "nearest_m": 360.0
+    },
+    {
+      "link": "p562",
+      "time": "2019-08-11 04:00",
+      "hit": "p586",
+      "score": 10653.22,
+      "nearest_leak": "p586",
+      "nearest_m": 265.4
+    },
+    {
+      "link": "p563",
+      "time": "2019-08-23 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p586",
+      "nearest_m": 227.8
+    },
+    {
+      "link": "p586",
+      "time": "2019-08-26 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p586",
+      "nearest_m": 0.0
+    },
+    {
+      "link": "p179",
+      "time": "2019-08-29 04:00",
+      "hit": "p800",
+      "score": 12325.07,
+      "nearest_leak": "p800",
+      "nearest_m": 74.3
+    },
+    {
+      "link": "p834",
+      "time": "2019-09-02 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p800",
+      "nearest_m": 53.7
+    },
+    {
+      "link": "p180",
+      "time": "2019-09-06 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p800",
+      "nearest_m": 47.2
+    },
+    {
+      "link": "p800",
+      "time": "2019-09-13 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p800",
+      "nearest_m": 0.0
+    },
+    {
+      "link": "p124",
+      "time": "2019-09-22 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p586",
+      "nearest_m": 157.1
+    },
+    {
+      "link": "p346",
+      "time": "2019-10-26 04:00",
+      "hit": null,
+      "score": -500.0,
+      "nearest_leak": "p280",
+      "nearest_m": 407.5
+    },
+    {
+      "link": "p58",
+      "time": "2019-11-27 04:00",
+      "hit": "p762",
+      "score": 9898.43,
+      "nearest_leak": "p762",
+      "nearest_m": 165.3
+    },
+    {
+      "link": "p299",
+      "time": "2019-11-30 04:00",
+      "hit": "repeat",
+      "score": 0.0,
+      "nearest_leak": "p280",
+      "nearest_m": 43.6
+    },
+    {
+      "link": "p806",
+      "time": "2019-12-03 04:00",
+      "hit": "p810",
+      "score": 3433.0,
+      "nearest_leak": "p810",
+      "nearest_m": 188.1
+    },
+    {
+      "link": "p109",
+      "time": "2019-12-17 04:00",
+      "hit": "p455",
+      "score": 2864.36,
+      "nearest_leak": "p455",
+      "nearest_m": 150.4
+    }
+  ]
+}
