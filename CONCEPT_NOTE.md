@@ -2,7 +2,7 @@
 
 **Track 4: AI in Water Management (leak detection)** · TIH IIT Bombay Physical AI Hackathon, i-Hack 2026
 **Team Green Byte:** Miheer Nikam · Nihaal R
-**Repository:** [github.com/…/aquatwin] · **Demo video:** [link] · **Live control room:** [artifact link]
+**Repository:** [github.com/nmiheer715-hue/AquaTwin](https://github.com/nmiheer715-hue/AquaTwin) · **Demo video:** [link] · **Live control room:** [artifact link]
 
 ---
 
