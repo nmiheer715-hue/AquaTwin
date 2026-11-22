@@ -1,8 +1,8 @@
 # AquaTwin: Physical AI that finds water leaks and shuts them off
 
-**Track 4: AI in Water Management (leak detection)** · TIH IIT Bombay Physical AI Hackathon, i-Hack 2026
-**Team Green Byte:** Miheer Nikam · Nihaal R
-**Repository:** [github.com/nmiheer715-hue/AquaTwin](https://github.com/nmiheer715-hue/AquaTwin) · **Demo video:** [link] · **Live control room:** [artifact link]
+**Track 4: AI in Water Management (leak detection)** · TIH IIT Bombay Physical AI Hackathon, i-Hack 2026  
+**Team Green Byte:** Miheer Nikam · Nihaal R  
+**Repository:** [github.com/nmiheer715-hue/AquaTwin](https://github.com/nmiheer715-hue/AquaTwin) · **Demo video:** submitted with this note (4:26)
 
 ---
 
@@ -56,6 +56,7 @@ and ranks where pressure loggers should go, so a utility can size the hardware b
 any.
 
 **Smart distribution and water quality** use the same twin and hardware:
+
 - **Pressure management.** For each hour, the twin finds how far each pressure-reducing valve
   can be turned down while every customer keeps at least 17 m (the CPHEEO 3-storey minimum)
   plus a 2 m margin. Lower pressure shrinks every leak, including those never pinpointed. The
@@ -132,6 +133,7 @@ is that AquaTwin is competitive with the best published methods.
   0.19 m on average (90 % within 0.44 m) over a 1.95–3.9 m operating range.
 
 **Expected impact for an Indian district metered area of 2,000 to 5,000 connections:**
+
 - about ₹50,000 of sensors;
 - bursts flagged by the next morning instead of after days;
 - crews sent to a candidate zone of a few hundred metres instead of a whole ward.
@@ -140,6 +142,7 @@ The method suits the 24×7 supply zones being built under AMRUT 2.0. In intermit
 areas, the per-zone water balance still flags which district is losing water.
 
 **Path to reality.**
+
 1. **Stage 3 prototype.** A tabletop pipe loop with ESP32 pressure nodes, a flow sensor,
    solenoid "bursts" and motorised valves, running the same code live against an EPANET model
    of the loop. Open a burst, and the system alarms, names the branch and closes the valve.

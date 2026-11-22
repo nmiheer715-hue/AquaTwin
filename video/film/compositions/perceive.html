@@ -11,6 +11,8 @@
     .call { position: absolute; background: rgba(16,26,36,.94); border: 1px solid #5ec8dc; border-radius: 8px; padding: 14px 18px; }
     .call .v { font: 600 40px "IBM Plex Mono", monospace; color: #5ec8dc; }
     .call .l { font: 500 20px Inter, sans-serif; color: #b8c6d3; margin-top: 2px; }
+    #pe-sim { position: absolute; left: 300px; top: 132px; max-width: 760px; background: rgba(11,18,25,.94); border: 1px solid #5ec8dc; border-radius: 6px; padding: 10px 16px; font: 600 21px/1.35 Inter, sans-serif; color: #5ec8dc; }
+    #pe-sim .s { display: block; font: 400 18px Inter, sans-serif; color: #b8c6d3; margin-top: 2px; }
     #pe-node { position: absolute; left: 1250px; top: 470px; width: 360px; background: rgba(16,26,36,.96); border: 1px solid #2a3a4c; border-radius: 10px; padding: 20px 22px; }
     #pe-node .t { font: 600 22px Inter, sans-serif; }
     #pe-node .d { font: 500 15px "IBM Plex Mono", monospace; color: #e3a63d; margin: 4px 0 12px; letter-spacing: .04em; }
@@ -22,6 +24,7 @@
     <div class="frame" id="pe-frame">
       <video id="pe-v1" class="clip" data-start="0" data-duration="29" src="assets/shots/overview.mp4" muted playsinline></video>
     </div>
+    <div id="pe-sim" class="clip" data-start="0.6" data-duration="14"><span class="t">Simulation environment: EPANET hydraulic digital twin (US EPA)</span><span class="s">The industry-standard water-network simulator; what Gazebo is for robots</span></div>
     <div id="pe-c1" class="clip call" data-start="3" data-duration="8" style="left: 330px; top: 640px;"><div class="v">33</div><div class="l">pressure loggers on the mains</div></div>
     <div id="pe-c2" class="clip call" data-start="6" data-duration="8" style="left: 700px; top: 640px;"><div class="v">82</div><div class="l">smart water meters (district C)</div></div>
     <div id="pe-c3" class="clip call" data-start="9" data-duration="8" style="left: 1080px; top: 640px;"><div class="v">3 districts</div><div class="l">found automatically from the meters</div></div>
@@ -41,6 +44,7 @@
     const rise = (sel, at, d = 0.5) => tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, at);
     rise("#pe-chip .n", 0.1); rise("#pe-chip .h", 0.25);
     tl.fromTo("#pe-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+    tl.fromTo("#pe-sim", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.6);
     [["#pe-c1", 3], ["#pe-c2", 6], ["#pe-c3", 9]].forEach(([s, t]) => {
       tl.fromTo(s + " .v", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, t);
       tl.fromTo(s + " .l", { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 0.15);

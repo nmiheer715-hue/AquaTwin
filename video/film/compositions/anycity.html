@@ -16,6 +16,9 @@
     .box .t { font: 600 22px Inter, sans-serif; fill: #dde6ee; }
     .box .s { font: 400 17px Inter, sans-serif; fill: #8597a8; }
     .box .c { font: 600 18px "IBM Plex Mono", monospace; fill: #5ec8dc; }
+    #ay-trl { position: absolute; right: 240px; top: 100px; background: rgba(16,26,36,.96); border: 1px solid #45b383; border-radius: 8px; padding: 10px 16px; text-align: right; }
+    #ay-trl .v { font: 600 26px "IBM Plex Mono", monospace; color: #45b383; }
+    #ay-trl .l { font: 400 18px Inter, sans-serif; color: #b8c6d3; margin-top: 2px; }
     .wire { stroke: #2a3a4c; stroke-width: 2; fill: none; stroke-dasharray: 6 6; }
   </style>
   <div id="root" data-composition-id="anycity" data-width="1920" data-height="1080">
@@ -30,6 +33,7 @@
     <div id="ay-t3" class="clip tag" data-start="8.7" data-duration="25">Sensor planner: coverage and cost for 1 to 31 loggers</div>
     <div id="ay-hw" data-layout-allow-occlusion class="clip" data-start="34" data-duration="21">
       <div class="label" id="ay-lab">DESIGN · STAGE 3 PROTOTYPE AND PILOT</div>
+      <div id="ay-trl"><div class="v">TRL 4</div><div class="l">Validated on the BattLeDIM benchmark · full loop in simulation · LoRa telemetry built and tested</div></div>
       <svg viewBox="0 0 1440 700">
         <!-- pipe with three pressure nodes -->
         <rect x="20" y="560" width="560" height="26" rx="13" fill="#15212d" stroke="#2a3a4c" />
@@ -70,7 +74,7 @@
     tl.fromTo("#ay-frame", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
     ["#ay-t1", "#ay-t2", "#ay-t3"].forEach((t) => tl.fromTo(t, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, parseFloat(document.querySelector(t).dataset.start)));
     // hardware diagram builds left to right, then data packets flow
-    rise("#ay-lab", 34.1);
+    rise("#ay-lab", 34.1); rise("#ay-trl", 34.4, 0.6);
     tl.fromTo("#ay-water", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 1.2, ease: "power2.inOut" }, 34.2);
     ["#ay-n1", "#ay-n2", "#ay-n3", "#ay-gw", "#ay-ai", "#ay-vn", "#ay-qn", "#ay-rig"].forEach((s, i) => rise(s, 34.6 + i * 0.55, 0.5));
     for (let k = 0; k < 4; k++) {

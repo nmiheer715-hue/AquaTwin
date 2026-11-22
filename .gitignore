@@ -34,3 +34,4 @@ video/voice_*.json
 
 # Example output caches
 examples/**/signatures_*.npz
+docs/concept_note.html
