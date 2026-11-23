@@ -14,7 +14,7 @@ Sensors in the pipes → a hydraulic digital twin → AI that detects, sizes and
 
 <img src="docs/img/hero-3d.jpg" alt="AquaTwin control room in 3D: leak alarms rise as columns from the suspected pipes on L-Town" width="960">
 
-**[▶ Watch the demo video (4:26)](https://github.com/nmiheer715-hue/AquaTwin/raw/main/docs/AquaTwin_demo_video.mp4)** · **[Concept note (PDF, 3 pages)](docs/AquaTwin_Concept_Note.pdf)**
+**[▶ Watch the demo video on YouTube (4:26)](https://youtu.be/4Di41-71QSA)** · [download MP4](https://github.com/nmiheer715-hue/AquaTwin/raw/main/docs/AquaTwin_demo_video.mp4) · **[Concept note (PDF, 3 pages)](docs/AquaTwin_Concept_Note.pdf)**
 
 </div>
 
