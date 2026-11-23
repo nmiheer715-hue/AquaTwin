@@ -18,6 +18,7 @@ and I will place them on the timeline, level the volume and render the final MP4
 | 0:25 | AquaTwin brings the same approach to Indian towns, with low-cost hardware. |
 | **2 · Perceive** | |
 | 0:35 | This is L-Town, the international leak-detection benchmark: 782 junctions and 33 pressure loggers. |
+| 0:40 | Everything runs in EPANET, the U.S. EPA's hydraulic simulator. |
 | 0:43 | AquaTwin splits the network into metered districts on its own. |
 | 0:50 | Our field node is an ESP32 with a pressure transducer and LoRa radio, for about four thousand six hundred and fifty rupees. |
 | 0:57 | Every 5 minutes, pressures, inlet flows, tank levels and smart-meter readings reach the digital twin. |

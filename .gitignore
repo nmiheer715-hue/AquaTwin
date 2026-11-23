@@ -37,3 +37,4 @@ examples/**/signatures_*.npz
 docs/concept_note.html
 video/film/.*hf-transaction*/
 docs/img/4k/
+video/film/before_epanet/
