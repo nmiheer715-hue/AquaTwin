@@ -34,8 +34,9 @@
       <ul><li>ESP32 microcontroller</li><li>0–10 bar pressure transducer</li><li>16-bit ADC (ADS1115)</li><li>LoRa radio, 2+ years on battery</li></ul>
       <div class="cost">≈ ₹4,650</div>
     </div>
-    <p id="pe-cap1" class="clip cap" data-start="0.3" data-duration="7.5"><span>This is L-Town, the international leak-detection benchmark: 782 junctions and 33 pressure loggers.</span></p>
-    <p id="pe-cap2" class="clip cap" data-start="8" data-duration="7"><span>AquaTwin splits the network into metered districts on its own.</span></p>
+    <p id="pe-cap1" class="clip cap" data-start="0.3" data-duration="5.2"><span>This is L-Town, the international leak-detection benchmark: 782 junctions and 33 pressure loggers.</span></p>
+    <p id="pe-cap1b" class="clip cap" data-start="5.5" data-duration="3.3"><span>Everything runs in EPANET, the U.S. EPA's hydraulic simulator.</span></p>
+    <p id="pe-cap2" class="clip cap" data-start="8.9" data-duration="6.1"><span>AquaTwin splits the network into metered districts on its own.</span></p>
     <p id="pe-cap3" class="clip cap" data-start="15.2" data-duration="7"><span>Our field node is an ESP32 with a pressure transducer and LoRa radio, for about ₹4,650.</span></p>
     <p id="pe-cap4" class="clip cap" data-start="22.4" data-duration="7.4"><span>Every 5 minutes, pressures, inlet flows, tank levels and smart-meter readings reach the digital twin.</span></p>
   </div>
@@ -50,7 +51,7 @@
       tl.fromTo(s + " .l", { opacity: 0 }, { opacity: 1, duration: 0.4 }, t + 0.15);
     });
     tl.fromTo("#pe-node .t, #pe-node .d, #pe-node li, #pe-node .cost", { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.45, stagger: 0.12, ease: "power3.out" }, 15.1);
-    ["#pe-cap1", "#pe-cap2", "#pe-cap3", "#pe-cap4"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
+    ["#pe-cap1", "#pe-cap1b", "#pe-cap2", "#pe-cap3", "#pe-cap4"].forEach((c) => tl.fromTo(c + " span", { opacity: 0 }, { opacity: 1, duration: 0.25 }, parseFloat(document.querySelector(c).dataset.start)));
     window.__timelines["perceive"] = tl;
   </script>
 </template>
